@@ -1,0 +1,64 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Introduction}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Here is a short Python program that carries out the estimation process which Archimedes invented to find the value of $\pi$.  It computes the cotangent (the inverse tangent) of the half-angle by adding the cotangent and the cosecant (the inverse sine) of the parent angle.
+
+\begin{verbatim}
+from math import sin, tan, radians, sqrt
+
+def f(csc,cot):
+    Cot = csc + cot
+    return sqrt(1 + Cot**2),Cot
+    
+phi = radians(60)
+x = 1/sin(phi)
+y = 1/tan(phi)
+n = 3
+
+for i in range(10):
+    x,y = f(x,y)
+    n *= 2
+    print("%4d: %3.8f" % (n,round(1/x*n,8)))
+}
+\end{verbatim}
+
+This algorithm uses an inscribed polygon in a circle of diameter $1$.  When multiplied by the number of sides of the polygon, we get an estimate for $\pi$.  I started with $60^{\circ}$ so it would print the result for a hexagon after round one.
+
+This estimate bounds $\pi$ from below.  Here is the output:
+\begin{center} \includegraphics [scale=0.8] {estimate_pi.png} \end{center}
+
+A similar approach with the tangent bounds $\pi$ from above.  Archimedes stopped at $96$, after four rounds of doubling a hexagon.
+
+Of course, Archimedes used fractions.  He gave this part of his result as $\pi > 223/71$.  That's about $3.140845$.  The upper bound was $\pi < 22/7$, which is about $3.142857$.
+
+Ptolemy used $377/120 = 3.141666...$ as an estimate for $\pi$.  
+
+In the 5th century AD, Zu Chongzhi used $355/113 = 3.1415929..$.  His computation is strictly based on Pythagoras and is rather unwieldy compared to Archimedes.  However, he carried out the calculation to nine rounds, and because of that he realized that $355/113$ is a better estimate.  It is amazingly accurate.
+
+The answer as to how Ptolemy missed it seems to be that he didn't know the true value of $\pi$ well enough to believe that $355/113$ was any better than $377/120$.  The other possibility is that he was led to his value by some logic, and didn't check nearby values systematically.
+
+I wrote about that here:
+
+\url{https://telliott99.blogspot.com/2021/04/pi-again.html}
+
+\end{document}

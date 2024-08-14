@@ -1,0 +1,117 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+
+\title{Hexagons}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+A hexagon can be composed of six equilateral triangles.  In an equilateral triangle, the three angles are equal and by the angle sum theorem, their measure is $\pi/3$.  This matches the requirement for a full $6 \cdot \pi/3 = 2 \pi$ angular measure around a point.
+
+\begin{center} \includegraphics [scale=0.4] {hexagon.png} \end{center}
+
+We simply note numerical verification of the exterior angle theorem:
+
+\begin{center} \includegraphics [scale=0.4] {hexagon2.png} \end{center}
+
+\[ \theta = \phi + \phi \]
+
+There is a different theorem, why don't we call it the
+
+\subsection*{External angle sum theorem}
+
+\label{sec:exterior_angle_sum_theorem}
+
+to distinguish the angle from the exterior angle of a triangle, used above.
+
+Imagine walking all the way around a polygon, to do so we must make $n$ turns.  What is the measure of the angle at each turn, and what is the total angle turned?
+
+It's tricky, because the diagram we have drawn above is not the right one to use.  We need this:
+
+\begin{center} \includegraphics [scale=0.4] {hexagon3.png} \end{center}
+
+Let's recap what we know for the smaller polygons:
+
+$\circ$ \ triangle:  $3 \cdot 2 \pi/3 = 2 \pi$
+
+$\circ$ \ rectangle:  $4 \cdot \pi/2 = 2 \pi$
+
+$\circ$ \ pentagon:  $5 \cdot 2\pi/5 = 2 \pi$
+
+$\circ$ \ hexagon:  $6 \cdot \pi/3 = 2 \pi$
+
+The sum of the external angles is seen to be $2 \pi$, which makes sense.  We simply turn through $2 \pi = 360$ degrees total.  Therefore each angle is $2 \pi / n$.
+
+\subsection*{approximation for pi}
+
+\begin{center} \includegraphics [scale=0.4] {hexagon.png} \end{center}
+
+We can use the hexagon to get two approximations, which are lower bounds, for the value of $\pi$.  Suppose the hexagon is composed of equilateral triangles with sides of unit length.
+
+Then the perimeter is $6$ and the diameter is $2$ and their ratio is $3$.
+
+Each triangle has a base of length $1$ and a height of length $\sqrt{3}/2$ and an area of  $\sqrt{3}/4$.  The total area is $6 \cdot \sqrt{3}/4 = 3 \sqrt{3}/2 \approx 2.6$, which is not especially close!
+
+\subsection*{area of an $n$-gon}
+
+A standard examination problem from 1900 might be the following:  ``The radius of a circle is 2.  What is the area of a regular inscribed dodecagon?"
+
+We will use some basic trigonometry for this.
+
+Start by making a diagram like the one in the left panel, below.
+
+\begin{center} \includegraphics [scale=0.4] {area_problem2.png} \end{center}
+
+There are $n$ sides to the polygon, so the central angle for the sector encompassing one side is $\theta = 2\pi/n$.  $\phi$ is one-half that, or $\pi/n$.
+
+We will compute the area of the isosceles triangle whose one vertex is at the center of the circle with angle $\theta = 2 \phi$.  First, half the base is
+\[ \frac{b}{2} = r \sin \phi \]
+so
+\[ b = 2r \sin \phi \]
+and the height is
+\[ h = r \cos \phi \]
+so
+\[ A_{\triangle} = \frac{1}{2} 2r^2 \sin \phi \cos \phi = r^2 \sin \phi \cos \phi \]
+
+The whole polygon contains $n$ such triangles so its area is
+\[ A = nr^2 \sin \phi \cos \phi \]
+\[ = nr^2 \sin \pi/n \cos \pi/n \]
+
+Compute the size of a square inscribed into a unit circle.  $n = 4$ so
+\[ A = 4 \sin \pi/4 \cos \pi/4 \]
+\[ = 4 \frac{\sqrt{2}}{2} \ \frac{\sqrt{2}}{2} = 2 \]
+
+Check this (right panel, above).  We have four triangles with height and base both equal to $1$ so the total area is $4 \cdot 1/2 = 2$.  Alternatively, compute $s = 2 \cdot \sqrt{2}/2 = \sqrt{2}$ so the area is $s^2 = 2$.
+
+The assigned problem had $r = 2$ and a dodecagon ($n = 12$), so $\theta = \pi/6$ and $\phi = \pi/12$).  The formula was
+\[ A = nr^2 \sin \phi \cos \phi \]
+
+We need the sine and cosine of this angle.  The way to do that is to use what are called the half-angle formulas with $\theta = \pi/6$, whose sine and cosine are easy.  That's real trigonometry, so we won't go through it.  However, it makes a nice exam problem because it turns out that for $\phi = \pi/12$, going through some slightly tricky algebra:
+
+\[ \sin \phi \cos \phi = \frac{1}{4} \]
+
+and after multiplication by $n=12$ we get $3r^2$.
+
+A regular hexagon in a unit circle is easy.  Then $\phi = \pi/6$  The area is
+\[ A = 6 \cdot \frac{1}{2} \ \frac{\sqrt{3}}{2} = 3 \frac{\sqrt{3}}{2} \]
+
+(We have used the sine and cosine of $\pi/6$ from \hyperref[sec:sine_and_cosine]{\textbf{here}}).
+
+We check this as follows:  a regular hexagon is composed of six equilateral triangles with unit sides.  The area of each one is $1/2 \cdot 1 \cdot \sqrt{3}/2$.  That's correct.
+
+
+\end{document}

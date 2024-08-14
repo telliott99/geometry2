@@ -1,0 +1,183 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Vectors}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{length and direction}
+
+In this chapter and the next we use vectors to solve several problems in plane geometry.  Some of these are difficult to solve by other methods.
+
+Your basic vector is a mathematical construct that represents both a length and a direction in the plane (2D), or in space (3D).  It can be helpful to think of them as arrows extending from a tail up to the head.
+
+A vector might represent an object's position, or its velocity, or the direction and strength of the electric field at some location.
+
+Normally, this idea is only introduced after defining a coordinate system, such as the orthogonal $x$- and $y$-axes in the plane.  Using a coordinate system, the length and direction can be computed as the difference in coordinates between head and tail.  If the difference in the $x$-coordinate is $\Delta x = x' - x$ and the difference in the $y$-coordinate is $\Delta y = y' - y$, then $\mathbf{v} = \langle \Delta x, \Delta y \rangle$.  
+
+But it is possible to get very interesting results even without a coordinate system, as we will see.  Hence the motivation for including this chapter in a book on plane geometry.  
+
+In physical applications it is probably more usual to think of the vector as fixed in space, whereas for mathematical ones, it may be moveable.  For example, suppose a vector in the plane is duplicated and the copy moved anywhere else (without changing the orientation).  When the ends are connected to form a quadrilateral, the result is always a parallelogram.
+\begin{center} \includegraphics [scale=0.5] {vec0c.png} \end{center}
+
+We will look at polygons, and use vectors to represent the lengths of sides, and also their relative orientations.  For this purpose, we'll put vectors together head to tail to form the figure.
+\begin{center} \includegraphics [scale=0.5] {vec0e.png} \end{center}
+
+$\circ$ \ Vector \emph{addition} is defined as placing the tail of the second vector coincident with the head of the first.
+\begin{center} \includegraphics [scale=0.5] {vec0.png} \end{center}
+
+Addition of vectors is like a path that you might walk along, where the final vector connects the point where your journey started and the one where you end up.  A bird might fly straight along $\mathbf{a + b + c}$ --- ``as the crow flies" --- while you meander through some medieval town, puzzling at your map.
+
+$\circ$ \ The sum of the vectors comprising a closed polygon is zero.
+
+Walking all the way around a polygon gets you back to where you started.  
+
+Applying this new idea to the parallelogram from before, we see that opposing sides are the negatives of each other and add to zero.
+\begin{center} \includegraphics [scale=0.5] {vec0e.png} \end{center}
+
+\begin{center} \includegraphics [scale=0.5] {vec0.png} \end{center}
+In the figure above, if we defined $\mathbf{d}$ to join the head of $\mathbf{c}$ with the tail of $\mathbf{a}$, closing the quadrilateral, then
+\[ \mathbf{a} + \mathbf{b} + \mathbf{c} + \mathbf{d} = 0 \]
+
+$\circ$ \ The negative of a vector is defined to be $- \mathbf{a} + \mathbf{a} = \mathbf{0}$.  
+
+If you walk backward along the same path you'll end up where you started.  And if we want to know whether $\mathbf{u} = \mathbf{v}$, we can ask whether $\mathbf{-u} + \mathbf{v} = 0$.  
+
+$\circ$ \ A transformation such as rotation can be carried out by rotating each component vector of a figure, one after the other.  If a vector $\mathbf{p} = \mathbf{a} + \mathbf{b} + \mathbf{c} + \mathbf{d}$ is transformed by the rotation denoted by $'$ then $\mathbf{p'} = \mathbf{a'} + \mathbf{b'} + \mathbf{c'} + \mathbf{d'}$.
+\begin{center} \includegraphics [scale=0.5] {vec0g.png} \end{center}
+
+In the figure below we have an equilateral triangle.  $\mathbf{v}$ is defined as $1/3$ of the side length, and its orientation the same as the bottom side, from left to right.  The operation of rotation through an angle is represented by a prime.  Here, prime is a 60 degree rotation counter-clockwise.  In another problem it will be defined to be a rotation of 90 degrees.
+\begin{center} \includegraphics [scale=0.5] {vec0a.png} \end{center}
+
+Using this figure for the definition, you should be able to see that $\mathbf{v'''}$ (\emph{triple}-prime) is equal to $- \mathbf{v}$.
+
+\subsection*{vector sums}
+
+In an arbitrary triangle, draw the three vectors that connect the vertices with the sides opposite.  These vectors are called medians in geometry, and they cross at a unique point called the centroid.  For now, we just label them with the same letter as the side they meet, adding a prime.
+\begin{center} \includegraphics [scale=0.5] {vec0f.png} \end{center}
+
+To prove:  the sum of the three primed vectors is zero.
+
+As we said above, the sum of the paths for a closed polygon is zero:
+\[ \mathbf{a} + \mathbf{b} + \mathbf{c} = 0 \]
+
+Scaling by a constant $k$ doesn't change the result:
+\[ k\mathbf{a} + k\mathbf{b} + k\mathbf{c} = 0 \]
+
+Following closed paths, we can write the following equations:
+\[ \mathbf{a'} + \mathbf{a}/2  + \mathbf{b} = 0 \]
+\[ \mathbf{b'} + \mathbf{b}/2  + \mathbf{c} = 0 \]
+\[ \mathbf{c'} + \mathbf{c}/2  + \mathbf{a} = 0 \]
+Adding these equations, we find that taking the third term from each gives zero.  Similarly, taking the second term from each also gives zero, replacing $k = 1/2$.  So finally
+\[ \mathbf{a'} + \mathbf{b'} + \mathbf{c'} = 0 \]
+
+$\square$
+
+\subsection*{parallelogram}
+
+To prove:  the two diagonals of a parallelogram cross at their midpoints.  
+
+Suppose $\mathbf{c}$ and $\mathbf{d}$ are diagonals as shown below.
+ \begin{center} \includegraphics [scale=0.35] {ceva_vec1.png} \end{center}
+ 
+Clearly, $\mathbf{a} + \mathbf{b} = \mathbf{c}$.  
+ 
+Finding $\mathbf{d}$ takes some thought.  $\mathbf{d}$ is that vector, which when added to $\mathbf{b}$, gives $\mathbf{a}$.
+\[ \mathbf{b} + \mathbf{d} = \mathbf{a} \]
+So 
+
+\[ \mathbf{d} = \mathbf{a} - \mathbf{b} \]
+Follow $\mathbf{b} + \mathbf{d}/2$ to $P$.  That is
+\[ \mathbf{b} + \frac{\mathbf{a} - \mathbf{b}}{2} = \frac{\mathbf{a} + \mathbf{b}}{2} \]
+But that is one-half of $\mathbf{c}$.  
+ 
+Similarly
+\[ \frac{\mathbf{c}}{2} + \frac{\mathbf{d}}{2} = \frac{\mathbf{a} + \mathbf{b}}{2} + \frac{\mathbf{a} - \mathbf{b}}{2} = \mathbf{a} \]
+ 
+$\square$
+
+\subsection*{Varignon}
+
+Varignon's theorem concerns a general quadrilateral, with four vertices whose positions can be anywhere.
+
+\begin{center} \includegraphics [scale=0.5] {Acheson_G50.png} \end{center}
+
+The theorem states that when the \emph{midpoints} of the sides of the quadrilateral are connected, the result is a parallelogram.
+\begin{center} \includegraphics [scale=0.5] {Acheson_G51.png} \end{center}
+
+$EFGH$ is a parallelogram.  With the midpoint theorem from similar triangles, the proof is trivial.
+\[ GH \parallel DB, \ \ \ \ \ FE \parallel DB \ \ \ \Rightarrow \ \ \ GH \parallel FE \]
+and $GH = FE = DB/2$.
+
+Let's suppose we don't have the midpoint theorem and apply vectors to this problem.
+\begin{center} \includegraphics [scale=0.5] {vec0b.png} \end{center}
+
+We use the fact that $E, F, G,$ and $H$ are midpoints to draw the vectors $\mathbf{a}, \mathbf{b}, \mathbf{c}, \mathbf{d},$ as well as $\mathbf{p}$, $\mathbf{q}$ and $\mathbf{r}$.
+
+For the lower $\triangle ABD$, we get from point $D$ to point $B$ by one of three paths:  $\mathbf{p}$, $\mathbf{b} + \mathbf{r} + \mathbf{d}$ or $2\mathbf{b} + 2\mathbf{d}$. 
+Since these all go from point $D$ to point $B$, they must be \emph{equal}.
+
+We have two additional paths that are also equal to the starting three:   $\mathbf{a} + \mathbf{q} + \mathbf{c}$ or $2\mathbf{a} + 2\mathbf{c}$.
+
+Equate
+\[ 2\mathbf{b} + 2\mathbf{d} = 2\mathbf{a} + 2\mathbf{c} \]
+\[ \mathbf{b} + \mathbf{r} + \mathbf{d} = \mathbf{a} + \mathbf{q} + \mathbf{c} \]
+Subtract one-half of the first equation from the second to obtain
+\[ \mathbf{r} = \mathbf{q} \]
+
+The opposing sides of the new figure, $FE$ and $GH$, are equal \emph{vectors}.  That means $FE$ and $GH$ point in the same direction and are the same length.  It follows that $EFGH$ is a parallelogram.
+
+$\square$
+
+\subsection*{Ceva}
+
+Ceva's theorem says that if we draw a line from each vertex of a triangle to the midpoint of the opposite side, the lines cross at a single point called the centroid, and that point is $1/3$ of the distance from the side and $2/3$ of the distance from the vertex.
+
+\begin{center} \includegraphics [scale=0.5] {vec1.png} \end{center}
+
+In this diagram the point in magenta is the centroid of the red triangle;  as we said, it is $1/3$ of the way up from the base.  
+
+We can derive this result using vectors as follows.  The origin is at the bottom left.  The base of the triangle is $2 \mathbf{a}$, so $\mathbf{a}$ extends to the midpoint of the side.  The second side is $2 \mathbf{b}$.
+
+The vector going up from the base, starting from the "head" of $\mathbf{a}$, and passing through the centroid, has the vector formula $2 \mathbf{b} - \mathbf{a}$.  To find this, I simply ask, what is the vector that when added to $\mathbf{a}$, gives $2\mathbf{b}$?
+
+When a rotated version of the triangle is added (dotted lines), the diagonal passes through the midpoint of the third side, by a standard property of parallelograms.  In vector notation, that diagonal is $2 (\mathbf{a} + \mathbf{b})$, or $2 \mathbf{a} + 2 \mathbf{b}$, so the diagonal to the midpoint is just $\mathbf{a} + \mathbf{b}$.
+
+So then we say:  there is no reason to think that one side of the triangle is any closer to the centroid than the other two.  We expect then that the ratio of the distance from the side to the centroid compared to the length of the whole median, is the same for all three medians.  Let us call that ratio $r$.
+
+\begin{center} \includegraphics [scale=0.5] {vec1.png} \end{center}
+
+We compare two paths to the centroid, they must be equal:
+\[ \mathbf{a} + r (2\mathbf{b} - \mathbf{a}) = (1-r) (\mathbf{a} + \mathbf{b}) \]
+\[ \mathbf{a} + 2r \mathbf{b} - r  \mathbf{a} = \mathbf{a} + \mathbf{b} - r \mathbf{a} - r \mathbf{b} \]
+\[ 2r \mathbf{b} = \mathbf{b} - r \mathbf{b} \]
+\[ 2r = 1 - r, \ \ \ \ \ r = \frac{1}{3} \]
+
+The same result can be obtained using as one of the paths $\mathbf{2b}$ and back down to the centroid.
+
+\[ \mathbf{a} + r (2\mathbf{b} - \mathbf{a}) = \mathbf{b} + r(2 \mathbf{a} - \mathbf{b} ) \]
+\[ \mathbf{a} + 2r \mathbf{b} - r  \mathbf{a} =  \mathbf{b} + 2r\mathbf{a} - r \mathbf{b}  \]
+\[ \mathbf{a} + 3r \mathbf{b}  =  \mathbf{b} + 3r\mathbf{a}   \]
+\[ 3r = 1, \ \ \ \ \ \  r = \frac{1}{3} \]
+
+$\square$
+
+Those are simple, pretty results.  We look at two spectacular applications in the next chapter.
+
+\end{document}

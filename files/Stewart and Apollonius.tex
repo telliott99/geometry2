@@ -1,0 +1,222 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Computations}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+In this chapter we will continue with the theme of the \hyperref[sec:law_of_cosines]{\textbf{Law of cosines}}.  There is a general theorem and two specific cases.  I think it's perhaps easier if we start with the general case.
+
+\subsection*{Stewart's theorem}
+
+\label{sec:Stewarts_theorem}
+
+\begin{center} \includegraphics [scale=0.5] {bisector3b.png} \end{center}
+
+We have a triangle with sides $a$, $b$ and $c$ and a line segment connecting one vertex to the opposite side, dividing it into segments $x$ and $y$.  In the general case these two segments are not equal ($x \ne y$), and the vertex angle is not bisected ($\angle s \ne \angle t$).  The two angles at the base are $\theta$ and $\theta'$.  We use the law of cosines to write:
+
+\emph{Proof}.
+
+\[ a^2 = e^2 + x^2 - 2ex \cos \theta \]
+\[ b^2 = e^2 + y^2 - 2ey \cos \theta' \]
+
+Since $\theta$ and $\theta'$ are supplementary angles, $\cos \theta = - \cos \theta'$ (see \hyperref[sec:signed_angles]{\textbf{here}}), so
+\[ b^2 = e^2 + y^2 + 2ey \cos \theta \]
+
+We divide the first equation by $x$ and the second by $y$ and add which makes the term $2e \cos \theta$ disappear:
+\[ \frac{a^2}{x} + \frac{b^2}{y} = \frac{e^2 + x^2}{x} + \frac{e^2 + y^2}{y} \]
+
+Get rid of the fractions:
+\[ a^2y + b^2x = e^2 (x+y) + x^2y + xy^2 \]
+\[ = (e^2 + xy) (x + y) \]
+
+$\square$
+
+This is called Stewart's theorem.
+
+\subsection*{Apollonius' theorem}
+
+\label{sec:Apollonius_theorem}
+
+The first special case is where the line segment divides the base in half, so that $x = y$.  This is called Apollonius' theorem.  
+
+\emph{Proof}.
+
+We had
+
+\[ a^2y + b^2x = (e^2 + xy) (x + y) \]
+
+Substituting $m = x = y$
+\[ a^2m + b^2m = (e^2 + mn)(2m) \]
+\[ a^2 + b^2 = 2(e^2 + m^2) \]
+\[ \frac{a^2 + b^2}{2} = e^2 + m^2 \]
+
+$\square$
+
+The average of the squares of the sides is equal to the median squared plus the half-base squared.
+
+Put another way, if we imagined that the Pythagorean theorem held (it doesn't, in the general case there is not a right angle), but if it did, then this would just be the sum of $a^2 = e^2 + m^2$ and $b^2 = e^2 + m^2$.
+
+\begin{center} \includegraphics [scale=0.5] {bisector3d.png} \end{center}
+
+\subsection*{review of angle bisector theorem}
+
+Let's go back to the generalized case of the angle bisector theorem, which we looked at  (\hyperref[sec:generalized_angle_bisector_theorem]{\textbf{here}}).
+
+\begin{center} \includegraphics [scale=0.5] {bisector1.png} \end{center}
+
+\[ \frac{x}{a} = \frac{y}{b} \]
+
+As we turn the base $c$, but keep the angle bisection relationship, the ratio stays the same.
+
+\emph{Proof}.
+
+One proof starts by recall the \hyperref[sec:area_ratio_theorem]{\textbf{area-ratio theorem}}.  The area of the two small triangles is in the same ratio as the lengths of the bases $x$ and $y$.  On the other hand, we can compute the ratio of (twice) the areas as
+\[ \frac{ae \cos s}{be \cos s} = \frac{a}{b} = \frac{x}{y} \]
+
+For a different proof, compute the areas of the two smaller triangles in a different way.  We will form the ratio of the areas using the same component altitudes.
+
+In the figure below, the altitude $g$ can be computed as $g = a \sin s$.  Twice the area of the top triangle is thus $ge = ae \sin s$ (where $e$ is the length of the bisector).  Twice the area of the bottom one is $b$ times the same factor.  So the \emph{ratio} of areas is $a/b$.
+
+\begin{center} \includegraphics [scale=0.5] {bisector3c.png} \end{center}
+
+But the same altitudes can also be computed in terms of the sides $x$ and $y$.  We have that $e = x \sin \theta$ and then twice the area of the top triangle is $ge = gx \sin \theta$.  
+
+$h$ can be computed similarly as $h = y \sin \theta' = y \sin \theta$, since $\theta$ and $\theta'$ are supplementary.  So twice the area of the bottom triangle is $y$ times the same factor.  The ratio of areas is $x/y$.
+
+Since the ratio must be equal no matter how it is calculated we have that
+\[ \frac{x}{y} = \frac{a}{b} \]
+
+$\square$
+
+A related proof relies on the law of sines.  We have that 
+\[ \frac{x}{\sin s} = \frac{a}{\sin \theta} \]
+\[ \frac{y}{\sin t} = \frac{b}{\sin \theta'} \] 
+
+\begin{center} \includegraphics [scale=0.5] {bisector3b.png} \end{center}
+
+But $s = t$ so $\sin s = \sin t$ and also $\theta$ and $\theta'$ are supplementary so $\sin \theta = \sin \theta'$.  We obtain
+\[ \frac{x}{a} = \frac{\sin s}{\sin \theta} = \frac{\sin t}{\sin \theta'} = \frac{y}{b} \]
+
+$\square$
+
+\subsection*{bisected angle and Stewart's theorem}
+
+\label{sec:Stewart_bisected}
+
+We use the result for the bisected angle to simplify Stewart's theorem for that case.
+
+\begin{center} \includegraphics [scale=0.5] {bisector1.png} \end{center}
+
+\emph{Proof}.
+
+For a bisected angle, the basic relationship is 
+\[ \frac{x}{a} = \frac{y}{b} \]
+
+which can be rewritten in two ways as
+\[ x = \frac{ay}{b} \]
+\[ y = \frac{bx}{a} \]
+
+and we can use this to simplify Stewart's theorem for the special case. 
+\[ a^2y + b^2x = (e^2 + xy) \cdot (x + y) \]
+
+The substitute separately for $y$ and $x$ on the left-hand side:
+\[ a^2y + b^2x = aby + abx = ba(x + y) \]
+That cancels the second term on the right-hand side of Stewart's theorem, leaving:
+\[ ab = e^2 + xy \]
+
+$\square$
+
+\subsection*{median in terms of side lengths}
+
+This problem is Hopkins 966.
+
+\begin{center} \includegraphics [scale=0.4] {Hopkins_966.png} \end{center}
+
+We just use Apollonius' theorem.  
+\[ a^2 + b^2 = 2(e^2 + m^2) \]
+
+We must change symbols.  We had $e$ for the line segment dropping from the vertex, but the problem uses $m$ for $e$ (because it's a median).  If $c$ is the length of the base, then $c/2$ is the half-length, and we have
+
+\[ a^2 + b^2 = 2(m^2 + (c/2)^2) \]
+Lose the fraction for a bit:
+\[ 2(a^2 + b^2) = 4m^2 + c^2 \]
+
+\[ 4m^2 = 2(a^2 + b^2) - c^2 \]
+\[ m = \frac{1}{2} \ \sqrt{2(a^2 + b^2) - c^2} \]
+
+\subsection*{Hopkins 967}
+
+\begin{center} \includegraphics [scale=0.5] {Hopkins_967.png} \end{center}
+
+I thought, how hard can this be?  If you know Stewart's theorem, it's not hard.
+
+First of all, we notice that $\triangle ACD \sim \triangle BDE$, because $\angle A = \angle E$ (equal arcs), and there is a shared vertical angle.  That helps only in the sense that it reminds us of the main result about angle bisectors that we revisited above.
+
+Their solution starts with the statement.
+
+\[ k^2 = ab - AD \cdot DB \]
+
+(switching from $e$ in our notation to $k$).  I much prefer to use $x$ for $BD$ and $y$ for $AD$, which gives
+\[ k^2 = ab - xy \]
+
+By this time we recognize this as the simplified form of Stewart's theorem for the special case of the bisected angle.  Leave that for the moment.  
+
+Recall the result from the angle bisector theorem and rewrite it slightly
+\[ \frac{x}{y} = \frac{a}{b} \]
+Add one to both sides
+\[ \frac{x + y}{y} = \frac{a + b}{b} \]
+\[ \frac{c}{y} = \frac{a + b}{b} \]
+\[ \frac{c}{a + b} = \frac{y}{b} = \frac{x}{a} \]
+
+This manipulation was made famous by Archimedes and he used it in his work on the estimation of $\pi$.  
+
+Back to our problem:
+\[ y = \frac{bc}{a + b} \]
+\[ x = \frac{ac}{a + b} \]
+
+Finally, we can use the original expression to write:
+\[ k^2 = ab -  \frac{bc}{a + b} \cdot \frac{ac}{a + b} \]
+
+which can be manipulated a bit  
+\[ = ab \ [1 - \frac{c^2}{(a + b)^2}] \]
+
+We have an expression for the length of the angle bisector in terms of the sides of the triangle.  It is symmetric in $a$ and $b$, which we should expect.
+
+\subsection*{Archimedes}
+
+Back to what we were saying about Archimedes, briefly.  We had
+\[ \frac{c}{a + b} = \frac{y}{b} = \frac{x}{a} \]
+
+Inverted, this equation says that 
+\[ \frac{a}{c} + \frac{b}{c} = \frac{b}{y} \]
+
+We can apply this to the case where the triangle is a right triangle.  In trigonometric jargon, it says that the co-tangent (inverted tangent) of the half-angle is equal to the sum of the cotangent of the whole angle plus the cosecant (inverted sine) of the whole angle.
+
+It gives a way of computing the cotangent of the half angle knowing values for the whole angle, and then the Pythagorean theorem gives the cosecant of the half angle since 
+\[ \sin^2 \theta + \cos^2 \theta = 1 \]
+Divide both sides by $\sin^2 \theta$:
+\[ 1 + \cot^2 \theta = \csc^2 \theta \]
+\[ \csc \theta = \sqrt{1 + \cot^2 \theta} \]
+
+The perimeter of a polygon of $n$ sides inscribed in a circle of diameter equal to $1$ is $n \sin \phi$, and for a circumscribed polygon it is $n \tan \phi$, where $\phi = \pi/n$.
+
+Archimedes started with a 30-60-90 triangle in a hexagon and carried out the ``side doubling" four times.  He obtained $223/71 < \pi < 22/7 $.
+
+\end{document}

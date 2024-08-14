@@ -1,0 +1,382 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Steiner-Lehmus Theorem}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+This chapter discusses a theorem about angle bisectors in an isosceles triangle.  We called the forward version the \hyperref[sec:isosceles_bisector]{\textbf{isosceles bisector}} theorem.
+
+It is easy in the forward direction, but the converse is very challenging, at least until you draw the right diagram.  Then, as usual, it's not so bad.
+
+\begin{center} \includegraphics [scale=0.25] {bisector4.png} \end{center}
+
+\emph{Proof}.  We are given that $\triangle ABC$ is isosceles ($AC = BC$), and also that the angles at the base are both bisected.  It follows that the half-angles are also equal, and thus $\triangle CDB \cong \triangle CFA$ by ASA.  So the angle bisectors are equal in length:  $AF = BD$.  $\square$
+
+See  \hyperref[sec:more_isosceles_fwd]{\textbf{here}}.
+
+That's the easy part.
+
+\subsection*{Steiner-Lehmus Theorem}
+
+\label{sec:Steiner_Lehmus_Theorem}
+
+The converse theorem says that if we have angle bisectors and they are equal in length, then the triangle is isosceles.
+
+\url{https://en.wikipedia.org/wiki/Steiner–Lehmus_theorem}
+
+The problem is that, even though we can draw triangles with two sides equal, we don't know anything about the angles except for some vertical angles, which don't help.
+
+Here is an approach which I found on the web.  It's a proof by contradiction.
+
+\url{https://www.algebra.com/algebra/homework/word/geometry/Angle-bisectors-in-an-isosceles-triangle.lesson}
+
+\begin{center} \includegraphics [scale=0.25] {bisector5.png} \end{center}
+
+We claim that if $AD = BE$ and the angles are bisected, then $\alpha = \beta$.
+
+\emph{Proof}.
+
+Draw $EF \parallel AD$ and $DF \parallel AEC$, meeting at $F$.  Connect $BF$.  
+
+We rely on Euclid's propositions I.18 and I.19.  
+
+In any triangle if one side is larger than another, then the angle opposite the longer side is greater (I.18) and conversely, if one angle is larger than another, then the side opposite is greater (I.19). 
+
+\begin{center} \includegraphics [scale=0.4] {PI_18a.png} \end{center}
+
+In the diagram above
+\[ s > t \Rightarrow b > a \]
+\[ b > a \Rightarrow s > t \]
+
+We prove both these theorems \hyperref[sec:Euclid_I_18]{\textbf{here}}.  We also need the following as a preliminary result.
+
+If two triangles $\triangle ABC$ and $\triangle DEF$ have two pairs of sides equal, and the included angle is greater in one ($\phi > \theta$), then the side opposite $\phi$ also greater.
+\begin{center} \includegraphics [scale=0.16] {SAS_gt} \end{center}
+\emph{Proof}.
+
+Let $d$ be opposite $\phi$ and $c$ be opposite $\theta$.  Use the law of cosines:
+\[ c^2 = a^2 + b^2 - 2ab \cos \theta \]
+\[ d^2 = a^2 + b^2 - 2ab \cos \phi \]
+
+Then if $d > c$, so $d^2 > c^2$, and
+\[ a^2 + b^2 - 2ab \cos \phi  > a^2 + b^2 - 2ab \cos \theta \]
+\[ - 2ab \cos \phi  > - 2ab \cos \theta \]
+\[ \cos \phi  < \cos \theta \]
+\[ \phi > \theta \]
+
+This chain of reasoning works just as well in reverse.  So, $\phi > \theta \Rightarrow d^2 > c^2$, and then $d > c$.   $\square$
+
+This is known as the \hyperref[sec:hinge_theorem]{\textbf{hinge theorem}}.  We showed a proof earlier.  It is Euclid I.24.
+
+$\square$
+
+Back to our problem.  We argue by contradiction.  Suppose that $\alpha > \beta$.
+
+The triangles have two sides equal and the included angle $\alpha$ in $\triangle ABE$ is greater than included angle $\beta$ in $\triangle ADB$.  Therefore, side $AE > BD$ by the lemma.
+
+So $DF$, which is equal to $AE$, is also greater than $BD$.
+  
+\begin{center} \includegraphics [scale=0.25] {bisector5.png} \end{center}
+
+As a result $\phi > \gamma$ by Euclid I.18.  We have 
+
+\[ \alpha > \beta \]
+\[ \phi > \gamma \]
+\[ \alpha + \phi > \beta + \gamma \]
+
+This means that in triangle $\triangle BFE$, $EF > BE$, by Euclid I.19.
+
+But since $EF = AD$ ($ADFE$ is a parallelogram) so $AD > BE$.
+
+This is a contradiction, we were given that $AD = BE$.
+
+Therefore, it cannot be that $\alpha > \beta$.
+
+The reverse supposition, that $\alpha < \beta$, also leads to a contradiction by a symmetrical argument, substituting $<$ for $>$.
+
+(Or draw the parallelogram on the other side of $\triangle ABC$ and use the same argument as previously).
+
+Since $\alpha$ is neither greater than nor less than $\beta$, we conclude that $\alpha = \beta$.  $\triangle ABC$ is therefore isosceles.
+
+$\square$.
+
+\subsection*{Hesse proof (1842)}
+
+According to the internet, the Steiner-Lehmus theorem is famous for being difficult, for having many different proofs, and for some controversy over whether even one of the proofs is \emph{direct} or not.  By direct we mean, not using the technique of proof by contradiction or \emph{reductio ad absurdum}.
+
+I was lucky to find a (non-paywalled) review published on its centenary in 1942.
+
+\url{https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7B625B08567935CAE06A0AC9430477C0/S0950184300000021a.pdf}
+
+\begin{center} \includegraphics [scale=0.15] {hesse.png} \end{center}
+
+The construction is to draw $YD = BC$ and $BD = BZ$.
+\begin{center} \includegraphics [scale=0.15] {hesse2.png} \end{center}
+Several sources show $YZD$ colinear, even though this is not justified, but luckily it is not necessary to the proof.  Our dotted line $YD$ has a hole around $Z$.  We are agnostic.
+
+Notice that $BDYC$ \emph{looks} like a parallelogram.  We will show that it is.
+
+The equalities of the construction are $YD = BC$ and $BD = BZ$, and $BY = CZ$ is given, so $\triangle DBY \cong \triangle BZC$ by SSS.
+
+Thus the corresponding angles of $\triangle DBY$ and $\triangle BZC$ are equal, namely:
+\[ \angle DYB = \angle BCZ = \gamma \]
+\[ \angle BDY = \angle CBZ = 2 \beta \]
+As usual, we use Greek letters for the half-angles.  Then finally
+\[ \angle DBY = \angle BZC = \angle A + \gamma \]
+by external angles or sum of angles so 
+\[ \angle CBD = \alpha + \alpha + \gamma + \beta = 90 + \alpha \]
+
+\begin{center} \includegraphics [scale=0.15] {hesse2.png} \end{center}
+
+(note the source says $\angle A - \frac{1}{2} C$, but this is an error or a scanner failure).
+
+At this point I had some trouble with the details of the proof, but all we need is to get the measure of $\angle CYD$  by some combination of external angles and sum of angles.
+
+We find that:
+\[ \angle CYD = \alpha + \alpha + \beta + \gamma = 90 + \alpha \]
+\[ = \angle CBD \]
+
+Crucially, they are not only equal but obtuse.
+\begin{center} \includegraphics [scale=0.15] {hesse3.png} \end{center}
+
+Draw $CD$.  Comparing $\triangle CBD$ and $\triangle DYC$, we have that $CD$ is shared, and $DY = BC$ by construction.  $\angle CYD = \angle CBD$.  
+
+We have SSA and in addition, the angle between the two known sides must be acute in both, since $\angle CYD$ and $\angle CBD$ are obtuse.  It follows that $\triangle CBD \cong \triangle DYC$
+
+ \begin{center} \includegraphics [scale=0.15] {hesse4.png} \end{center}
+This then gives 
+\[ YC = BD = BZ \]
+
+\begin{center} \includegraphics [scale=0.15] {hesse2.png} \end{center}
+SSS then gives:
+\[ \triangle ZCB \cong \triangle YBC \]
+\[ \angle CBZ = \angle BCY \]
+\[ \angle ABC = \angle ACB \]
+\[ AB = AC \]
+
+$\square$
+
+For more about SSA and the importance of the information about the unknown angle, see \hyperref[sec:use_of_SSA]{\textbf{here}}.
+
+\subsection*{trigonometric proof by Paul Yiu}
+
+Let the vertices and sides be labeled in the usual way.  Let the half-angles be $\beta$ and $\gamma$ also.
+
+Let $AC$ (side $b$) be divided by $BY$ into $u$ and $U$, and let $AB$ (side $c$) be similarly divided by $CZ$ into $v$ and $V$.
+
+\begin{center} \includegraphics [scale=0.18] {Steiner_Lehmus_Yiu.png} \end{center}
+
+We will show that assuming $\beta < \gamma$ will lead to a contradiction:
+\[ \frac{b}{u} < \frac{c}{v} \ \ \ \ \text{and also} \ \ \ \  \frac{b}{u} > \frac{c}{v} \]
+
+First consider
+
+\[ \frac{b}{u} - \frac{c}{v} = \frac{u + U}{u} - \frac{v + V}{v} \]
+\[ = \frac{U}{u} - \frac{V}{v} \]
+By the angle bisector theorem $a/U = c/u$ so $U = au/c$ and similarly $V = av/b$.  So
+\[ = \frac{a}{c} - \frac{a}{b} \]
+Since $c > b$ (by Euclid I.19, since $\gamma > \beta$) this expression is less than zero.  Retrieving the original LHS:
+\[ \frac{b}{u} - \frac{c}{v} < 0 \]
+\[ \frac{b}{u} < \frac{c}{v} \]
+
+The second part is
+
+\[ \frac{b}{u} \div \frac{c}{v} = \frac{b}{c} \ \frac{v}{u} \]
+By the Law of Sines
+\[ = \frac{\sin B}{\sin C} \ \frac{v}{u} \]
+\begin{center} \includegraphics [scale=0.18] {Steiner_Lehmus_Yiu.png} \end{center}
+By the sum of angles (really double angle)
+\[ = \frac{2 \cos \beta \sin \beta}{2 \cos \gamma \sin \gamma} \ \frac{v}{u} \]
+\[ = \frac{\cos \beta}{\cos \gamma} \ \frac{\sin \beta}{u} \ \frac{v}{\sin \gamma} \]
+Drop the altitude $h$ from $Y$ to $AB$ (side $c$).  Then
+\[ \frac{h}{BY} = \sin \beta \]
+\[ \frac{h}{u} = \sin A \ \ \ \ \ \ \ \ \frac{h}{\sin A} = u  \]
+Thus $\sin \beta/u = \sin A/BY$:
+\[ = \frac{\cos \beta}{\cos \gamma} \ \frac{\sin A}{BY} \ \frac{CZ}{\sin A} \]
+The third term has been massaged in just the same way.
+
+And then, almost everything cancels!
+\[ = \frac{\cos \beta}{\cos \gamma} > 1 \]
+The inequality comes from the assumption that $\beta < \gamma$.  Retrieve the original LHS:
+\[ \frac{b}{u} \div \frac{c}{v} > 1 \]
+\[ \frac{b}{u} > \frac{c}{v} \]
+
+We have that
+\[ \frac{b}{u} < \frac{c}{v} \ \ \ \ \text{and also} \ \ \ \  \frac{b}{u} > \frac{c}{v} \]
+
+This is a contradiction.  It cannot be that $\beta < \gamma$.  Similar logic reaches a contradiction for $\beta > \gamma$, so it must be that $\beta = \gamma$.  Then it is trivial to show that $\triangle ABC$ is isosceles.
+
+$\square$
+
+\subsection*{algebraic proof of Steiner-Lehmus}
+
+Here is another proof of the theorem.  First we revisit Stewart's \hyperref[sec:Stewart_bisected]{\textbf{theorem}} in the case of the bisected angle, from the previous chapter.  Substitute the symbol $t$ (for transversal).
+\begin{center} \includegraphics [scale=0.15] {steiner1.png} \end{center}
+\[ ab = t^2 + xy \]
+\[ t^2 = ab - xy \]
+
+This is a general formula for the length of the transversal when it is an angle bisector.  We need to eliminate the $xy$ term.  One way to write the fundamental relationship for a bisected angle is
+\[  \frac{a}{b} = \frac{y}{x} \]
+\[  \frac{a+b}{b} = \frac{x+y}{x} \]
+\[ x = \frac{b(x+y)}{a+b} = \frac{bc}{a + b} \]
+
+By symmetry 
+\[ y = \frac{a}{b} x = \frac{ac}{a + b} \]
+So
+\[ xy = \frac{abc^2}{(a+b)^2} \]
+
+And then
+\[ t^2 = ab - \frac{abc^2}{(a+b)^2} \]
+The length (squared) of the transversal to side $c$ is symmetric in $a$ and $b$, as it should be.
+
+\[ = ab \ [ \ 1 - \frac{c^2}{(a+b)^2} \ ] \]
+\[ = ab \ [ \ \frac{(a + b)^2 - c^2}{(a+b)^2} \ ] \]
+\[ = ab \ [ \ \frac{(a + b + c)(a + b - c)}{(a+b)^2} \ ]  \]
+
+We can apply this formula to the main problem, since there are two transversals which are equal.  The algebra gets pretty messy.  I could direct you to
+
+\url{https://proofwiki.org/wiki/Steiner-Lehmus_Theorem#Proof_1}
+
+As an overview, the key step is to produce (something like):
+\[ (b-a)(3 abc + ab(a + b) + c^3 + c^2(a+b)) = 0 \]
+Since $a,b,c$ are all positive, we have $(b-a)$ times something which is positive.  Thus $b - a = 0$ and so $a = b$.
+
+Let's get busy.  Rewrite the $t^2$ expression for sides $a$ and $b$:
+\[ t_a^2 = bc \ [ \ \frac{(a + b + c)(-a + b + c)}{(b+c)^2} \ ]  \]
+\[ t_b^2 = ac \ [ \ \frac{(a + b + c)(a - b + c)}{(a+c)^2} \ ]  \]
+
+Set them equal and cancel some terms:
+\[ b \ [ \ \frac{(-a + b + c)}{(b+c)^2} \ ] = a \ [ \ \frac{(a - b + c)}{(a+c)^2} \ ]  \]
+\[ b(b + c - a)(a + c)^2 = a(a + c - b)(b+c)^2 \]
+
+We will obtain nine terms on each side.  Start with the LHS
+\[ b(b + c - a)(a + c)^2 \]
+\[ = (b^2 + bc - ab)(a^2 + 2ac + c^2) \]
+\[ = a^2b^2 + 2ab^2c + b^2c^2 + a^2bc + 2abc^2 + bc^3 - a^3b - 2a^2bc - abc^2 \]
+\[ = a^2b^2 + 2ab^2c + b^2c^2 + abc^2 + bc^3 - a^3b - a^2bc \]
+
+Now for the RHS (we \emph{could} do a symbol swap with $b$ for $a$ and $a$ for $b$, but ...):
+\[ a(a + c - b)(b+c)^2 \]
+\[ = ( a^2 + ac - ab)(b^2 + 2bc + c^2) \]
+\[ = a^2b^2 + 2a^2bc + a^2c^2 + ab^2c + 2abc^2 + ac^3 - ab^3 - 2ab^2c - abc^2 \]
+\[ = a^2b^2 + 2a^2bc + a^2c^2 + abc^2 + ac^3 - ab^3 - ab^2c \]
+
+Compare LHS with RHS for symmetry
+\[ = a^2b^2 + 2ab^2c + b^2c^2 + abc^2 + bc^3 - a^3b - a^2bc \]
+\[ = a^2b^2 + 2a^2bc + a^2c^2 + abc^2 + ac^3 - ab^3 - ab^2c \]
+We are going to subtract one from the other, so first cancel two terms duplicated between the two expressions:
+\[ = 2ab^2c + b^2c^2 + bc^3 - a^3b - a^2bc \]
+\[ = 2a^2bc + a^2c^2 + ac^3 - ab^3 - ab^2c \]
+
+Place on one side by subtracting and set equal to zero:
+\[ 2ab^2c + b^2c^2 + bc^3 - a^3b - a^2bc - 2a^2bc - a^2c^2 - ac^3 + ab^3 + ab^2c = 0 \]
+Combine two pairs of like terms
+\[ 3ab^2c + b^2c^2 + bc^3 - a^3b - 3a^2bc - a^2c^2 - ac^3 + ab^3 = 0 \]
+
+Now the really tricky part.  Look for pairs that are like $bx-ax$:
+\[ bc^3 - ac^3 = (b-a)c^3 \]
+\[ 3ab^2c - 3a^2bc = (b-a)3abc \]
+\[ b^2c^2 - a^2c^2 = (b^2 - a^2)c^2 = (b-a)(b+a)c^2  \]
+\[  ab^3 - a^3b = (b^2 - a^2)ab = (b-a)(b+a)ab \]
+
+In other words the eight terms we had previously can be rewritten as
+\[ (b-a) \ [ \ c^3 + 3abc + (b+a)c^2 + (b+a)ab \ ] \ = 0 \]
+\[ (b-a) \ [ \ c^3 + 3abc + (b+a)(c^2 + ab) \ ] \ = 0 \]
+
+And then, as we said above, we have the product of $(b-a)$ times something which is the sum of a bunch of positive terms.  The only way for that to be zero is if $b - a = 0$, and then $a = b$.
+
+The two sides of $\triangle ABC$ are equal, it is an isosceles triangle.
+
+$\square$
+
+\subsection*{Lehmus proof}
+
+One more very nice proof (reprinted in Coxeter) can be found here:
+
+\url{https://proofwiki.org/wiki/Steiner-Lehmus_Theorem#Proof_4}
+
+This proof is probably due to Lehmus.
+
+\emph{Lemma 1}.
+
+In the same circle let one chord, $PR$, be larger than another $PQ$.  Then the inscribed angle subtended by $PR$, with its vertex in the major arc, is larger.
+
+Coxeter says this:
+
+\begin{quote}
+Two equal chords subtend equal angles at the center and equal angles (half as big) on the circumference.  Of two unequal chords, the shorter, being farther from the center, subtends a smaller angle there and consequently a smaller acute angle at the circumference.
+\end{quote}
+
+We could also call on the Lemma used in the first proof in this chapter (with $a = b$ equal to the radius of the circle).
+\begin{center} \includegraphics [scale=0.16] {SAS_gt} \end{center}
+
+$\square$
+
+\emph{Lemma 2}.
+
+If a triangle has two angles of different measure, the smaller angle has the longer internal bisector.
+
+Let $\triangle ABC$ have the base angles $B$ and $C$ with $B < C$ and each angle bisected, by $BM$ and $CN$.  
+
+We wish to prove that $BM > CN$.  
+
+Coxeter says this:  take $M'$ on $BM$ such that $\angle M'CN =$ \textonehalf $\ \angle B$.  Since this is equal to $\angle M'BN$, the four points $N, M', B, C$ lie on a circle, with the same circumference subtending equal angles..  
+ 
+[ This would be the converse to Euclid III.26. Our justification:
+
+Draw the circle through points $NBC$.  Draw $M'B$ to be the bisector of $\angle B$.  Then by the inscribed angles theorem, $\angle NCM' = \beta$.
+
+Since $\gamma > \beta$, $CM$ cuts the circle to give an arc $> NM'$.  Thus, $M$ lies outside the circle so that $BM > BM'$. 
+
+This last step should be more rigorous.  It's not especially elegant, but if $B$ lies outside the circle, we can say that the area of $\triangle BMC > \triangle BM'C$.  The two triangles have the same altitude.  So by the area-ratio theorem the base of the first is longer, $BM > BM'$.
+].
+
+For a different proof, see $\hyperref[sec:equal_angle_on_circle_contradiction]{\textbf{here}}$
+
+\begin{center} \includegraphics [scale=0.15] {Steiner_Lehmus_Proof_4.png} \end{center}
+
+Then since 
+\[ B < \frac{B + C}{2} < \frac{A + B + C}{2} \]
+\[ \angle CBN < \angle M'CB < 90 \]
+By Lemma 1, $CN < BM'$.
+
+But $BM' < BM$.  Hence $CN < BM$.  
+
+$\square$
+
+With the second lemma, the proof becomes simple.  
+
+\emph{Proof}.
+
+As before, we have $\triangle ABC$ with the base angles bisected and the bisectors are $BM = CN$.
+
+Suppose $\angle B \ne \angle C$, then by Lemma 2, $BM \ne CN$.  But this is a contradiction.  Thus, $\angle B = \angle C$ and it follows that $\triangle ABC$ is isosceles.
+
+$\square$
+
+\subsection*{afterward}
+
+There is some interesting discussion in Coxeter as well.  According to what I can find on the web, most of the literature concerns the question of whether it is possible to provide a direct proof of the theorem.  The algebraic proof, second from last, has been cited as such.  
+
+However, that proof depends on Stewart's Theorem, which as we derived it depends on the Law of Cosines, which depends in turn on the theorem of Pythagoras.  And although there are several hundred proofs of Pythagoras most (all?) of them depend on the sum of angles and also on the parallel postulate, which explicitly depends on a proof by contradiction.  
+
+The question of a direct proof for Steiner-Lehmus is hard to answer conclusively.  I have a write-up from John Conway claiming that it is impossible, but I don't really understand.  Unfortunately, nearly all the writing in mathematics journals is paywalled and exorbitantly priced.
+
+\end{document}

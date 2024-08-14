@@ -1,0 +1,190 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Special points}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+We will be talking about four special points in triangles including the orthocenter, circumcenter, incenter and centroid.  The first is the point where the altitudes cross, the second is the center of the circle which includes all three vertices, and the third is the center of a circle which just fits inside the triangle.  The last is formed by drawing lines from each vertex to the midpoint of the opposing side.
+
+These have the common feature that three lines with certain properties cross at a single point.  When this happens, they are said to be concurrent.  
+
+We have already established the general conditions under which this happens.  This is the subject of Ceva's theorem.
+
+Note that all three sides and vertices as well as the lines drawn from them in each example share the same properties.  For example, when the line meeting the base forms a right angle, that is true for all three lines.  Similarly, when an angle or a side is bisected, all three are bisected.
+
+\begin{center} \includegraphics [scale=0.5] {four_points1.png} \end{center}
+
+Two of these points relate directly to circles.  The incircle is the circle that has each of the three sides as tangents, while the circumcircle is the circle that contains all three vertices.
+
+\begin{center} \includegraphics [scale=0.5] {four_points2.png} \end{center}
+
+Altitudes we have seen previously as the vertical from a vertex to the opposing side.  Finally, the median is the line from a vertex that bisects the opposing side, that connects to its midpoint.
+
+A preliminary question one might ask is the following:  we have drawn the three lines in each triangle meeting at a single point, but how do we know this will actually happen?  How do we know the three lines are concurrent in a single point?
+
+We will show a formal proof for each type as we come to it in this chapter.  For the two involving circles, note that any three points determine a circle.
+
+\emph{Proof}.
+
+We can make an informal argument as shown on the left.  
+
+\begin{center} \includegraphics [scale=0.5] {three_point_circle.png} \end{center}
+
+We draw a family of circles through points $P$ and $Q$.  There is exactly one circle that contains all three points $P$, $Q$ and $R$.
+
+More formally, for the circumcircle (right panel), draw the secant $PR$, and then draw its perpendicular bisector.  Every point on the perpendicular bisector is equidistant from $R$ and $P$, by the properties of isosceles triangles.  (We have congruent triangles by SAS).  
+
+Now draw the perpendicular bisector of $PQ$.  It must cross the other one at a unique point (two non-parallel lines cross at a single point).  
+
+As a point on the first perpendicular bisector, $O$ has the property that $OR = OP$.  But $O$ is also on the second perpendicular bisector, so then $OP = OQ$.  Thus, all three points lie at the same distance from $O$.  
+
+A circle with its center at $O$ and its radius equal to $OP$ passes through all three points, because they satisfy the definition of points on a circle.
+
+$\square$
+
+\subsection*{incenter:  angle bisector $\rightarrow$ incenter}
+
+\label{sec:incenter}
+
+In the case of the incircle, we use the angle bisector.  We proved previously that if a line segment is drawn from an angle bisector to the two sides of a triangle, so as to meet the sides at right angles, the distance to each side is equal.
+
+\begin{center} \includegraphics [scale=0.6] {incircle.png} \end{center}
+
+The three solid black lines are all equal in length, so a circle can be drawn that includes all three.  From the fact that each radius meets the side at a right angle at a single point, we can show that the sides are tangent to the circle.
+
+\begin{center} \includegraphics [scale=0.4] {incenter3.png} \end{center}
+
+\emph{Proof}.
+
+Draw the three perpendiculars from $O$ to $D$, $E$, $F$, and then draw the bisector of angle $A$ to point $O$.
+
+$\triangle AOF$ is congruent to $\triangle AOE$ by AAS (right angle, angle bisector, $AO$ is shared), so $OF = OE$.  
+
+But this can be done for each vertex in $\triangle ABC$.
+
+Thus $OE = OF = OD$. 
+
+Therefore, $O$ is the center of a circle that includes points $A$, $B$ and $C$ (the incenter), and the line segments connecting $O$ to the three vertices are the angle bisectors for the corresponding angles.
+
+$\square$
+
+\subsection*{tangent of the incircle $\rightarrow$ angle bisector}
+
+\begin{center} \includegraphics [scale=0.4] {incenter3.png} \end{center}
+
+\emph{Proof} (Alternative).
+
+Given $\triangle ABC$, draw a circle that just touches the sides of the triangle at $D$, $E$ and $F$.
+
+By definition, the tangent is perpendicular to the radius where it touches the circle.  So $\triangle AOF \cong \triangle AOE$ by hypotenuse-leg in a right triangle (HL).  
+
+Thus, $AO$ is the angle bisector of the angle at vertex $A$.
+
+Similarly $OB$ and $OC$ bisect angles $B$ and $C$, respectively.
+
+$\square$
+
+We have previously developed proofs for the orthocenter \hyperref[sec:Newton_altitude]{\textbf{here}}, and \hyperref[sec:orthocenter_proof]{\textbf{here}}.
+
+Finally, we develop an unusual proof that the centroid exists, and locate it on the lines to the midpoints of the sides (I found this proof in Lockhart).
+
+The proof depends on the properties of similar triangles.
+
+\subsection*{centroid}
+
+Consider the triangle in the figure below (left panel).  
+
+\begin{center} \includegraphics [scale=0.4] {midpoints1.png} \end{center}
+
+Draw a line segment parallel to the base and connecting to the midpoint of the left side.  Then, by the alternate interior angle theorem and the vertical angle theorem, the two angles marked with red dots in the middle are equal to the red dotted angle at the base.
+
+Therefore, by three angles the same, the small upper triangle is similar to the large one.  The ratio of similar sides is $1:2$.
+
+But this can be done on the right side as well, and then the same for all three vertices of the original triangle (right panel).  
+
+By the triangle sum theorem and also by the alternate interior angle theorem, the angles in the interior triangle are equal to other angles as indicated.  By shared sides, the four small triangles are congruent.
+
+Now draw lines from each vertex to the midpoint of the opposing side.  $GHIA$ is a parallelogram, by the angle equalities just proven.  
+
+The two diagonals of a parallelogram cross at their midpoints.  Therefore $O$ is the midpoint of the side $GI$ and the same line that connects $A$ to midpoint $H$ also connects $H$ to midpoint $O$.
+
+\begin{center} \includegraphics [scale=0.4] {midpoints2.png} \end{center}
+
+Therefore the centroid of $\triangle GHI$ is also the centroid of the parent.  This process can be repeated as many times as we please (right panel).  
+
+The triangles get smaller and eventually tend to a point.  That point is on all three midpoint segments.  Therefore, the centroid is a single point.
+
+$\square$
+
+\subsection*{algebra of the centroid}
+
+We can locate the centroid by imagining that we find successive midpoints of a length from opposite ends left and right.  
+
+The first point is at $1/2$ of the length (point $O$ on $\triangle GHI$), the second comes back from vertex $H$ by $1/4$ so is at $0.75$ (on the right edge of the small red triangle in the right panel, above).  The third is at $0.5 + 1/8$ (on the left edge of the smallest black triangle).
+
+Every second round we get closer to the centroid  by advancing from the left by
+\[ S = \frac{1}{2} +  \frac{1}{8} +  \frac{1}{32}  + \dots \]
+
+Now, we can either assume this sum is finite (for now) or recognize that it is certainly smaller than 
+\[ \frac{1}{2} +  \frac{1}{4} +  \frac{1}{8}  + \dots = 1 \]
+
+\begin{center}
+\includegraphics [scale=0.3] {series1.png}
+\end{center}
+
+So if
+\[ S = \frac{1}{2} +  \frac{1}{8} +  \frac{1}{32}  + \dots \]
+then
+\[ 2S = 1 +  \frac{1}{4} +  \frac{1}{16}  + \dots \]
+and then, adding the two expressions:
+\[ 3S = 1 +  \frac{1}{2} +  \frac{1}{4} +  \frac{1}{8} + \frac{1}{16}   + \dots \]
+\[ = 1 + 1 \]
+\[ S = \frac{2}{3} \]
+
+$\square$
+
+Here is another proof from Nelsen's \emph{Proof without words}.  By similar triangles
+
+\begin{center} \includegraphics [scale=0.35] {series2.png} \end{center}
+
+\[ 1 + r + r^2 + \dots = \frac{1}{1-r} \]
+Our series is $1/2$ times $1 + 1/4 + \dots$, so $r = 1/4$.  The sum is $4/3$ and then our series is one-half that.
+
+
+\subsection*{centroid from Menelaus}
+
+We can apply \hyperref[sec:Menelaus_theorem]{\textbf{Menelaus' theorem}} to the case of the centroid.  This gives a very simple equation to identify how far along the median the point $P$ is.
+
+The original theorem was (left panel).
+\[ \frac{a_1}{a_2} \cdot \frac{b_1}{b_2} \cdot \frac{c}{c'} = 1 \]
+
+\begin{center} \includegraphics [scale=0.5] {menelaus2.png} \end{center}
+
+Write the same expression for the median coming down from the top vertex in the right panel and the triangle with sides $b$ and $c_1$.
+
+\[ \frac{d}{e} \cdot \frac{b_1}{b_2} \cdot \frac{c}{c_2} = 1 \]
+
+$b_1/b_2 = 1$ and $c/c_2 = 2$.  Therefore
+\[ 2d = e \] 
+
+The point $P$ lies one-third of the way up from the side to the corresponding vertex.
+
+
+\end{document}

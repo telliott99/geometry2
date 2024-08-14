@@ -1,0 +1,203 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Pappus' theorem}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{more about Menelaus}
+We gave two proofs of  \hyperref[sec:Menelaus_theorem]{\textbf{Menelaus's Theorem}}  previously. 
+
+There is a somewhat more sophisticated version of the theorem which views the path around a triangle as consisting of \emph{directed} (that is, \emph{signed}) line segments.
+
+\begin{center} \includegraphics [scale=0.15] {menelaus4.png} \end{center}
+Let the triangle be $\triangle ABC$, then the transversal is $XZY$, which meets the extension of $BC$ at $Y$.  Since $Y$ does not lie between $B$ and $C$, the line segments $BY$ and $YC$ point in opposite directions.  The ratio $BY:YC$ thereby acquires a minus sign.
+
+Every transversal has this property.  Here (on the right) is a transversal that does not go through the triangle at all.
+\begin{center} \includegraphics [scale=0.15] {menelaus5.png} \end{center}
+
+These are the only two possibilities if we exclude that the transversal goes through a vertex.
+
+The path around the triangle has three parts:
+
+$A$ to $X$ to $B$ $\Rightarrow$  $AX:XB$
+
+$B$ to $Y$ to $C$  $\Rightarrow$    $BY:YC$
+
+$C$ to $Z$ to $A$  $\Rightarrow$   $CZ:ZA$
+
+Each ratio has a minus sign so the total product also has a minus sign.  Menelaus's Theorem says:
+\[ \frac{AX}{XB} \cdot \frac{BY}{YC} \cdot \frac{CZ}{ZA} = - 1 \]
+
+\subsection*{Pappus' theorem}
+
+As a way to explore the usefulness of Menelaus's theorem, let us look at a remarkable theorem of Pappus.  
+\begin{center} \includegraphics [scale=0.3] {pp0.png} \end{center}
+
+One version says that if we inscribe a hexagon in a circle and then connect some of the vertices in a certain way, then certain points will be co-linear.  The hexagon we are talking about has its vertices connected in the order $123456$, it is a \emph{degenerate} hexagon.
+
+The points of interest are the intersections of opposing sides.  The point where $12$ cuts $45$ is on the red line, the next is $23$ and $56$, and the third is $34$ and $61$.
+
+It seems like the red line does connect three co-linear points.  We will not prove this version of the theorem.
+
+This hexagon can be deformed into two lines.  In fact we can still think of it as a hexagon, although the order of the vertices is strange:  $UYWXVZ$.
+\begin{center} \includegraphics [scale=0.35] {pp1.png} \end{center}
+
+We claim that if $UVW$ and $XYZ$ are collinear, then the three points $PQR$ are also collinear.  These points are formed by the intersections of corresponding lines.  We count the intersection of $UY$ and $VX$ at $P$, for example.
+
+Since we started with a hexagon inscribed in a circle and ended with two sets of collinear points $UVW$ and $XYZ$, collinearity of the starting position is not a requirement.
+
+Nevertheless, we'll stick with what the source says.
+
+\url{}
+
+Again, the idea is that $UYWXVZ$ is a (degenerate) hexagon.  The points of interest are at the intersections of opposite sides:  $UY$ cuts $XV$ at $P$, $YW$ cuts $VZ$ at $R$, and $WX$ cuts $ZU$ at $Q$.
+
+We will use some of the unlabeled intersections in our proof.  We focus on one particular triangle.
+\begin{center} \includegraphics [scale=0.35] {pp2.png} \end{center}
+
+I have labeled the vertices $ABC$.
+\begin{center} \includegraphics [scale=0.35] {pp3.png} \end{center}
+
+You will notice that the points $PQR$ apparently lie on a transversal of $\triangle ABC$.  In particular, if we can prove that the product of Menelaus's ratios is equal to $-1$ for $PQR$ in $\triangle ABC$, we will have established co-linearity of the points $PQR$, in other words, that it really is a transversal.
+
+We will show that 
+\[ \frac{AQ}{QB} \cdot \frac{BR}{RC} \cdot \frac{CP}{PA} = -1 \] 
+
+\begin{center} \includegraphics [scale=0.35] {pp11.png} \end{center}
+
+We will achieve this by applying the forward theorem to five other transversals.  
+
+\subsection*{first three}
+
+The first one is $VRZ$.  Just read it off the diagram below:
+\begin{center} \includegraphics [scale=0.35] {pp12.png} \end{center}
+\[ \frac{BR}{RC} \cdot \frac{CV}{VA} \cdot \frac{AZ}{ZB} = -1 \] 
+
+The second is $XQW$:
+\begin{center} \includegraphics [scale=0.35] {pp13.png} \end{center}
+\[ \frac{AQ}{QB} \cdot \frac{BW}{WC} \cdot \frac{CX}{XA} = -1 \] 
+
+And the third is $UPY$:
+
+\[ \frac{CP}{PA} \cdot \frac{AU}{UB} \cdot \frac{BY}{YC} = -1 \] 
+
+\begin{center} \includegraphics [scale=0.35] {pp14.png} \end{center}
+
+It is harder in this case, since all three points of the transversal lie outside the triangle.  The key is to take the points in order:  vertex-intermediate-vertex.  
+
+For each ratio, start and end at a vertex of $\triangle ABC$.  The ratios go like vertex $\rightarrow$ point divided by point $\rightarrow$ vertex.
+
+Thus
+\[ \frac{BR}{RC} \cdot \frac{CV}{VA} \cdot \frac{AZ}{ZB} = -1 \] 
+\[ \frac{AQ}{QB} \cdot \frac{BW}{WC} \cdot \frac{CX}{XA} = -1 \] 
+\[ \frac{CP}{PA} \cdot \frac{AU}{UB} \cdot \frac{BY}{YC} = -1 \] 
+
+Recall that we need
+\[ \frac{AQ}{QB} \cdot \frac{BR}{RC} \cdot \frac{CP}{PA} = -1 \] 
+
+\subsection*{finishing up}
+In each of the products above the first term is what we seek.  The others need to disappear.  The fourth transversal is $UVW$.
+
+\[ \frac{BW}{WC} \cdot \frac{CV}{VA} \cdot \frac{AU}{UB} =  -1 \] 
+\begin{center} \includegraphics [scale=0.35] {pp15.png} \end{center}
+
+And finally, the last one is:
+\[ \frac{AZ}{ZB} \cdot \frac{BY}{YC} \cdot \frac{CX}{XA} = -1 \] 
+\begin{center} \includegraphics [scale=0.35] {pp16.png} \end{center}
+
+If we multiply together all five of these expressions, all fifteen terms, on the right we obtain just $-1$.  Instead, we will construct a numerator with the first three of them and a denominator with the last two.  Again we obtain $-1$ on the right-hand side.
+
+\[ \frac{\frac{BR}{RC} \cdot \frac{CV}{VA} \cdot \frac{AZ}{ZB} \cdot \frac{AQ}{QB} \cdot \frac{BW}{WC} \cdot \frac{CX}{XA} \cdot \frac{CP}{PA} \cdot \frac{AU}{UB} \cdot \frac{BY}{YC} } { \frac{BW}{WC} \cdot \frac{CV}{VA} \cdot \frac{AU}{UB} \cdot  \frac{AZ}{ZB} \cdot \frac{BY}{YC} \cdot \frac{CX}{XA}  } \]
+
+Then it's time for some cancelation.
+
+\begin{center} \includegraphics [scale=0.17] {pappus8.png} \end{center}
+
+We are left with simply:
+\[ \frac{BR}{RC} \cdot \frac{AQ}{QB} \cdot \frac{CP}{PA} = -1 \] 
+which is what we wanted.
+
+By the converse of Menelaus's theorem, we have that $PQR$ are collinear.
+
+$\square$
+
+This proof is a constructive proof.  It shows that for this diagram, the relationship holds and the points $PQR$ are collinear.  
+
+\subsection*{the parallel case}
+
+What would happen if $AC \parallel BC$, or put another way, $VX \parallel WY$?  Suppose also $UY \parallel VZ$?  For some arrangements, we would not be able to draw the triangle we need.
+
+Construct the diagram in an online tool like Geogebra and then play with it by sliding points around.  One sees that it is easy to alter a diagram where we could not draw the triangle, to one in which we can, and the lines and intersections retain their relationships when this is done.
+
+\begin{center} \includegraphics [scale=0.12] {pappus9.png} 
+ \includegraphics [scale=0.12] {pappus10.png} \end{center}
+
+The diagram above was redrawn from 
+
+\url{http://cut-the-knot.org/pythagoras/Pappus.shtml}
+
+which has a wonderful discussion of this and many other theorems.  Here the "hexagon" is $ABCDEF$, the points to be proved collinear are $KJL$, and the triangle whose transversals are analyzed is $\triangle GHI$.
+
+One way Bogolmony proposes to deal with the diagram on the right, the case of $AF \parallel BC$ and $CD \parallel EF$, is to use the parallel lines to find similar triangles.  
+
+There are a lot of them.  There are five that we will use, you can see them in this diagram.  For each pair of similar triangles, we show only the sides whose ratios we need.  Also shown is the origin of the side that will cancel the given side.
+\begin{center} \includegraphics [scale=0.25] {Pappus cancel.png} \end{center}
+
+The first two are:
+\[ \triangle DHK \sim \triangle DIC  \Rightarrow \frac{DH} {DI} = \frac{HK} {IC} \]
+\[ \triangle DHF \sim \triangle DIB  \Rightarrow \frac{DH} {DI} = \frac{HF} {IB} \]
+Thus
+\[  \frac{HK} {IC} = \frac{HF} {IB} \]
+
+The next two are:
+\[ \triangle EHF \sim \triangle EIL  \Rightarrow \frac{HE} {IE} = \frac{HF} {IL} \]
+\[ \triangle EHA \sim \triangle EIC  \Rightarrow \frac{HE} {IE} = \frac{HA} {IC} = 1 \]
+So
+\[  \frac{HF} {IL} = \frac{HA} {IC} \]
+
+\begin{center} \includegraphics [scale=0.25] {Pappus cancel.png} \end{center}
+
+Combining these results:
+\[ HF \cdot IC = HA \cdot IL = HK \cdot IB \]
+\[ \frac{HK} {IL} = \frac{HA} {IB} \]
+
+Finally:
+\[ \triangle HAJ \sim \triangle IBJ  \Rightarrow \frac{HJ} {IJ} = \frac{HA} {IB} = 1 \]
+Hence
+\[ \frac{HJ} {IJ} = \frac{HK} {IL} \]
+
+Since they have two sides in proportion and also $\angle KHJ = \angle LIJ$, it follows that 
+\[ \triangle HKJ \sim \triangle ILJ \]
+
+But this can only be if $KJL$ are collinear.  If we didn't have collinearity we would also not have the equal vertical angles $\angle HJK = \angle IJL$.
+
+$\square$
+
+We won't prove that last part, but it seems clear how to approach a proof by contradiction.
+
+This isn't completely dispositive, since we cannot prove that this handles \emph{all} cases.  But it's sufficient for now.
+
+Projective geometry solves this problem formally by showing that any arrangement can be transformed to one in which this proof holds, without changing the concurrences or collinearity properties.
+
+Ultimately, projective geometry is about believing that two parallel lines intersect at a \emph{point at infinity}.  One is not supposed to ask whether such an answer makes sense, but only whether it is consistent.  Many words have been written about whether this reveals a limitation of Euclidean geometry, or is just some kind of parallel universe.
+
+Projective geometry is well beyond what we can do now, so let's just breathe a sigh of relief that it all came out as we were promised.
+
+\end{document}

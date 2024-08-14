@@ -1,0 +1,533 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Introduction}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+\label{sec:Almagest}
+
+\emph{The Almagest} is a treatise written by Ptolemy in the second century AD which laid out a geocentric (earth-centered) picture of the universe.  Among other things, it relies on his calculation of a table of lengths of chords formed by angles between $0$ and $180$ degrees in very small increments.
+
+Chords are related to the sine function, as we've seen.  The ratio of the chord length to the diameter is equal to the sine of the half-angle.
+
+So far, the only two angles for which we've calculated the sine and cosine are those which are either one-half or one-third of a right angle.  We get another one (two-thirds of a right angle) by the properties of complementary angles.  
+
+Here, we start by extending our calculation to angles that are one-fifth or two-fifths of a right angle.  These come naturally from the study of the pentagon.
+
+\subsection*{regular pentagon}
+
+The regular pentagon has five sides of equal length.  We looked at its properties \hyperref[sec:pentagons]{\textbf{here}}.
+
+The first step was to show that each vertex angle is divided into three equal parts by the internal chords of the pentagon.
+
+Let the measure of that angle be $t$.  Each one has a measure of $t =  1/5 \cdot \pi$ or $36^{\circ}$.  (From now on we will suppress the degree symbol in angle measurements, so the angle is just $36$).  Five of them add up to one triangle or $180$.  Only some of the equal angles are marked in this diagram.
+\begin{center} \includegraphics [scale=0.35] {pent3b.png} \end{center}
+
+Another major result is that the figure contains five parallelograms (actually, each is a rhombus, with four equal sides).  Each of the five internal chords is the base of one of five congruent triangles containing two sides and a vertex, so they are all equal in length.  
+
+Since entire chords are equal and the sides of the parallelograms are all equal, each of the small parts remaining, such as $BP$, are equal to their counterparts.
+
+The small, central pentagon is a regular pentagon, so all of its vertex angles are equal, and their measure is $3t$.  Therefore the supplementary angles marked in magenta are equal and their measure is $2t$.  Thus, $\triangle BPQ$ is isosceles and is similar to $\triangle BED$ by SAS similarity.
+
+Let the side length of the small, central pentagon (e.g. $PQ$) be equal to $1$ and the length $BP$ be equal to $x$, so the ratio of the long side to the base in $\triangle BPQ$ is $x$.  
+
+$BE$ is equal to $2x + 1$ and $DE = AQ$ is equal to $x + 1$ so by equal ratios in similar triangles
+\[ x = \frac{2x + 1}{x + 1} \]
+\[ x^2 + x = 2x + 1 \]
+\[ x^2 - x - 1 = 0 \]
+We will re-label $x$ as $\phi$.  The solution to this quadratic equation is $\phi = (1 + \sqrt{5})/2$.  The second solution is negative, so we will not worry about it here, where we are concerned with ratios of lengths.
+
+In any isosceles triangle with vertex angle $36$, the ratio of either of the equal sides to the base is $\phi$.
+
+\subsection*{algebra with $\phi$}
+
+We first verify that $\phi$ solves the equation
+\[ \phi^2 = \frac{1}{4}(6 + 2 \sqrt{5}) = \frac{1}{2}(3 + \sqrt{5}) \]
+\[ = 1 + \frac{1 + \sqrt{5}}{2} = \phi + 1 \]
+
+So far we have
+\[ \phi^2 - \phi - 1 = 0 \]
+and
+\[ \phi^2 = \phi  + 1 \]
+\[ \phi^3 = \phi^2 + \phi  = 2 \phi + 1 \]
+\[ \phi^4 = \phi^3 + \phi^2  = 3 \phi + 2 \]
+If we continue, we'll get the Fibonacci sequence.  Divide by $\phi$ and rearrange:
+\[ \phi = \frac{1}{\phi} + 1 \]
+\[ \frac{1}{\phi} = \phi - 1 \]
+And finally
+\[ \phi = \phi^2 - 1 = (\phi + 1)(\phi - 1) \]
+\[ \phi = \frac{1}{\phi - 1} \]
+\[ (\phi + 1)(\phi - 1)  = \frac{1}{\phi - 1} \]
+Some expressions involving $\phi$ I have only been able to figure out by working backward from the answer.  We'll see examples in a bit.
+
+\subsection*{a little trigonometry}
+We have that the ratio of $BE$ to $ED$ is equal to $\phi$, so the inverse ratio is $1/\phi$.  
+
+One-half of that is the sine of one-half of $t$, $36/2 = 18$.
+\[ \sin 18 = \frac{1}{2 \phi} \]
+
+If the pentagon is inscribed in a circle then the length of the side $s$ is the chord formed by an inscribed angle of $36$ or $s = 2r \sin 36$.  
+
+The double angle formulas allow us to get to $\sin 36$ and so find $s$ in terms of $r$, but we also have some constructions that work.  We look at one of those now.
+
+\subsection*{construction 1}
+
+Wikipedia gives two methods to construct a regular pentagon.   I have redrawn their first figure.
+
+Inscribe the pentagon in a unit circle ($CD = 1$).  Draw perpendicular radii (or diameters) and divide the right horizontal radius in half at $M$, so length $m = 1/2$.
+
+\begin{center} \includegraphics [scale=0.4] {pent_const1.png} \end{center}
+
+Draw $DM$.  Bisect $\angle CMD$.  
+
+Extend the bisector to the vertical diagonal $CD$.  Finally, draw the horizontal to intersect the circle at $P$.  We label the lengths with single letters to make the algebra more intuitive.
+
+We claim that $DP$ or $s$ is one side of a regular inscribed pentagon.  We will first verify that the construction gives the correct side length.
+
+\subsection*{calculation}
+
+Let the length of $DM$ (magenta line) be $x$.  By the Pythagorean theorem
+\[ x^2 = m^2 + 1^2 = (\frac{1}{2})^2 + 1^2 = \frac{5}{4} \]
+\[ x = \frac{\sqrt{5}}{2} \]
+
+Next we invoke the angle bisector theorem:
+\[ \frac{t}{m} = \frac{u + t}{x + m} \]
+\[ \frac{t}{1/2} = \frac{1}{\sqrt{5}/2 + 1/2} \]
+\[ t = \frac{1}{1 + \sqrt{5}} = \frac{1}{2 \phi} \]
+\begin{center} \includegraphics [scale=0.4] {pent_const1.png} \end{center}
+We note in passing that $t$ has the value of the sine of $18$.  Next:
+
+\[ v^2 = 1^2 - t^2 \]
+We haven't drawn the hypotenuse for the above triangle, but its base is the dotted red line.  Then
+\[ u^2 = (1 - t)^2 = 1 - 2t + t^2 \]
+and
+\[ s^2 = u^2 + v^2 \]
+\[ = 2 - 2t = 2 - \frac{1}{\phi} \]
+
+Since $1/\phi = \phi - 1$, the right-hand side is $2 - (\phi - 1) = 3 - \phi$ and the result is finally:
+\[ s = \sqrt{3 - \phi} \]
+
+Now consider the $\angle CDP$, that is one-half of the vertex angle of a pentagon, namely, one-half of $108$ or $54$.  The cosine of that angle is side $s$ divided by the diameter, or $s/2$.
+
+The same value is also the sine of the complementary angle, $36$.  I get that sine $36$ is equal to $\sqrt{3 - \phi}/2$.  We will use trigonometry to derive the same result.
+
+Another way to look at this is to actually draw the whole pentagon inscribed into a unit circle, and then draw its apothem, the line that splits the side in half.  Since there are five sides, the central angle is $72$ and one-half that is $36$.  So the red line is the cosine of $36$ and the sine of $36$ is one-half the side length.
+
+\begin{center} \includegraphics [scale=0.4] {pentagon_const2.png} \end{center}
+
+The figure claims that
+\[ \cos 36 = \frac{1 + \sqrt{5}}{4}  \]
+
+It's a simple challenge to derive it directly:
+\[ \cos^2 36 = 1 - (\frac{\sqrt{3 - \phi}}{2})^2 \]
+\[ = 1 - \frac{3 - \phi}{4} \]
+\[ = \frac{1 + \phi}{4} = \frac{\phi^2}{4} \]
+\[ \cos 36 = \frac{\phi}{2}   \]
+
+We can also check by squaring both results and adding:
+\[ (\frac{\sqrt{3 - \phi}}{2})^2 + (\frac{\phi}{2})^2 = \frac{1}{4} (3 - \phi + \phi^2) \]
+but $\phi^2 - \phi = 1$ so the result is just $1$, naturally.
+
+Writing what we have so far all in one place:
+
+$\circ \ $ $\sin 18 = 1/2 \phi = (\phi - 1)/2$
+
+$\circ \ $ $\cos 18 = \sqrt{2 + \phi}/2$ (see below)
+
+$\circ \ $ $\sin 36 =  \sqrt{3 - \phi}/2$
+
+$\circ \ $ $\cos 36 = \phi/2$
+
+Recall the half-angle formula for cosine:
+\[ \cos A = \sqrt{\frac{1 + \cos 2A}{2}} \]
+so 
+\[ \cos^2 18 = \frac{1 + \phi/2}{2} \]
+\[ \cos 18 = \sqrt{\frac{2 + \phi}{4}} = \frac{ \sqrt{2 + \phi}}{2} \]
+
+We can also check this using our favorite identity, as follows:
+\[ (\frac{1}{2 \phi})^2 + \frac{1 + \phi/2}{2} \]
+\[ = \frac{1}{4} ( \frac{1}{\phi^2} + 2 + \phi) \]
+
+Go back to the section on algebra:
+\[ \frac{1}{\phi^2} = (\phi - 1)^2 \]
+\[ = \phi^2 - 2 \phi + 1 = 2 - \phi \]
+Substituting into what's in the parentheses above immediately yields the correct answer, $1$.
+
+We can also confirm that
+\[ \sin 36 = 2 \sin 18 \cos 18 \]
+\[ = 2 \cdot \frac{1}{2 \phi} \cdot \frac{\sqrt{2 + \phi}}{2} = \frac{\sqrt{2 + \phi}}{2 \phi} \]
+
+This isn't close to what we had, but algebra with $\phi$ can get pretty weird.  Let's just go backwards from the answer.  
+\[  \frac{\sqrt{2 + \phi}}{2 \phi} =  \frac{\sqrt{3 - \phi}}{2} \]
+squaring
+\[ 2 + \phi = (3 - \phi) \phi^2 \]
+\[ = 3 \phi^2 - \phi^3 \]
+\[ = 3(\phi + 1) - (2\phi + 1) \]
+\[ = 2 + \phi \]
+which checks.
+
+Let's do one more:
+\[ \sin 54 = \sin 36 + 18 = \sin 36 \cos 18 + \sin 18 \cos 36 \]
+\[ = \frac{\sqrt{3 - \phi}}{2} \cdot \frac{ \sqrt{2 + \phi}}{2} + \frac{1}{2 \phi} \cdot \frac{\phi}{2} \]
+\[ = \frac{1}{4} \ (\sqrt{(3 - \phi)(2 + \phi)} + 1) \]
+\[ = \frac{1}{4} \ (\sqrt{6 + \phi - \phi^2 } + 1) \]
+
+It looks like a bit of a mess.  But we know the answer must be simple because $\sin 54 = \cos 36 = \phi/2$.  In other words, the expression in parentheses must be equal to $2 \phi$.
+\[ 2 \phi \stackrel{?}{=} \sqrt{6 + \phi - \phi^2} + 1\]
+But $\phi^2 = 1 + \phi$ so the right-hand side is
+\[ \sqrt{6 + \phi - 1 - \phi} + 1 = \sqrt{5} + 1 \]
+which is, indeed, $2 \phi$!
+
+\subsection*{trigonometry}
+
+So now we actually have all the pieces and might follow Ptolemy's method.
+
+I would rather digress to show a bit of new trigonometry.  It will connect to another place in the book where we talk about de Moivre's theorem.
+
+And there is a fancy trick that's specific to $18$ degrees.  Later we'll adjust to $36$.
+
+First, the new general result:  the formula for the cosine of three times the angle.
+
+\subsection*{cos 3A}
+
+We use the standard angle sum formula in a new version:
+\[ \cos 3A = \cos 2A \cos A - \sin 2A \sin A \]
+
+so then a second application of the formula gives
+\[ \cos 3A = (\cos^2 A - \sin^2 A) \cos A - (2 \sin A \cos A) \sin A \]
+\[ = (2 \cos^2 A - 1) \cos A - 2 \cos A (1 - \cos^2A) \]
+
+Just count up the terms.  We have
+\[ \cos 3A = 4 \cos^3 A - 3 \cos A \]
+
+$\square$
+
+This result can also be obtained by \hyperref[sec:de_Moivre_theorem]{\textbf{de Moivre's theorem}}:
+\[ \cos nx + i \sin nx = (\cos x + i \sin x)^n \]
+
+We have
+\[ \cos 3x + i \sin 3x = (\cos x + i \sin x)^3 \]
+\[ = \cos^3 x + 3i \cos^2 x \sin x + 3i^2 \cos x \sin^2 x + i^3 \sin^3 x \]
+
+We only need the real part, which is
+\[ \cos 3x = \cos^3 x - 3 \cos x \sin^2 x \]
+\[ = \cos^3 x - 3 \cos x (1 - \cos^2 x) \]
+which simplifies to the same result.
+
+\subsection*{sine of 18 degrees}
+
+Let $A = 18$.  Then
+\[ 5A = 90 \]
+\[ 2A = 90 - 3A \]
+\[ \sin 2A = \cos 3A \]
+
+Plug in the previous result
+\[ \sin 2A =  4 \cos^3 A - 3 \cos A \]
+\[ 2 \sin A \cos A - 4 \cos^3 A + 3 \cos A = 0 \]
+
+Each term contains one copy of $\cos A$, and since that is non-zero, we simply multiply by $1/\cos A$ on both sides, giving
+
+\[ 2 \sin A - 4 \cos^2 A + 3 = 0 \]
+\[ 2 \sin A - 4 (1 - \sin^2 A) + 3 = 0 \]
+\[ 4 \sin^2A + 2 \sin A - 1 = 0 \]
+
+Now we have a quadratic in $\sin A$.  The roots are
+\[ \sin A = \frac{-2 \pm \ \sqrt{4 + 16}}{8} \]
+\[ = \frac{-2 \pm 2 \sqrt{5}}{8} \]
+
+We take the positive root because $\sin A > 0$ in the first quadrant.
+\[ \sin 18 = \frac{-1 + \sqrt{5}}{4} \]
+\[ = \frac{1}{2} \cdot \frac{\sqrt{5} - 1}{2} \]
+
+This is almost $\phi$.
+\[ \phi - 1 = \frac{\sqrt{5} - 1}{2} \]
+so
+\[ \sin 18 = \frac{\phi - 1}{2} \]
+
+and since we showed earlier that
+\[ \frac{1}{\phi} = \phi - 1 \]
+
+the previous result can be re-written as
+\[ \sin 18 =  \frac{1}{2 \phi} \]
+
+\subsection*{construction 2, starting from a side length}
+
+Wikipedia gives another method for constructing a regular pentagon, this time starting from a given side length, $AB$.  The first part is straightforward.
+
+\begin{center} \includegraphics [scale=0.4] {pent_const3.png} \end{center}
+
+Draw two congruent circles with a radius of length $AB$ centered at $A$ and $B$.  Construct the perpendicular bisector $FG$ (not shown).  Construct the perpendicular from $A$ to meet the circle centered on $A$, at $H$.
+
+We will construct two more circles.  The first one is centered at $G$ with radius $GH$, intercepting the extension of $AB$ at $J$.
+
+\begin{center} \includegraphics [scale=0.4] {pent_const4.png} \end{center}
+
+\begin{center} \includegraphics [scale=0.4] {pent_const5.png} \end{center}
+
+The second one is centered at $B$ with radius $BJ$.  The intersection with the previous circle (at $E$) and with the perpendicular at $D$ are vertices of the pentagon.  
+
+The last vertex, at $C$, can be constructed by laying off arcs of the distance $DE$ from $D$ and $B$, or by repeating the construction with a large circle centered on $A$.
+
+\subsection*{why this works}
+
+It is claimed that 
+\[ \frac{BJ}{AB} = \frac{AB}{AJ} = \phi \]
+
+Let's see.  
+
+\[ AB = 1, \ \ \ \ \ \ AG = \frac{1}{2} \]
+\[ AH = AB = 1 \]
+\[ GJ = GH = \sqrt{1^2 + (\frac{1}{2})^2} = \frac{\sqrt{5}}{2}  \]
+\[ BJ = GJ + \frac{1}{2} = \phi \]
+
+\begin{center} \includegraphics [scale=0.4] {pent_const5.png} \end{center}
+
+and
+\[ AJ = BJ - 1 = \phi - 1 \]
+\[ \frac{AB}{AJ} = \frac{1}{\phi - 1} = \frac{\phi}{\phi^2 - \phi} = \phi \]
+
+So we can confirm that the ratios are correct.  Now we just need to connect the lengths in the diagram to sides of triangles in our view of the pentagon with internal chords. 
+
+\begin{center} \includegraphics [scale=0.4] {three_triangles_2.png} \end{center}
+
+The top vertex is easy.
+\[ AD = BD = BJ = \phi \]
+while $AB = 1$ so the ratio is $\phi$, which matches the red triangle.
+
+For vertex $E$, we must show that $BE = \phi$.  But $BE = BJ = \phi$.
+
+We verify that $D$ is placed correctly, as follows.  $D$ lies on the perpendicular bisector of $AB$ and is also a distance $\phi$ away from both $A$ and $B$,  forming an isosceles triangle with long sides $\phi$ and short side $1$.
+
+We could try to verify that $D$ is placed correctly by proving that the base $DE = 1$ to complete the triangle.  But this seems difficult, and it's easy to show that $\triangle ABE$ has two sides of length $1$ and one, $BE$, of length $\phi$.  Since this triangle is congruent to the short fat ones we find in a pentagon of side length $1$, we're done.
+
+$\square$
+
+\subsection*{construction 3}
+
+The third construction I have is said to be contained in Ptolemy's book \emph{The Almagest} (link below).
+
+\begin{center} \includegraphics [scale=0.6] {Ptolemy_chord2.png} \end{center}
+
+Once again, we divide the radius in half:  $a = r/2$.  The hypotenuse $BE$ is marked out so that $EF = BE$.  Then the second hypotenuse, $BF$ is claimed to be the side of a pentagon inscribed in a unit circle and $BE$ is the side of the decagon.
+
+If we let $r=1$ and $a = 1/2$ then
+\[ x + a = \sqrt{(\frac{1}{2})^2 + 1)} = \frac{\sqrt{5}}{2}  \]
+so
+\[ x = \frac{\sqrt{5}}{2}  - \frac{1}{2} = \phi - 1 \]
+and then $BF$ or
+\[ y = \sqrt{1^2 + (\phi - 1)^2} \]
+\[ = \sqrt{1 + \phi^2 - 2 \phi + 1} \]
+but $\phi^2 - \phi = 1$ so we have
+\[ y = \sqrt{3 - \phi} \]
+
+$BF = y$ is supposed to be the side of a pentagon and that matches what we had before.  $BE = x$ is supposed to be the side of a decagon.  We check that by recalling that the side of the pentagon is twice the sine of $36$, which matches.
+
+So the side of the decagon is twice the sine of 18 which is simply $1/\phi$.  We must show that this is equal to $\phi - 1$.  But we did this already, back near the beginning.  
+\[ \phi^2 = 1 + \phi \]
+\[ \phi = \frac{1}{\phi} + 1 \]
+
+And that's it.
+
+\subsection*{more about Ptolemy}
+
+This completes the first part of Ptolemy's \emph{The Almagest}, described in the link below.
+
+\url{https://hypertextbook.com/eworld/chords/#table1}
+
+\begin{center} \includegraphics [scale=0.6] {Ptolemy_chord1.png} \end{center}
+This figure is just to remind us that the discussion in the link describes values for the chord $AB$ of a central angle $\theta$, or inscribed (peripheral) angle $\theta/2$.  In modern language, we would say that the chord length $AB = 2r \sin \theta/2$ or
+\[ \frac{AB}{CD} = \sin \theta/2 \]
+
+When Ptolemy associates a value to a particular angle $\theta$ we should find the sine of one-half $\theta$ for comparison.
+
+Also, Ptolemy deals in ratios and his units are degrees, minutes and seconds.  In particular, the diameter $CD$ is also divided into degrees, namely, $120^{\circ}$.
+
+\begin{center} \includegraphics [scale=0.4] {Ptolemy_chord3.png} \end{center}
+On the first line, the angle is given as $36^{\circ}$ and from what we said, we need to look for the sine of $18^{\circ}$, which we have as
+\[ \frac{\phi - 1}{2} = \frac{\sqrt{5} - 1}{4} = 0.3090 \]
+
+This result must be converted to degrees for comparison.  I don't want to do arithmetic in degrees, etc., so I multiply $120 \times 3600 = 432000$.  The diameter is divided into that many parts.
+
+What we have is $0.309017$ times that or $133495.34$.  I divide by $3600$ and the whole part is $37$, the modulus is $295$.  Dividing by $60$ I then get $4$ with $55$ and a bit left over.  That's a match.
+
+The second part of \emph{The Almagest} involves what we know as the sum of angles formulas.  We actually used Ptolemy's theorem and his derivation of those relationships as our preferred proofs of them (\hyperref[sec:sum_angles_Ptolemy]{\textbf{here}}).  
+
+He uses the sum of arcs (i.e. angles), difference of arcs and half-arc formulas to fill out a table for every angle up to $180^{\circ}$ in increments of $3/4^{\circ}$.
+
+So he went from $36 \rightarrow 18$ and $30 \rightarrow 15$ and then $18 - 15 = 3$ and half $3$ is $1.5$ and half again is $3/4$.  That's a lot of work.
+
+\subsection*{approximation}
+
+The last part of the book involves an approximation for the sine of very small angles.  This allows not just small values to be calculated, but also fine-grained interpolation for the table as a whole.
+
+The basic idea is that as $\theta$ gets small, the sine becomes approximately equal to the arc traced by the angle.  For a hemisphere the arc is $\pi$ and the chord is the diameter, which I am calling $2$, for a unit circle.  For one-quarter circle the arc is $\pi/2$ and the chord is $\sqrt{2}$.  So the first ratio is $\pi$ divided by $2$ and the second is $\pi$ divided by $2 \sqrt{2}$.  Clearly, the denominator is increasing.
+
+To put it another way
+\begin{center} \includegraphics [scale=0.4] {lim_x_over_sinx.png} \end{center}
+For $0 < t < \pi/2$, we have $\sin t < t < \tan t$, but as $t \rightarrow 0$ they all become equal.
+
+If you already know about power series, you know (or can look up) that
+\[ \sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} + \dots \]
+so
+\[ \sin x \approx x \]
+when $x$ is sufficiently small.
+
+The justification used by Ptolemy involves a relationship called Aristarchus' inequality, which says that for $\alpha < \beta$:
+\[ \frac{\sin \alpha}{\sin \beta} > \frac{\alpha}{\beta}, \ \ \ \ \ \ \frac{\sin \alpha}{\alpha} > \frac{\sin \beta}{\beta} \]
+If $\alpha$ is smaller than $\beta$, $\sin \alpha$ gets proportionately closer to $\alpha$ than $\sin \beta$ is to $\beta$.
+\[ \sin \alpha \cdot \frac{\beta}{\alpha} > \sin \beta \]
+An aid to memory:  when the fraction multiplying the sine or chord is greater than one, then we need the greater than symbol on that side of the inequality.
+
+Suppose that $\angle \alpha$ is one-half $\angle \beta$.  Then the chord corresponding to $\angle \alpha$ or the sine of $\alpha$ is \emph{more than} one-half the corresponding value for $\angle \beta$.
+
+\subsection*{lemma and proof}
+I want to give a proof of Aristarchus' inequality.  Rather than use the one he or Ptolemy would use, we'll do something more modern.  
+
+It's based on a proof in wikipedia, and this gives a chance to introduce a trigonometric identity we've not seen until now.
+
+\url{https://en.wikipedia.org/wiki/Aristarchus%27s_inequality}
+
+Let's start with a lemma.  Recall the formulas for the sine of the sum and difference of two angles:
+\[ \sin x + y = \sin x \cos y + \sin y \cos x \]
+\[ \sin x - y = \sin x \cos y - \sin y \cos x \]
+
+Adding them makes the second term disappear and gives
+\[ \sin (x + y) + \sin (x - y) = 2 \sin x \cos y \]
+
+Now, the neat idea.  We do something close to what we want and then go back and fix it.  For starters, let 
+\[ A = x+y, \ \ \ \ \ \ B = x - y \]
+Then
+\[ A + B = 2x , \ \ \ \ \ \ A - B = 2y \]
+so
+\[ \sin A + \sin B = 2 \sin \frac{A + B}{2} \cos \frac{A - B}{2} \]
+
+We actually want something slightly different.  We want the sine term to have $B - A$.  So go back and instead let
+\[ -A = x - y, \ \ \ \ \ \ B = x + y \]
+
+Then 
+\[ B - A = B + (-A) \]
+\[ = x + y + (x - y) = 2x \]
+\[ x = (B - A)/2 \]
+and
+\[ B + A = B - (-A) \]
+\[ = x + y - (x - y) = 2y \]
+\[ y = (B + A)/2 \]
+and
+\[ \sin (x + y) + \sin (x - y) = 2 \sin x \cos y \]
+becomes
+\[ \sin B + \sin -A = 2 \sin \frac{B - A}{2} \cos \frac{B + A}{2} \]
+Finally, since $\sin - \theta = - \sin \theta$
+\[ \sin B - \sin A = 2 \sin \frac{B - A}{2} \cos \frac{B + A}{2} \]
+
+We proceed to the main part of the proof.
+
+\emph{Proof}.
+
+Consider two angles and let $A < B$, $A$ is smaller than $B$.  We are to prove that
+\[ \frac{\sin B}{B} < \frac{\sin A}{A} \]
+
+The meaning of this is that, as we said above, if $A$ is smaller than $B$ then proportionally, $\sin A$ is closer to $A$ than $\sin B$ is to $B$.  
+\[ \sin A > \frac{A}{B} \cdot \sin B \]
+
+The first step is an algebraic trick that we've seen several times.  First, rearrange what we are to prove like this:
+\[ \frac{\sin B}{\sin A} < \frac{B}{A} \]
+
+Subtracting $1$ from both sides doesn't change the inequality
+\[ \frac{\sin B}{\sin A} - \frac{\sin A}{\sin A} < \frac{B}{A} - \frac{A}{A} \]
+\[ \frac{\sin B - \sin A}{\sin A} < \frac{B - A}{A} \]
+\[ \frac{\sin B - \sin A}{B - A} < \frac{\sin A}{A} \]
+
+This statement is equivalent to what we need to prove.  If we can show that this is true, we'll be done.
+
+We proceed by finding a value in between the two expressions.  
+
+It turns out that $\cos A$ will work.
+\[ \frac{\sin B - \sin A}{B - A} < \cos A < \frac{\sin A}{A} \]
+
+The second part is easy
+\[  \cos A < \frac{\sin A}{A} \]
+This is just 
+\[ A < \frac{\sin A}{\cos A} = \tan A \]
+which can be shown by considering areas.  Compare the triangle with the dotted line with the area of the sector in the figure below.
+\begin{center} \includegraphics [scale=0.4] {lim_x_over_sinx.png} \end{center}
+The complete result is $\sin A < A < \tan A$.  (Recall that the area of the whole unit circle is $\pi$, while the entire angle is $2 \pi$, so the area of a sector swept out be angle $\theta$ is $A = \theta/2$.)
+
+Now we look more closely at the left-hand side.  
+\[ \frac{\sin B - \sin A}{B - A} < \cos A \]
+First, from our lemma, the numerator is
+\[ \sin B - \sin A = 2 \sin \frac{B - A}{2} \cos \frac{B + A}{2} \]
+
+We will make a simple substitution that make this term larger.  Then we'll show that the resulting inequality really is correct.  
+
+Since we've made the left-hand side \emph{bigger} and the relationship still holds, we know that the original expression is also valid.
+
+$B > A$ so the difference $B - A$ is positive but smaller than $B$.  
+
+For a small positive angle, the sine of the angle is smaller than the angle itself so we can replace $\sin (B-A)/2$ by $(B - A)/2$.  This makes the whole left-hand side larger.
+\[ 2 \cdot \frac{B - A}{2} \cos \frac{A + B}{2} \]
+
+We notice that we can cancel the original denominator (which was $B - A$), as well as that factor of $2$.  As a result, the whole inequality is reduced to
+\[  \cos \frac{B + A}{2} < \cos A \]
+
+But the average of two angles $(B + A)/2$ is larger than the smaller angle $A$:
+\[ A < B \]
+\[ 2A < B + A \]
+\[ A < \frac{B + A}{2} \]
+
+And, as the angle gets larger, the cosine gets smaller.  Hence, $\cos (B + A)/2$ is smaller than the cosine of $A$.
+
+In other words, the inequality is correct.  Since our manipulation made the numerator bigger and the inequality definitely holds, the original expression is valid.
+
+\[ \frac{\sin B}{B} < \frac{\sin A}{A} \]
+
+$\square$
+
+\subsection*{examples}
+
+The example from the book uses known values for the \emph{chord} of an angle of $3/4^{\circ}$ as well as 1-$1/2^{\circ}$.  As we said, the chord corresponds to the sine of the half-angle.
+
+The values are given in degrees, minutes and seconds of arc.  Let $s$ and $t$ be those values:
+\[ s = 0^{\circ}\ 47'\ 08'' = crd \ 3/4^{\circ} \]
+\[ t = 1^{\circ}\ 34'\ 15'' = crd \ 1.5^{\circ} \]
+It is immediately apparent that $2s > t$ but not by much, only one second of arc.  It should not be surprising that we end up with a linear approximation.
+
+The diameter is divided into $432000$ parts (120 degrees, 60 minutes,  60 seconds).  A calculator (and some fiddling) gives the following value for the sine of $3/4^{\circ}$ in parts of $432000$:  $5654.705$.
+
+A similar calculation for the sine of $3/8^{\circ}$ gives:  $2827.413$.  The whole part is exactly one-half, while the fractional part is slightly larger than half for the smaller angle.
+
+Doing the modular arithmetic, I get $47' \ 07"$ for the first and $1^{\circ} \ 34' \ 14"$ for the second.  Our source says they "didn't believe in rounding up, ever", as we do today for fractions larger than one half.  I suppose the error may come from the previous calculations.
+
+In any event, let us estimate the value for the chord $c$ of $1^{\circ}$ as Ptolemy would.  The angle $\theta = 1^{\circ}$ is $4/3 \cdot s$ so the calculation goes:
+\[ c < \frac{4}{3} \cdot 0^{\circ}\ 47'\ 08'' = 1^{\circ}\ 2'\ 50'' \]
+On the other hand, $\theta = 1^{\circ}$ is $2/3 \cdot t$ so 
+\[ c > \frac{2}{3} \cdot 1^{\circ}\ 34'\ 15'' = 1^{\circ}\ 2'\ 50'' \]
+
+(Remember, the greater than symbol goes with the fraction larger than one).
+
+Clearly, we have a good approximation for $c$.  The results seem to be exactly the same, though they cannot really be.  It just appears so because of round-off error.  If we do the same calculation with our modern precise decimals we get
+\[ c < \frac{4}{3} \cdot 2827.413 = 3769.884 \]
+\[ c > \frac{2}{3} \cdot 5654.705 = 3769.803 \]
+
+The true value is something like $1^{\circ}\ 2'\ 49''$ plus $800$ and some thousandths, which I cannot help but note is smaller than the reported value by (truncated to $49"$) by one second.
+
+According to the source:
+
+\begin{quote}The remainder of the Almagest consists of astronomical calculations: the position of the sun, moon, and planets at various times relative to the fixed stars. The Table of Chords played an important role in their compilation.\end{quote}
+
+\end{document}

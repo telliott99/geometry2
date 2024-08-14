@@ -1,0 +1,315 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Heron and Brahmagupta}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\label{sec:Heron_formula}
+
+Heron (or Hero) of Alexandria lived in the first century AD.  He was primarily an engineer, but is also remembered for Heron's Formula, which can be used to compute the area of a triangle from the lengths of its sides.  It is a simple formula that does not explicitly include the altitude $h$ or the components of side $c$.
+
+Heron's formula was later found to be a special case of a similar formula for quadrilaterals, discovered by Brahmagupta, which we'll study later.  Here's a standard triangle with vertex $A$ opposite side $a$ and so on
+\begin{center} \includegraphics [scale=0.4] {triangle8.png} \end{center}
+
+Let $s$ be one-half the perimeter, called the semi-perimeter:
+\[ s = \frac{1}{2} (a + b + c) \]
+\[ 2s = a + b + c \]
+
+then Heron says that the area, call it $\Delta$, is
+\[ \Delta = \sqrt{s \cdot (s-a) \cdot (s-b) \cdot (s-c)} \]
+\[ \Delta^2 = s \cdot (s-a) \cdot (s-b) \cdot (s-c) \]
+
+\subsection*{simple derivation}
+
+We use a bit of trigonometry.  The triangle shown above has area $\Delta$ in terms of angle $B$:
+\[ \Delta = \frac{1}{2} ac \sin B \]
+\[ 16 \Delta^2 = (2ac)^2 \sin^2 B \]
+\[ = (2ac)^2 \ [ \ 1 - \cos^2 B \ ] \]
+
+From the law of cosines, substitute for $\cos B$:
+\[ 16 \Delta^2 = (2ac)^2 \ [ \ 1 - (\frac{a^2 + c^2 - b^2}{2ac})^2 \ ] \] 
+\[ = (2ac)^2 - (a^2 + c^2 - b^2)^2 \]
+
+Some algebra with differences of squares follows:
+\[ 16 \Delta^2 = (2ac + a^2 + c^2 - b^2)(2ac - a^2 - c^2 + b^2) \]
+\[ = \ [ \ (a + c)^2 - b^2 \ ] \ [ \ (b^2 - (a - c)^2 \ ] \]
+\[ = (a + c + b)(a + c - b)(b + a - c)(b - a + c) \]
+
+Let $2s = a + b + c$.  Then
+\[ 16 \Delta^2 = 2s \cdot 2(s-a) \cdot 2(s - b) \cdot 2(s - c) \]
+\[ \Delta^2 = s (s - a)(s - b)(s - c) \]
+
+$\square$
+
+We now explore a justification for why each term is present in the equation.  To begin, note that the equation is symmetrical in $a,b$ and $c$.  This is expected, since there is no reason to distinguish among the sides.
+
+\subsection*{Levi}
+
+Mark Levi has a short proof of Heron's formula, linked on this page:
+
+\url{https://www.marklevimath.com/sinews}
+
+The url I have for this quote no longer points to the correct document, but I still like it:
+
+\begin{quote}
+The area-squared is obviously a symmetric and homogeneous polynomial of degree 4 in a, b, c, divisible by (a + b - c)(a + c - b)(b + c - a), since degenerate triangles have zero area. 
+
+Hence the area-squared divided by (a + b - c)(a + c - b)(b + c - a) is a symmetric and homogeneous polynomial of degree 1 in a, b, c, and so is (a + b + c) times some constant that must be 1 by considering, say, the 90, 45, 45 triangle. \end{quote}
+
+Let's just play with the formula.  Take what is under the square root above:
+
+\[ s \cdot (s-a) \cdot (s-b) \cdot (s-c) \]
+
+Multiply each term by $2$
+
+\[ 2s \cdot (2s - 2a) \cdot (2s - 2b) \cdot (2s - 2c) \]
+\[ = (a + b + c)(b + c - a)(a + c - b)(a + b - c) \]
+
+According to the formula above, $16A^2$, and hence the area itself, will be zero when 
+
+$\circ$ $a + b + c = 0$
+
+that is, when the sum of all three sides is equal to zero.  Since lengths are always positive, this means that $a = b = c = 0$, or 
+
+$\circ$ one of the other terms is zero, e.g. $a + b - c = 0$.
+
+that is, when one side length is equal to the sum of the other two.
+
+These are all ``degenerate" triangles, where the shape has collapsed either to a point (the first case) or to a line segment.
+
+The factor of 16 may be deduced from an example, e.g., an equilateral triangle with unit sides, altitude equal to $\sqrt{3}/2$ and area of $\sqrt{3}/4$.
+
+Suppose we do not know the factor, so let it be $k$ (rather than $16$):
+\[ k \cdot (\frac{\sqrt{3}}{4} )^2 =  (a + b + c)(b + c - a)(a + c - b)(a + b - c) \]
+\[ = 3 \cdot 1 \cdot 1 \cdot 1 = 3 \]
+Clearly, $k= 4^2 = 16$.
+
+Or, for an isosceles right triangle with sides $1$, $1$, $\sqrt{2}$:
+\[ k \cdot (\frac{1}{2})^2 = (2 + \sqrt{2})(\sqrt{2})(\sqrt{2})(2 - \sqrt{2}) \]
+\[ = (4 - 2)(2) = 4 \]
+
+The proof starts with the deduction that the area squared is ``a polynomial of degree 4 in $a,b,c$", and he works through why that is so. It makes sense, since area is itself the product of two lengths, each of which must be proportional somehow to the lengths of the sides.
+
+\subsection*{Lockhart}
+
+Here is a long-winded algebraic proof, from Lockhart, but there is a point!  It does not depend explicitly on trigonometry.  Instead, it hides what is in effect, a derivation of the law of cosines.
+
+\emph{Proof}.
+
+\begin{center} \includegraphics [scale=0.5] {triangle2.png} \end{center}
+
+Side $c$ is split into $x$ and $y$.  We can write three equations:
+
+\[ x^2 + h^2 = a^2 \]
+\[ y^2 + h^2 = b^2 \]
+\[ x + y = c \]
+
+Our objective is an equation that contains only $a$, $b$ and $c$.  From the first two:
+\[ a^2 - b^2 = x^2 - y^2 \]
+and from the third:
+\[ y^2 = c^2 - 2xc + x^2 \]
+so
+\[ a^2 - b^2 = x^2 - c^2 + 2xc - x^2 \]
+\[ = 2xc - c^2 \]
+then
+\[ a^2 + c^2 - b^2 = 2xc \]
+
+Finally a slight rearrangement:
+\[ x = \frac{c^2 + a^2-b^2}{2c} = \frac{c}{2} + \frac{a^2-b^2}{2c}   \]
+
+This says that to find the point where $c$ is divided into $x$ and $y$, we move from the center $c/2$ a distance of $(a^2 - b^2)/2c$.
+
+The corresponding equation for $y$ is
+\[ y = \frac{c}{2} - \frac{a^2-b^2}{2c} \]
+which is easily checked by adding together the final two equations, obtaining $x + y = c$.
+
+For the area, we will need $h$ somehow.  It is easier to use $h^2$.
+\[ h^2 = a^2 - x^2 \]
+\[ = a^2 - \frac{(c^2 + a^2-b^2)^2}{(2c)^2}  \]
+
+The area squared is
+\[ \Delta^2 = \frac{1}{4}c^2 h^2 \]
+\[ = \frac{1}{4} c^2 a^2 - \frac{1}{4} c^2 \frac{(c^2 + a^2-b^2)^2}{(2c)^2}  \]
+
+Lockhart:
+
+\begin{quote}
+the algebraic form of this measurement is aesthetically unacceptable. First of all, it is not symmetrical; second, it's hideous. I simply refuse to believe that something as natural as the area of a triangle should depend on the sides in such an absurd way. It must be possible to rewrite this ridiculous expression...
+\end{quote}
+
+Here's a start:
+\[ 16 \Delta^2 = (2ac)^2 - (c^2 + a^2-b^2)^2 \]
+
+This is much better.  It is still problematic, in that $a$ and $c$ do not appear symmetric with $b$.
+
+However, we immediately notice that it is a difference of squares.  First
+\[ 16 \Delta^2 = \ [ \ 2ac + (c^2 + a^2-b^2) \ ] \ [ \ 2ac - (c^2 + a^2-b^2) \ ]  \]
+
+And that has within it two squares, namely $(a + c)^2$ in the first term on the right-hand side, and $(a - c)^2$ in the second.
+
+\[ 16 \Delta^2 = \ [ \ (a + c)^2 -b^2) \ ] \ [ \ b^2 - (a - c)^2 \ ]  \]
+
+A second difference of squares.  Thus
+\[ 16 \Delta^2 =  (a + c + b)(a + c - b)(b + a - c)(b - a + c) \]
+
+At this point, we introduce the semi-perimeter $2s = a + b + c$ and then obtain after several steps
+\[ \Delta = \sqrt{s \cdot (s - a)(s - b)(s - c)} \]
+
+$\square$
+
+And that is symmetric in each of the three sides, as we hope and expect.
+
+\subsection*{check}
+As a simple example, if we have a right triangle with sides 3,4,5, then the area is one-half of 3 times 4 = 6.  The semi-perimeter is s
+
+\[ s = \frac{(3 + 4 + 5)}{2} = \frac{12}{2} = 6 \]
+We have
+
+\[ \Delta =  \sqrt { 6 (6-5) (6-4) (6-3) } =  \sqrt { 6 (1) (2) (3) } = 6 \]
+
+\subsection*{Brahmagupta}
+
+Brahmagupta was an Indian mathematician who lived in the 7th century AD in a region of India called Bhinmal, which is in Rajastan.  He completed the square to obtain the quadratic equation, and did many other amazing things in trigonometry and arithmetic, as well as this example from geometry.
+
+We consider a quadrilateral inscribed into a circle.  This is a special case, where the fourth point fits into the same circle determined by any three of the points.
+
+\begin{center} \includegraphics [scale=0.35] {brahmagupta.png} \end{center}
+
+We will prove that the area of this quadrilateral is given by Brahmagupta's formula.
+
+\[ A = \sqrt{(s-a) \cdot (s-b) \cdot (s-c) \cdot (s-d)} \]
+\[ A^2 = (s-a) \cdot (s-b) \cdot (s-c) \cdot (s-d) \]
+
+Heron's formula is thus a special case where $d = 0$.
+\[ A = \sqrt{s \cdot (s-a) \cdot (s-b) \cdot (s-c)} \]
+
+\subsection*{preliminary}
+
+We need two preliminary results.  If $M$ and $N$ are supplementary angles, then
+\[ \sin M = \sin N, \ \ \ \ \ \ \cos M = - \cos N \]
+
+Supplementary angles have mirror image symmetry across the $y$-axis.  This becomes obvious if you plot them.
+
+Then, draw the line connecting the two opposing vertices which are not $M$ and $N$.  Using the law of cosines we can write two equal expressions for $e^2$, namely:
+\[ e^2 = a^2 + b^2 - 2ab \cos M \]
+\[ e^2 = c^2 + d^2 - 2cd \cos N = c^2 + d^2 + 2cd \cos M \]
+
+Equating the two and grouping terms:
+\[ a^2 + b^2 - c^2 - d^2 = 2(ab + cd) \cos M \]
+
+Look at the diagram again.  
+
+\begin{center} \includegraphics [scale=0.35] {brahmagupta.png} \end{center}
+
+The triangle above the dotted line has area $(1/2) \ ab \sin M$ and similarly for the one below so the total area is
+\[ A_1 = \frac{1}{2} ab \sin M \]
+\[ A_2 = \frac{1}{2} cd \sin N = \frac{1}{2} cd \sin M \]
+
+Adding, the total area is:
+\[ A  =  \frac{1}{2}(ab + cd) \sin M \]
+\[ 4A =  2(ab + cd) \sin M \]
+
+\subsection*{algebra}
+
+Square the two main equations so far:
+\[ (a^2 + b^2 - c^2 - d^2)^2 =  \ [ \ 2(ab + cd) \ ]^2 \cos^2 M \]
+\[ 16A^2 =  \ [ \ 2(ab + cd) \ ]^2 \sin^2 M \]
+and add
+\[ 16A^2 + (a^2 + b^2 - c^2 - d^2)^2 =   \ [ \ 2(ab + cd) \ ]^2 \]
+
+Rearrange
+\[ 16A^2 =   \ [ \ 2(ab + cd) \ ]^2 - (a^2 + b^2 - c^2 - d^2)^2 \]
+
+As before, we proceed to factor two differences of squares.  
+
+First:
+\[ 16A^2 =   \ [ \ 2(ab + cd) + (a^2 + b^2 - c^2 - d^2) \ ] \ [ \ \ 2(ab + cd) - (a^2 + b^2 - c^2 - d^2) \ ] \]
+\[ = \ [ \ (a + b)^2 - (c - d)^2 \ ] \  \ [ \ (c + d)^2 - (a - b)^2 \ ] \]
+Second
+\[ = (a + b + (c - d))(a + b - (c - d)) \ (c + d + (a - b))(c + d - (a - b)) \ ] \]
+\[ = (a + b + c - d)(a + b - c + d)(c + d + a - b)(c + d - a + b) \]
+
+If the semi-perimeter is $s$ then
+\[ 2s = a + b + c + d \]
+
+So we have
+\[ 16A^2 = (2s - 2d)(2s - 2c)(2s - 2b)(2s - 2a) \]
+\[ A^2 = (s - d)(s - c)(s - b)(s - a) \]
+
+So lastly
+\[ A^2 = (s - a)(s - b)(s - c)(s - d) \]
+\[ A = \sqrt{(s - a)(s - b)(s - c)(s - d)} \]
+
+In comparing the two proofs, it's clear that the latter proof draws on the ideas of (i) using the semi-perimeter and (ii) difference of squares, which are in Heron's proof.  The main new ideas are trigonometric:  the law of cosines and the cancellation of $\sin^2 x + \cos^2 x$.
+
+We might see this by rewriting the proof of Heron's formula in the style of the Brahmagupta proof.  (Note:  Brahmagupta does not give proofs or say how he obtained his results).
+
+But we don't have to!  That's essentially what the proof from Twitter does, above.  First, the law of cosines.  Let $\alpha$ be the angle opposite side $a$:
+
+\[ a^2 = b^2 + c^2 - 2bc \cos \alpha \]
+\[ (b^2 + c^2 - a^2)^2 = (2bc)^2 \cos^2 \alpha \]
+
+And the area is
+\[ A = (1/2) bc \sin \alpha \]
+\[ 4A = 2bc \sin \alpha \]
+\[ 16A^2 = (2bc)^2 \sin^2 \alpha \]
+
+Adding
+\[ 16A^2 + (b^2 + c^2 - a^2)^2 = (2bc)^2  \]
+\[ 16A^2 = (2bc)^2 - (b^2 + c^2 - a^2)^2  \]
+
+The rest is exactly as before, it's just a matter of two differences of squares.
+
+\subsection*{example}
+Here is a problem where we can use Heron's formula:
+\begin{center} \includegraphics [scale=0.6] {keyboard.png} \end{center}
+
+The smaller 30-60-90 right triangle has a side labeled $1$.  
+
+Since $\sin 30^\circ = 1/2$, the side of the square has length $2$ so the square has area $4$.
+
+Using Heron's formula, the equilateral triangle has area
+\[ A_{eq} = \sqrt{3 \ (1)^3} = \sqrt{3} \]
+
+We get the base of the largest right triangle from the tangent of $60 ^\circ$.  
+\[ \tan \pi/3 = \frac{\sin \pi/3}{\cos \pi/3} = \frac{1/2}{\sqrt{3}/2} = \frac{1}{\sqrt{3}}  \]
+so
+\[ \frac{2}{\text{base}} = \frac{1}{\sqrt{3}} \]
+The base is $2\sqrt{3}$ and the area is then
+\[ A_{\ big T} = \frac{1}{2} \ 2 \sqrt{3} \cdot 2 = 2 \sqrt{3} \]
+
+Next is the small $\triangle EKR$.  Its base is 
+\[ \text{base} = 2 \ \cos \pi/6 = 2 \ \frac{\sqrt{3}}{2} = \sqrt{3} \]
+\[ A = \frac{1}{2} \ \sqrt{3} \cdot 1 = \frac{\sqrt{3}}{2} \]
+
+Finally, the last triangle is isosceles.  We know its diagonal is $\sqrt{3}$
+Let the side be $x$, then
+\[ \frac{x}{\sqrt{3}} = \frac{1}{\sqrt{2}} \]
+\[ x = \frac{\sqrt{3}}{\sqrt{2}} \]
+The area is
+\[ A = \frac{1}{2} x^2 = \frac{1}{2} \cdot \frac{3}{2} = \frac{3}{4} \]
+
+The total is
+\[ 4 + \sqrt{3} + 2 \sqrt{3} + \frac{\sqrt{3}}{2} + \frac{3}{4} \]
+which equals something.
+
+
+
+\end{document}

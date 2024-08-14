@@ -1,0 +1,212 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Euler's theorem}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+Euler has a huge number of important results.  Euler's theorem in \emph{geometry} relates to the circumcircle and incircle of a triangle.  As before, the circumcircle is the circle that contains the three vertices, while the incircle is that circle which just fits inside the triangle.  The respective radii will be $R$ and $r$.
+
+\begin{center} \includegraphics [scale=0.35] {Euler_thm_1.png} \end{center}
+
+We have already seen that these circles exist and are unique.  The circumcircle is constructed using the perpendicular bisectors of the sides.  The incircle is drawn tangent to all three sides of the triangle;  it has its center (the incenter) the same distance $r$ away from any side.
+
+We also showed previously that the angle bisectors of angles $\angle A$, $\angle B$ and $\angle C$ go through the incenter.  If we divide the side lengths into two parts on either side of the tangent point to the incircle, then it is easy to show that the area of the triangle, label it $K$, is equal to $r(x + y + z)$.  There are six smaller triangles, three pairs with equal area, of the form $rs/2$, where $s$ is one of $x,y,z$.
+\[ K = r(x + y + z) \]
+
+\begin{center} \includegraphics [scale=0.35] {Euler_thm_2.png} \end{center}
+
+We had another result about the area of the triangle earlier, relating $K$ to the side lengths and to the radius of the circumcircle $R$.  Using a standard formula for area we have that $2K = ab \sin C$.  But $\sin C = c/2R$.  So $2K = abc/2R$.
+\[ 4KR = abc \]
+
+Euler's result concerns the relationship between $R$ and $r$.  Going back to the first figure
+\begin{center} \includegraphics [scale=0.35] {Euler_thm_1.png} \end{center}
+We will (eventually) show that
+\[ d^2 =  R(R - 2r) = R^2 - 2rR \]
+
+But we will start by proving the inequality $R \ge 2r$, which is easily checked against the formula.  Since $d^2$ is not negative, we have that $R(R - 2r) \ge 0$, and since $R$ is positive, it must be that $R - 2r \ge 0$, which implies $R \ge 2r$,
+
+\subsection*{derivation}
+
+We follow Nelsen (2008)
+
+\url{https://www.maa.org/sites/default/files/Nelsen2-0859469.pdf}
+
+We will first derive the formula:
+\[ xyz = r^2 (x + y + z) \]
+
+To begin with, Nelsen builds a rectangle with scaled triangles, just as for the sum of angles theorem, as well as one proof of the Pythagorean theorem and Ptolemy's theorem.
+\begin{center} \includegraphics [scale=0.4] {Euler_thm_3.png} \end{center}
+
+I am going to modify the proof a bit.  For starters, we'll run the triangles from $\alpha$ at the bottom, then $\beta$ and $\gamma$.  This simply amounts to a reflection and rotation of the version he has, and makes the orientation consistent with the way we've done it before.
+
+More important, we are going to define $w$ differently, since I want to have symbols for the hypotenuse of all three triangles.
+
+\begin{center} \includegraphics [scale=0.4] {Euler_thm_7.png} \end{center}
+
+Let's construct the box containing four triangles. We know the three half-angles, $\alpha$, $\beta$ and $\gamma$, add up to one right angle.  
+
+We also know that the tangents of these angles are $r/x$, $r/y$ and $r/z$, respectively.  It is simple to show that the fourth triangle has angle $\alpha$ and we will distinguish the two triangles with angle $\alpha$ as $\triangle_{\alpha 1}$ and $\triangle_{\alpha 2}$.
+
+You can see that $u$, $v$ and $w$ are labels for each hypotenuse.
+\begin{center} \includegraphics [scale=0.4] {Euler_thm_8b.png} \end{center}
+
+As always, the trick here is to choose the right scale factors.  The identity that we're looking for comes from a comparison of the bottom of the rectangle to the top.
+
+The bottom of the rectangle consists of side $x$ of $\triangle_{\alpha 1}$.  We want that to be $xyz$ (compare with the formula at the beginning of this section), hence the appropriate factor is $yz$.
+
+\begin{center} \includegraphics [scale=0.4] {Euler_thm_9c.png} \end{center}
+
+Next, the hypotenuse of $\triangle_{\alpha 1}$ is also the base of $\triangle_{\beta}$, so they must be equal.  We see then, that the scale factor for the second triangle must be $uz$, so that the base of $\triangle_{\beta}$ does match the hypotenuse of $\triangle_{\alpha 1}$.
+
+That, in turn gives the scaled hypotenuse for the small $\triangle_{\alpha 2}$ as $ruz$ (or $urz$), which means that its scale factor must be $rz$.
+
+If you look at what we have for the two lengths on the right side of the rectangle, from the first $\triangle_{\alpha 1}$ we get $ryz$ and from the second we get $xrz$.  The sum is $rz(x+y)$.
+\begin{center} \includegraphics [scale=0.4] {Euler_thm_10c.png} \end{center}
+
+The final triangle ($\triangle_{\gamma}$) must be scaled to match.  Looking at its base (left side of the rectangle), we want $rz(x+y)$ so we deduce the necessary scale factor is $r(x+y)$.  
+\begin{center} \includegraphics [scale=0.4] {Euler_thm_10b.png} \end{center}
+
+Assembling the parts:
+
+\begin{center} \includegraphics [scale=0.4] {Euler_thm_12b.png} \end{center}
+
+Comparing the top and bottom sides (which must be equal, since this \emph{is} a rectangle), we obtain
+\[ xyz = r^2(x + y + z) \]
+
+\subsection*{checking our rectangle}
+
+It you look at the last (admittedly messy) figure, you may notice that there is one length we did not explicitly write or try to match.  That is the hypotenuse of $\triangle_{\gamma}$.  
+
+The original triangle had hypotenuse $w$ and the scale factor is $r(x+y)$.  This needs to match what is written on the opposite side of the line segment, namely 
+\[ wr(x + y) = vuz \]
+Somehow this must also be an equality.
+
+We don't explicitly need it for our proof (the other scaling takes care of everything), but it's a loose end that I'd like to tie up.
+
+We notice that $r/u = \sin \alpha$, and even more, if we multiply both sides by $r$ we can get $r/w = \sin \gamma$, so let's try doing that and then rearranging a bit
+\[ \frac{r}{u} \cdot \frac{r}{v} \cdot (x + y) = \frac{r}{w} \cdot z \]
+\[ = z \sin \gamma \]
+
+$\gamma$ is complementary to $\alpha + \beta$ so
+\[ \sin \gamma = \cos \alpha + \beta \] 
+which by sum of angles is
+\[\sin \gamma = \cos \alpha \cos \beta - \sin \alpha \sin \beta \]
+Let's rewrite this as
+\[ \frac{r}{w} = \frac{x}{u} \cdot \frac{y}{v} - \frac{r}{u} \cdot \frac{r}{v} \]
+
+That's a great simplification since we can cancel $u$ and $v$ on the bottom of the original left-hand side, giving
+\[ r^2 (x + y) = z(xy - r^2) \]
+But this is just our formula back again.
+\[ r^2 (x + y + z) = xyz \]
+
+$\square$
+
+We scaled the triangles by matching equal sides on different triangles, guided by our desire to have the distance on the left and right sides match.
+
+We obtain the desired equation by noting that since it's a rectangle, the top and bottom sides must also be equal.  Alternatively, when we consider the hypotenuse shared by $\triangle \beta$ and $\triangle \gamma$, the same equation comes out.  It is all consistent.
+
+\subsection*{combining results}
+
+So far we have three preliminary results or lemmas
+\[ K = r(x + y + z) \]
+\[ 4KR = abc \]
+\[ xyz = r^2(x + y + z) \]
+Combine the first and third
+\[ xyz = Kr \]
+
+The challenge now is to connect the side lengths $abc$ with the components $xyz$.  
+
+The geometric mean comes to our rescue.  Recall that the arithmetic mean ($A.M.$) is always greater than or equal to the geometric mean ($G.M.$).
+\[ A.M. \ge G.M. \]
+For example
+\[ \frac{x + y}{2} \ge \sqrt{xy} \]
+Putting all three pairwise combinations together
+\[ \frac{(x + y)(y + z)(z + x)}{8} \ge \sqrt{xy} \cdot \sqrt{yz} \cdot \sqrt{zx} \]
+
+The right-hand side is just $xyz$.  Referring to the figure, we see that the numerator on the left-hand side is simply $cab$ or $abc$.
+\begin{center} \includegraphics [scale=0.35] {Euler_thm_2.png} \end{center}
+It follows that
+\[ abc \ge 8 \cdot xyz \]
+So from the second lemma ($4KR = abc$):
+\[ KR \ge 2 \cdot xyz \]
+From the combined first and third ($xyz = Kr$):
+\[ KR \ge 2Kr \]
+which yields
+\[ R \ge 2r \]
+
+$\square$
+
+Show that $R = 2r$ for the equilateral triangle.  We leave this as an exercise.
+
+Hint:  Draw the incircle, then draw the right triangle with hypotenuse extending from the incenter to any vertex, and one side as the adjoining radius $r$.  
+
+The triangle is a 30-60-90 triangle so the ratio of the hypotenuse to $r$ is $2:1$.  If you go back to our previous work, we showed that the same same line segment (the hypotenuse of this triangle) is equal to $R$.
+
+\subsection*{equality form of Euler's theorem}
+
+We claimed that
+\[ d^2 =  R(R - 2r) = R^2 - 2rR \]
+Which can be written in various ways
+\[ R^2 - d^2 = (R + d)(R - d) = 2rR \]
+and even more elegantly as
+\[ \frac{1}{R - d} + \frac{1}{R + d} = \frac{1}{r} \]
+since 
+\[ R + d + R - d = 2R = \frac{R^2 - d^2}{r} \]
+
+Our proof follows
+
+\url{https://www.cut-the-knot.org/triangle/EulerIO.shtml}
+
+We draw $\triangle ABC$ with its incircle and incenter $I$.  $O$ is the circumcenter (center of the circumcircle).  $d$ is the distance between $I$ and $O$.
+
+\emph{Proof}.
+
+\begin{center} \includegraphics [scale=0.35] {Euler_thm_6.png} \end{center}
+
+We begin by considering some angles in the figure above.  As we showed elsewhere, the incenter is the point where the angle bisectors for the vertex angles of the original $\triangle ABC$ meet.  The half-angles at $A$ are labeled with magenta dots, while those at $C$ are labeled with blue.
+
+Two other angles are labeled with magenta by the inscribed angle theorem, one at $K'$ and one next to vertex $C$.  Then, we notice something interesting, that $\angle CIK$ is the external angle for $\triangle AIC$, so it gets a blue plus a magenta dot.  Thus $\triangle ICK$ is isosceles, with $IK = KC$.
+
+\begin{center} \includegraphics [scale=0.35] {Euler_thm_6.png} \end{center}
+
+Draw the diameter of the circle that passes through $I$ and $O$.  $I$ divides this diameter into two parts of lengths $R + d$ and $R - d$ (since the sum must be $2R$).
+\begin{center} \includegraphics [scale=0.35] {Euler_thm_4.png} \end{center}
+
+By our theorem on intersecting chords, the products of the parts are equal, namely
+\[ (R + d)(R - d) = AI \cdot IK \]
+Since the left-hand side is $R^2 - d^2$, what remains to be proved is that the right-hand side is equal to $2Rr$.
+
+We substitute for $IK$ in the previous expression $AI \cdot IK = AI \cdot KC$.
+
+Now, $\triangle AIZ$ and $\triangle KK'C$ are both right triangles containing the half-angle at $A$.  Hence they are similar, with ratios:
+\[ \frac{AI}{IZ} = \frac{KK'}{KC} \]
+Cross-multiplying
+\[ AI \cdot KC = KK' \cdot IZ = 2R \cdot r \]
+
+$\square$.
+
+\[ R^2 - d^2 = (R + d)(R - d) = 2rR \]
+
+Drawn on a small street in Athens.
+
+\begin{center} \includegraphics [scale=0.35] {Euler_thm_5.png} \end{center}
+
+That is indeed (part of) our proof.
+
+\end{document}

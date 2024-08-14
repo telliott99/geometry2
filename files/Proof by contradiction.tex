@@ -1,0 +1,589 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Proof}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+We begin to talk more formally about proof.  There are three generally recognized types of proof:
+
+$\circ$ \ \ direct proof
+
+$\circ$ \ \ indirect proof, proof by contradiction
+
+$\circ$ \ \ induction
+
+Direct proof is the sort of thing we've been doing.  For example, the theorem about the sum of angles in a triangle being equal to two right angles, or the isosceles triangle theorem.
+
+Here is another direct proof, by what could be called enumeration of cases.
+
+\subsection*{odd and even squares}
+
+If the perfect square of a number ($n^2$) is even, then the number $n$ is even also;  while if the square is odd, the number must be odd.
+
+To see this, write $n = 2k$ for $k \in 1,2,3 \dots$ as the definition of an even number.  Then $n^2 = 4k^2$, which is even.  
+
+On the other hand, if $n$ is odd, write $n = 2k + 1$ with $k \in 0, 1, 2 \dots$, so $n^2 = 4k^2 + 4k + 1$, which is odd.  
+
+Since there are only these two cases, we can conclude that the converse is also true:  an even square comes from an even number and an odd square from an odd number.
+
+$\square$
+
+This chapter introduces a new method of proof called proof by contradiction.  In Latin it is called \emph{reductio ad absurdum}.  
+
+We start with four simple proofs, for problems which are not really related to geometry, but provide insight into the method.  They are all very famous.  
+
+\subsection*{Bridges of Konigsberg}
+
+This problem lies historically at or near the beginning of an important branch of mathematics called graph theory.  It was solved by Euler in the early 18th century.  
+
+Konigsberg was a Prussian city on the river Pregel (now renamed and part of Russia) sited on two islands, and the challenge is to take a walk through the city, visiting the different islands and both banks of the river, while crossing every bridge exactly \emph{once}.
+
+\begin{center} \includegraphics [scale=0.3] {Konigsberg.png} \end{center}
+
+So now, we suppose that it is possible to make this ``traversal of the graph".
+
+The key to the proof is to notice that if we pass through an island, or one bank of the river, neither starting nor terminating there, then the number of bridges reaching that area must be even, since we have to cross each bridge once and only once.
+
+There are four regions or ``nodes" of the graph, and so there must be at least one region that is neither the beginning nor the end of our journey.
+
+Yet, as the map shows, there is no region with an even number of bridges.
+
+We have reached a contradiction.  The original supposition, that the traversal is possible, must not be correct.
+
+$\square$
+
+\subsection*{sum of a rational and irrational number}
+
+Let $a = m/n$ be a rational number ($m$ and $n$ are integers) and $c$ an irrational number ($c$ is not the ratio of two integers).  We claim that the sum $a + c $ is irrational.
+
+\emph{Proof}.
+
+Preliminary lemma:  by fundamental properties of integer addition and multiplication, the sum and product of two integers are both integers.  
+
+Therefore, the sum and difference of two rational numbers 
+\[ \frac{m}{n} \pm \frac{p}{q} = \frac{mq \pm np}{nq} \]
+are both rational numbers.
+
+Now, for $a = m/n$ rational and $c$ irrational, assume that $a + c$ is rational.  We assume the opposite of what we want to prove.
+
+\[ \frac{m}{n} + c = \frac{p}{q} \]
+Subtract $a = m/n$ from both sides.
+
+\[ c = \frac{p}{q} - \frac{m}{n} \]
+
+The right-hand side is rational, but $c$ is irrational.  
+
+This is a contradiction.
+
+Therefore, the sum and difference of a rational and an irrational number are both irrational numbers.
+
+$\square$
+
+A similar approach will show that the product of a rational and irrational is irrational. 
+
+\subsection*{square root of 2}
+
+\label{sec:sqrt_two}
+
+Probably the most famous proof by contradiction is the proof by Euclid that $\sqrt{2}$ is rational.
+
+The theorem is that there do not exist two integers $p$ and $q$ such that 
+
+\[ (\frac{p}{q})^2 = 2 \]
+\[ p^2 = 2q^2 \]
+
+\emph{Proof}.
+
+Start by supposing the opposite, that there are two such integers.  
+
+If they were both even, that could be easily recognized by looking at the last digit, and they might then be subjected to division by $2$ until they no longer share a factor of $2$.  Suppose that this has been carried out.
+
+Now we need a preliminary result:  the square of any even number is even, and the square of any odd number is odd.   Write the numbers as $2k$ and $2k + 1$ and then
+
+\[ (2k)^2 = 4k^2, \ \ \ \ \ \ (2k + 1)^2 = 4k^2 + 4k + 1 \]
+
+Clearly, the first is even and the second is odd.  Since these are the only two possibilities, an even square implies that the original number is also even.
+
+We had that
+
+\[ p^2 = 2q^2 \]
+But this means that $p^2$ is even, so $p$ is even, so we can rewrite $p$ as $2r$.
+
+\[ (2r)^2 = 4r^2 = 2q^2 \]
+\[ 2r = q^2 \]
+Thus, after division by $2$, we see that $q$ is also even.
+
+This contradicts our assumption that $p$ and $q$ are not both even.
+
+Therefore, there do not exist two such integers.
+
+$\square$
+
+\subsection*{infinity of primes}
+
+The fraction of numbers which is prime (the density of primes) decreases as the integers get larger.  There are 25 primes smaller than 100, 168 smaller than 1000, and later on the density is substantially less.  
+
+There is a famous theorem which says that the number of primes less than a given number $k$ is approximately:
+\[ \pi(k) \approx \frac{k}{\ln k} \]  
+
+For $k$ equal to one million, $\ln k \approx 13.8$ so $\pi(k)$ is about 7\% of $k$.  A quick check with Python gave 9592 for 100,000 and 78,498 for a million.
+
+The question arises, is the number of primes infinite?  The answer is yes.  Our proof follows Euclid:
+
+\emph{Proof}.
+
+Suppose, to the contrary, that the number of primes is finite.  
+
+Then, there must be a largest prime.  Call that number $p_n$.  
+
+Form the product of all the primes and add $1$ to it:
+\[ N = (2 \cdot 3 \cdot 5 \dots \cdot p_n)  + 1 \]
+
+Clearly, $N$ is not divisible by any of our known primes, since it leaves a remainder of $1$ for any of them.  By the definition of prime, $N$ is prime.
+
+This is a contradiction.
+
+Therefore, the number of primes is not infinite.
+
+$\square$.
+
+(Note 1:  this proof does not show that $N$ is the next prime greater than $p_n$.  For example, $2 \cdot 3 + 1 = 7$, which is prime, but $7$ is not the next prime after $3$.)
+
+(Note 2:  this proof assumes that we have listed \emph{all} the primes.  Another way to set it up is to say "take any finite list of primes..."  Then, the resulting $N$ is either prime, or it has a prime factor which is not in the list, since none of those factors divides $N$.)
+
+\subsection*{Hardy}
+
+To quote Hardy (\emph{A Mathematician's Apology}):
+
+\begin{quote}
+The proof is by reductio ad absurdum, and reductio ad absurdum, which Euclid loved so much, is one of a mathematician’s finest weapons. It is a far finer gambit than any chess gambit: a chess player may offer the sacrifice of a pawn or even a piece, but a mathematician offers the game.
+\end{quote}
+
+\subsection*{Apostol's geometric proof}
+
+There are many other proofs of the irrationality of the square root of $2$.
+
+\url{https://www.cut-the-knot.org/proofs/sq_root.shtml}
+
+Here we will look at a geometric proof from Tom Apostol (see the link).  A more elaborate exposition is:
+
+\url{https://jeremykun.com/2011/08/14/the-square-root-of-2-is-irrational-geometric-proof/}
+
+Theorem:  if there is an isosceles triangle with integer sides, then there is a smaller one with the same property.
+
+\emph{Proof}.
+
+Draw an isosceles triangle with side length $1$, then Pythagoras tells us that the hypotenuse is equal in length to $\sqrt{2}$ (left panel).
+
+Our hypothesis is that this length is a rational number, and its ratio to the side is in "lowest terms".
+
+\begin{center} \includegraphics [scale=0.4] {sqrt2e.png} \end{center}
+
+Mark off the length of the side (length $1$) on the hypotenuse, and erect a perpendicular (middle panel).  Also draw the line segment to the opposite vertex of the original triangle.
+
+The new small triangle that is formed containing the right angle and with side length $x$ in the middle panel is isosceles, because it is a right triangle, and it  contains one of the complementary angles of the original right triangle.
+
+By hypothesis, its side length $x$ is the difference of two rational numbers, so $x$ is a rational number.
+
+Furthermore, the \emph{other} small triangle is also isosceles.  Its base angles, when added to the equal angles of an isosceles triangle, form right angles.  This allows us to mark the side along the base as having length $x$ as well.
+
+Therefore, the hypotenuse of the new, small right triangle is a rational number, since it is equal to $1 - x$.
+
+We are back where we started, with an isosceles right triangle that has all rational sides.  
+
+It is clear that this process can continue forever.  The sides will never be in ``lowest terms" because we can always form a new similar but smaller right triangle, which amounts to evenly dividing both the sides and the hypotenuse by a rational number.
+
+$\square$
+
+\subsection*{isosceles triangles}
+
+To prove theorems in geometry, we proceed from known theorems or other accepted knowledge (e.g. axioms), to analyze a particular situation and arrive at a new theorem.
+
+As an example, in thinking about isosceles triangles, we've seen various proofs of the theorem which says that, if two sides of a triangle are equal, then the angles opposite are also equal (\hyperref[sec:isosceles_triangle_theorem]{\textbf{isosceles triangle theorem}}).
+
+\begin{center} \includegraphics [scale=0.4] {isosceles6.png} \end{center}
+
+\emph{Proof}.
+
+For $\triangle ABC$, if we are given that $AB = AC$, then it follows that the base angles at vertices $B$ and $C$ (marked with black dots) are equal.
+
+One proof (which we gave previously) involves drawing the angle bisector from $A$, the equal angles being marked with an $x$.  Then, we have SAS, since $AB = AC$, $\angle BAD \cong \angle DAC$ and $AD = AD$ (of course).  It follows that $AD$ is not only the angle bisector, but also the altitude and the median of the original triangle.
+
+$\square$
+
+There is a logical difficulty with the last proof which may be missed.  It depends on the proof that angle bisection can be done.  And \emph{that} proof depends, in turn, on this one.  That is the reason why Euclid uses his famously difficult proof of the theorem, which is discussed \hyperref[sec:Euclid_I_5]{\textbf{here}}.
+
+\subsection*{converse theorems}
+
+The converse is not necessarily true.  As the logicians would say:  if $p \rightarrow q$ is a true statement, we do not know whether $q \rightarrow p$ is a true statement.  It may be so, or may not.
+
+A famous example.  ``All men are mortal, Socrates is a man, therefore Socrates is mortal."  So if someone is mortal, can we conclude that person is a man?  A counterexample will do:  remember Cleopatra and the asp?
+
+There is one other deduction that can be made from a statement like $p \rightarrow q$.  Suppose it is a true statement that \emph{all cats are black}.  We see a four-legged critter that is not black.  We may conclude that whatever it is, it is not a cat.
+
+\subsection*{converse of Thales isosceles triangle theorem}
+
+For isosceles triangles, the converse theorem is:  given two equal angles in a triangle, the sides opposite are equal.
+
+In this case, there is a direct proof, which we also gave before (\hyperref[sec:isosceles_converse]{\textbf{isosceles triangle theorem:}}  angles $\rightarrow$ sides).
+
+\emph{Proof}.
+
+We have that the angles marked with black dots are equal. 
+
+Once again, draw the angle bisector $AD$ to the base $BC$.  The bisection means that the angles marked with x are equal.   Two angles equal in a triangle means all three angles are equal, so we have two equal (and therefore right) angles at $D$.
+
+\begin{center} \includegraphics [scale=0.4] {isosceles6.png} \end{center}
+
+We also have the shared side $AD$, flanked by two known equal angles.  Therefore, we have ASA and $\triangle$ congruence.  It follows that $AB = AC$ and $BD = DC$.
+
+$\square$
+
+Euclid's proof of the converse (equal angles $\rightarrow$ equal sides) is short and proceeds by the method of contradiction.
+  
+\subsection*{Euclid I.6}
+
+\label{sec:Euclid_I_6}
+
+If in a triangle two angles equal one another, then the sides opposite the equal angles also equal one another.
+
+\emph{Proof}.
+
+Suppose we have $\triangle ABC$ with equal angles $\beta = \gamma$ at the base (left panel).
+
+\begin{center} \includegraphics [scale=0.4] {PI_6b.png} \end{center}
+
+To begin with, we assume that the two sides $b$ and $c$ are not equal.  We will follow this logic and find a contradiction.
+
+Suppose $b$ and $c$ are not equal, then one of them is greater.  Let $c$ be greater, and then cut off $b$ from $c$ at point $D$ such that the new length $c' = b$.
+
+The new triangle has sides $c'$ and $a$, which flank angle $\beta$, while for the original we have side $b$ and side $a$ flanking angle $\gamma$.   But we constructed $c' = b$, are given that $\beta = \gamma$, and the side $a$ is common.  
+
+Therefore the $\triangle DBC \cong \triangle ACB$ by SAS.
+
+But this means that the lesser equals the greater, which is absurd. 
+
+Therefore $c$ cannot be unequal to $b$.  It therefore equals it.
+
+Our original assumption that $b$ does not equal $c$ must be false.
+
+$\square$
+
+One subtlety in this proof is that it assumes what is called the law of trichotomy.  Suppose we have two line segments $AB$ and $AC$.  Then only one of three possibilities can be true:  (i) $AB > AC$, (ii) $AB < AC$, or (iii) $AB = AC$.
+
+This is never explicitly assumed by Euclid.
+
+\subsection*{circle theorem from Thales}
+
+\label{sec:Thales_circle_theorem}
+
+Here is our beautiful theorem about circles.
+
+$\bullet$  Any angle inscribed in a semicircle is a right angle.
+
+Think of three points on the circumference of a circle, forming a triangle. If two of the points form a diameter of the circle (the line joining them passes through the center), then the angle formed at an arbitrary but distinct third point is always a right angle.
+
+In this figure, $\angle PRQ$ is a right angle (left panel).
+\begin{center} \includegraphics [scale=0.4] {arcs12.png} \end{center}
+
+\emph{Proof}.
+
+Draw the radius $OR$ (right panel). 
+
+The two smaller triangles produced ($\triangle OPR$ and $\triangle OQR$) are both isosceles (two sides equal), since two of their sides are radii of the circle.
+
+We have for the whole triangle two green dots and two magenta ones, and for the angle at $R$ one of each.  Hence the angle at $R$ is one-half the total measure of the triangle, namely, one right angle.
+
+$\square$
+
+\subsection*{Thales circle theorem converse}
+
+We have proved that given a semicircle and any point on the circle (not on the diameter), the angle formed with the sides drawn from the diameter is a right angle.
+
+What about the converse (right angle $\rightarrow$ point on the circle)?  Given a semicircle and $\triangle APB$, if $\angle APB$ is a right angle, we can prove that $P$ must lie on the circle.
+
+\begin{center} \includegraphics [scale=0.4] {Acheson_G58.png} \end{center}
+
+\emph{Proof}.
+
+By contradiction.  Assume that $\angle APB$ is a right angle, but $P$ lies inside the circle.
+
+Draw the continuation of $AP$ to form $AP'$ with $P'$ on the circle.  Then, by the forward version of the theorem, $\angle AP'B$ is a right angle.  But we have assumed that $\angle APB$ is also a right angle.
+
+Therefore, by the parallel postulate, $PB$ is parallel to $P'B$.  But these two line segments meet at $B$.  
+
+This is a contradiction.  
+
+Therefore $APB$ does not lie inside the circle.
+
+A similar argument shows that $P$ is not outside the circle, either.  If it does not lie either outside or inside the circle, it must lie on the circle.
+
+$\square$
+
+\subsection*{converse of the Pythagorean theorem}
+
+\label{sec:Pythagorean_theorem_converse}
+
+Let the three sides of a triangle have lengths $a$, $b$ and $c$ and furthermore, let $a^2 + b^2 = c^2$. We claim that this triangle is a right triangle.
+
+\emph{Proof}.
+
+Assume that a triangle with sides of lengths $a$, $b$ and $c$ is \emph{not} a right triangle.  
+
+Then some other triangle can be drawn with sides of length $a$ and $b$, such that $b$ meets $a$ in a right angle, and the hypotenuse $c'$ such that either $c' > c$ or $c' < c$.
+
+Then by the forward theorem
+\[ a^2 + b^2 = (c')^2 \]
+
+But we are given that
+\[ a^2 + b^2 = c^2 \]
+so 
+\[ (c')^2 = c^2 \]
+
+We are allowed to take the positive root only, since we are talking about lengths, which must be positive.  
+
+\[ c' = c \]
+
+This is a contradiction, we assumed that $c' \ne c$.
+
+Therefore $c' = c$.
+
+$\square$
+
+
+\subsection*{tangent to the circle} 
+
+Pick a point $P$ on a circle and draw the line segment $TP$ through $P$ that forms a right angle with the radius at $OP$.  Then that line (called the tangent), touches the circle only at $P$.
+
+\begin{center} \includegraphics [scale=0.4] {tangent3b.png} \end{center}
+
+\emph{Proof}.
+
+Pick a different point on the tangent.  Let's call it $Q$.  We suppose that $Q$ also lies on the circle.
+
+\begin{center} \includegraphics [scale=0.4] {tangent3c.png} \end{center}
+
+$\triangle OPQ$ is a right triangle and the right angle is at $P$.  Therefore, the side opposite, $OQ$ is the hypotenuse in a right triangle.  But the hypotenuse is the longest side in a right triangle (since the greater side lies opposite greater angle.  See \hyperref[sec:Euclid_I_18]{\textbf{Euclid I.18}}).  
+
+Therefore $OQ$ is longer than $OP$, but $OP$ is the radius, so $OQ$ is longer than the radius.  But $Q$ is supposed to lie on the circle.
+
+This is a contradiction.  
+
+Therefore, $Q$ lies outside the circle.
+
+$\square$
+
+\subsection*{bisector theorem}
+
+\label{sec:bisected_hypotenuse}
+
+Here is a very nice proof of the bisector theorem by contradiction.  
+
+The proof makes use of the converse of Euclid I.18:  in any triangle, the greater angle is opposite the greater side.
+
+\emph{Proof}.
+
+\begin{center} \includegraphics [scale=0.5] {median2.png} \end{center}
+
+$\circ$  Given $MA = MB$.  
+
+Now, make the assumption that will lead to a contradiction, that $MB < MC$.
+
+$\circ$  Then $\angle MCB < \angle B$ (by the converse of Euclid I.18).
+
+$\circ$  But $\angle MCB$ and $\angle MCA$ are complementary, as are $\angle B$ and $\angle A$.  It follows that $\angle MCB < \angle B$ implies $\angle MCA > \angle A$, since both pairs sum to one right angle.
+
+$\circ$  So (by Euclid I.18), $MA > MC$
+
+But we're given that $MA = MB$ and assumed $MB < MC$, so that is a contradiction.  
+
+$\circ$  Therefore $MB \nless BC$.  
+
+Similar logic starting with $MB > MC$ also leads to a contradiction.  Therefore, $MB = MC$.
+
+$\square$
+
+I saw the proof on Twitter but have lost the url.  Here is a link to the author's site
+
+\url{https://mrhonner.com}
+
+\subsection*{ASA by contradiction}
+
+\label{sec:ASA_contradiction}
+
+Euclid has a proof that ASA is sufficient for congruence (Euclid I.26).  This proof is included here since it uses contradiction.  
+
+\begin{center} \includegraphics [scale=0.35] {ASA_contradiction.png} \end{center}
+
+Suppose we have $\triangle ABC$ and $\triangle A'B'C'$ with equal sides $AB = A'B'$ and equal angles at vertices $A = A'$ and $B = B'$.
+
+We claim that these two triangles are congruent.
+
+\emph{Proof}.
+
+Suppose they are not congruent.
+
+Then one of the other sides must differ.  Suppose that only $A'C'$ is different, with $A'C' < AC$.  Mark off $AD = A'C'$.  
+
+Now we have that $\triangle ABD \cong A'B'C'$ by SAS.
+
+But we were given that $\angle ABC = \angle A'B'C'$ and now by congruent triangles we have that $\angle ABD = \angle A'B'C'$.  So $\angle ABD = \angle ABC$
+
+But $\angle ABD < \angle ABC$, so this is absurd.
+
+We have a contradiction.
+
+Therefore, ASA is sufficient to prove triangle congruence.
+
+\subsection*{a hard problem}
+
+\begin{center} \includegraphics [scale=0.15] {Coxeter_1_9_3_a.png} \end{center}
+
+Here's a very tough problem from Coxeter.  I was not able to solve it, but I'm putting it here because it uses a preliminary result that is really important.
+
+That lemma is obtained by a proof by contradiction.
+
+The problem statement is that $ABCD$ is a parallelogram, and $P$ is chosen such that the angles labeled $\alpha$ are equal:
+
+\[ \angle PDC = \angle PBC \]
+
+We are asked to show that 
+\[ \angle DPA = \angle CPB \]
+
+That is, $\gamma = \delta$.
+
+\emph{Proof}.
+
+Like many problems, the solution starts with an inspired construction.  Find $Q$ such that $AQPD$ is a parallelogram. 
+
+\begin{center} \includegraphics [scale=0.20] {Coxeter_1_9_3_b.png} \end{center}
+
+Then $BQPC$ is also a parallelogram.
+
+The claim is that $ABQP$ is a concyclic, a cyclic quadrilateral.
+
+As we said, the proof involves a lemma with a proof by contradiction.
+
+\emph{Lemma}
+
+Let $\triangle ABC$ lie on a circle.  
+
+Let point $D$ be such that $\angle BDC = \angle BAC$.  
+
+\begin{center} \includegraphics [scale=0.2] {Coxeter_1_9_3_c.png} \end{center}
+
+Then $D$ is also on the same circle.
+
+Suppose otherwise.  
+
+Then let $D'$ be on the circle so that $\angle BD'C$ is subtended by $BC$.
+
+By the forward version of the inscribed angle theorem:  
+$\angle BD'C = \angle BAC$
+
+That means $\angle BDC = \angle BD'C$.
+
+Since $\angle BCD > \angle BCD'$, we have that $\angle BD'C > \angle BDC$.
+
+But this is absurd.  So there is a contradiction.
+
+It must be that $D$ \emph{is on the circle}.
+
+$\square$
+
+Also, see \hyperref[sec:inscribed_angles_converse]{\textbf{here}}
+
+\emph{Proof}, continued.
+
+The arms of $\angle BAQ$ and $\angle CDP$ are both parallel, so the angles are equal.
+
+So then they are both equal to $\alpha$.
+
+\begin{center} \includegraphics [scale=0.20] {Coxeter_1_9_3_b.png} \end{center}
+
+$\angle BAQ$ is subtended by chord $BQ$.
+
+The diagonal of $BQPC$  forms equal $\angle BPQ$ and $\angle PBC$ where the latter is equal to $\alpha$.  Therefore
+\[ \angle BAQ = \angle BPQ = \alpha \]
+
+So by the lemma, $P$ is on the circle and $ABQP$ is concyclic.
+
+By the inscribed angle theorem
+\[ \angle APB = \gamma + \epsilon = \angle AQB \]
+
+because both angles are subtended by $AB$.
+
+At the same time:
+\[ \angle AQB = \angle DPC \]
+because both arms of each angle are parallel.
+
+And $\angle CPD = \delta + \epsilon$.  It follows that $\gamma = \delta$.
+
+$\square$
+
+
+\subsection*{other proofs by contradiction in this book}
+
+$\circ$ \ \ \hyperref[sec:Euclid_I_7]{\textbf{Euclid I.7}}
+
+$\circ$ \ \ \hyperref[sec:circle_area_Archimedes]{\textbf{area of circle}} (Archimedes)
+
+$\circ$ \ \ \hyperref[sec:diameter_of_a_circle]{\textbf{diameter of a circle}}
+
+$\circ$ \ \ \hyperref[sec:slope_of_tangent]{\textbf{slope of tangent to parabola}}
+
+$\circ$ \ \ \hyperref[sec:ellipse_proof_contradiction]{\textbf{reflection property of ellipse}}
+
+$\circ$ \ \ \hyperref[sec:isosceles_bisector]{\textbf{isosceles angle bisectors equal}}
+
+\subsection*{note on proofs}
+
+If you pick up a high school geometry textbook, you will see what they call \emph{two column} proofs, with the statement in one column and the reason in the second.  I prefer \emph{paragraph} proofs, but this is really just a matter of style.  
+
+However, another thing you will see there that I don't care for is formal statements of things that are obvious, and these will be required for \emph{every} proof.
+
+Rather than congruent triangles say:
+
+$\circ$ \ CPCTC: corresponding parts of congruent triangles are congruent.
+
+Or rather than $AC = 2 AB$ so $AB = AC/2$ say:
+
+$\circ$ \ division property of the equals sign"
+
+or some such.  If you must write something, say ``basic arithmetic."
+
+This seems unnecessary, unless you are taking such a course, and then it's essential.
+
+Here are a few others:
+
+$\circ$ \ Reflexive property, $QR = QR$.
+
+$\circ$ \ Symmetric property, $QR = RQ$.
+
+$\circ$ \ Transitive property, if $AB = BC$ and $BC = CD$, then $AB = CD$.
+
+Congruence of segments and angles implies all three properties.
+
+$\circ$ \ Angles supplementary to the same angle or to congruent angles are congruent.
+
+$\circ$ \ Angles complementary to the same angle or to congruent angles are congruent.
+
+
+\end{document}

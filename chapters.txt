@@ -1,0 +1,54 @@
+# First
+
+Polygons
+Cyclic quadrilateral
+Pentagon
+Polygons
+
+Revisiting proofs
+Proof by contradiction
+Induction
+Stewart and Apollonius
+Steiner Lehmus
+Pizza theorem
+
+Special points
+Four points
+Triangles in triangles
+Euler line
+Special circles
+Euler's theorem
+
+Vectors without coordinates
+Simple vectors
+Napoleon's theorem
+
+Curves
+Parabola
+Ellipse
+Cycloid intro
+
+Pi
+Area of a circle
+Pi is a constant
+Estimating Pi
+
+Later geometry
+The Almagest
+Pappus
+Hippocrates
+Heron and Brahmagupta
+
+Celestial applications
+Equal area, equal time
+Aristarchus
+Circular orbits
+
+Archimedes
+Pyramid and cone
+Archimedes and the sphere
+Platonic solids
+
+Addendum
+Pythagorean triples
+References

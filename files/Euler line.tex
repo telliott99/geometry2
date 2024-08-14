@@ -1,0 +1,101 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Euler line}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+It turns out that the orthocenter, centroid and circumcenter lie on a single line.  This proof, due to Euler, is stunning.  
+
+For what's coming in this chapter, we need the following preliminary result:  if two triangles share one angle and the two sides flanking that angle are in the same proportion, then all three sides are in the same proportion, and it follows that the two triangles are similar.
+
+\subsection*{SAS for similar triangles}
+
+\label{sec:SAS_similar_cosine}
+
+$\bullet$  \ If two triangles share an equal angle, and the two sets of flanking sides are both in proportion, then the two triangles are similar.
+
+We proved this theorem \hyperref[sec:SAS_similar]{\textbf{here}}.
+
+Here is a simple algebraic proof.  
+
+\emph{Proof}.
+
+Suppose the small triangle has sides $a,b,c$ and the larger triangle has sides $A,B,C$ with $A/a = B/b = k$.  Suppose that $\angle \gamma$ flanked by $a$ and $b$ is also flanked by $A$ and $B$.
+
+Use the law of cosines.  We have
+\[ c^2 = a^2 + b^2 - 2ab \cos \gamma \]
+\[ C^2 = A^2 + B^2 - 2AB \cos \gamma \]
+
+Since $A = ka$ and $B = kb$
+\[ C^2 = (ka)^2 + (kb)^2 - 2(k^2ab) \cos \gamma \]
+\[ = k^2 c^2 \]
+Hence $C/c = k$.
+
+$\square$
+
+\subsection*{Euler line}
+
+We follow:
+
+\url{https://artofproblemsolving.com/wiki/index.php/Orthocenter}
+
+A copy of their figure:
+
+\begin{center} \includegraphics [scale=0.35] {circumcenter4.png} \end{center}
+The point $O$ is the circumcenter of the triangle:  the center of the circle which contains all three vertices of the triangle.  
+
+Clearly, this circle  has a center.  The classic construction is to bisect each side (here $BC$ is bisected at $A'$), and erect a perpendicular.  The point where the three perpendiculars cross is the circumcenter, which is the center of the circle.  
+
+\begin{center} \includegraphics [scale=0.45] {three_point_circle2.png} \end{center}
+
+Assume we have done this and that point is $O$.
+
+\begin{center} \includegraphics [scale=0.35] {circumcenter4.png} \end{center}
+
+The next point, $G$, is the centroid.  One way to find this point is to draw all three lines connecting vertices with the midpoints of the opposite side ($AA'$).  However, if you recall, the distance from the vertex $A$ to $G$ is twice the distance from $G$ to the midpoint $A'$.  Hence we find point $G$ using arithmetic:  $AG = 2 \times A'G$.
+
+Now, extend $OG$ by twice its length, to $H$.  ($2 \times OG = GH$).  (It is an accident of the drawing that $OH$ appears to be horizontal, this is not true for the general case.)
+
+We will prove that $H$ is the orthocenter of the original triangle.
+
+\emph{Proof}.
+
+Because $AG$ is twice $A'G$ and $GH$ is twice $OG$ and the two triangles share the angle $\angle OGA'$ (equal to $\angle AGH$) between these two sides, they are similar triangles.
+
+Therefore $\angle A'OG$ is equal to $\angle AHG$, as corresponding angles in similar triangles.  
+
+It follows that $AH$ is parallel to $A'O$, by alternate interior angles.  And since $A'O$ is perpendicular to the base, $BC$, the extension of $AH$ to the base is also perpendicular to it.
+
+Thus, $AH$ is a part of the altitude from $A$ to $BC$ (the whole altitude is not shown).
+\begin{center} \includegraphics [scale=0.35] {circumcenter4.png} \end{center}
+
+We have shown elsewhere that the centroid is unique and the orthocenter is unique, and naturally, the circumcenter is unique.
+
+The same construction could be done for either of the other two altitudes, proceeding first to $O$, then to $G$ and each time ending at $H$.
+
+So the argument is that the three altitudes all cross at a single point, and the line $OGH$ crosses the three altitudes at a single point, $H$.  It must be that $H$ is the orthocenter, because if three lines that cross at a point, that point is unique, they can't also cross at some other point.
+
+The orthocenter, centroid and circumcenter lie on a single line, and the distance from centroid to orthocenter is twice that from centroid to circumcenter.
+
+$\square$
+
+We can also consider two other corresponding sides in the similar triangles.  One extends from the vertex above down to the orthocenter, and the other extends from the midpoint of the opposing side to the circumcenter.  The scale factor relating these two lengths is 2:1.
+
+\end{document}

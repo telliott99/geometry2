@@ -1,0 +1,103 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Computations}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{triangle area and radii for incircle and circumcircle}
+
+Acheson gives formulas that connect the area of a triangle (he uses the symbol $\Delta$ for the area), and the radius of either the incircle or the circumcircle. 
+
+The first one is just a matter of algebra, but the second is gorgeous.  It is really worth it to try to solve before you look at the answer.  So, write down the answer, close the book and then try!  Once again, an inspired diagram is everything.
+
+\[ r = \frac{2 \Delta}{a + b + c} \]
+\[ R = \frac{abc}{4 \Delta} \]
+
+Let $r$ be the radius of the incircle and $a$ be the length of the base opposite vertex $A$.
+
+Then the area of $\triangle BOC$ is equal to one-half $r \cdot a$.
+
+\begin{center} \includegraphics [scale=0.5] {incenter3.png} \end{center}
+
+So the area of the whole triangle is equal to one-half $r \cdot (a + b + c)$. 
+
+\[ 2 \Delta = r \cdot (a + b + c) \]
+\[ r = \frac{2 \Delta}{a + b + c} \]
+
+Define the \emph{semi-perimeter} $s$ as
+\[ s = \frac{a + b + c}{2} \]
+
+and then
+\[ r = \frac{\Delta}{s} \]
+\[ \Delta = rs \]
+
+That's an interesting parallel, that this formula is so similar to that for the area of the circle.  Here we have the radius of the incircle times the one-half the perimeter of the triangle.  Of course, for a circle, we have the radius times one-half its perimeter as well.
+
+For the second problem, the radius of the circumcircle, the key insight is in the diagram below.  After that it's easy.
+
+\begin{center} \includegraphics [scale=0.5] {circumcircle_area.png} \end{center}
+
+\emph{Proof}.
+
+The altitude to side $b$ (not shown) has length $c \sin \theta$.  So the area of the triangle is
+
+\[ \Delta = \frac{1}{2} bc \sin \theta \]
+
+But $\sin \theta = a/2$ divided by $R$ so
+
+\[ \Delta = \frac{1}{2} bc \cdot \frac{a}{2R} \]
+\[ \Delta = \frac{abc}{4 R} \]
+
+$\square$
+
+Here is an alternate proof from Hopkins.
+
+\begin{center} \includegraphics [scale=0.5] {circumcircle_area3.png} \end{center}
+
+\emph{Proof}.  (Alternate).
+
+As a preliminary matter, note that $\triangle ABC$ is any triangle, and the circle is its circumcircle, with radius $r$.  Then the extension of the radius to $D$ forms a right triangle $\triangle ACD$.  Since $\angle B$ and $\angle D$ cut off the same arc of the circle, they are equal.
+
+Therefore, $\triangle ACD$ is similar to the triangle formed by the altitude $h$ and including side $a$.  By similar triangles:
+\[ \frac{h}{a} = \frac{b}{2r} \]
+\[ h = \frac{ab}{2r} \]
+
+Twice the area of the triangle is
+\[ 2\Delta = ch \]
+\[ \Delta = \frac{abc}{4 r} \]
+
+$\square$
+
+Hopkins also notes that this result can be expressed purely in terms of the side lengths by using \hyperref[sec:Heron_formula]{\textbf{Heron's formula}} (which we introduced above and will say more about soon):
+
+\[ A^2 = s \cdot (s-a) \cdot (s-b) \cdot (s-c) \]
+
+(where $s = (a + b + c)/2$).
+
+\begin{center} \includegraphics [scale=0.5] {circumcircle_area3.png} \end{center}
+
+So 
+\[ r = \frac{abc}{4 \sqrt{s \cdot (s-a) \cdot (s-b) \cdot (s-c)}} \]
+
+You should be able to show that
+\[ r = \frac{abc}{\sqrt{(a + b + c)(a + b - c)(a + c - b)(b + c - a)}} \]
+
+
+\end{document}

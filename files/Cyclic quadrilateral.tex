@@ -1,0 +1,131 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Arcs of a circle}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{theorem on cyclic quadrilaterals}
+
+In this chapter we look at quadrilaterals where the fourth vertex is constrained to lie on the same circumcircle as the other three.  We showed this elementary theorem earlier:
+
+\begin{center} \includegraphics [scale=0.4] {circles_4.png} \end{center}
+
+$\bullet$ \ For \emph{any} quadrilateral whose four vertices lie on a circle, the opposing angles are supplementary (they sum to $180^\circ$).
+
+\emph{Proof}.
+
+Together, opposing angles exactly sweep out the whole arc of the circle.
+
+$\square$
+
+
+\subsection*{Brahmagupta's theorem}
+
+This is a theorem credited to Brahmagupta.
+
+\url{https://en.wikipedia.org/wiki/Brahmagupta_theorem}
+
+\begin{center} \includegraphics [scale=0.35] {bg1.png} \end{center}
+
+In this example, we have a special cyclic quadrilateral in which the diagonals are perpendicular.  Drop the altitude to any side, say $QP$ and extend it to meet the other side $MN$.  Then it bisects that side so $MS = SN$.
+
+\emph{Proof}.
+
+This is fairly straightforward.  Mark all the angles that are equal because they intersect equal arcs.  
+
+We notice that blue and magenta are complementary.
+
+\begin{center} \includegraphics [scale=0.35] {bg2.png} \end{center}
+
+So then, because $SR \perp QP$, we can fill in some more dots and then use vertical angles to show that two triangles are isosceles.
+
+\begin{center} \includegraphics [scale=0.35] {bg3.png} \end{center}
+
+From this, we conclude that $MS = OS = SN$.
+
+$\square$
+
+\subsection*{problem}
+
+Arcs of a circle often simplify problems.  Draw the altitudes and orthocenter of a triangle and draw its circumcircle.
+
+\begin{center} \includegraphics [scale=0.35] {Posamentier1_7.png} \end{center}
+
+Posamentier gives this relationship.  We claim that $HD = DG$.
+
+\emph{Proof}.
+
+It seems clear that this must be a consequence of a congruence:  it looks like $\triangle BCH \cong \triangle BCG$.  How to prove that?
+
+By looking at arcs subtended, we can get relationships for the new angles in $\triangle BCG$, and by similar triangles we can get the others shown:
+\begin{center} \includegraphics [scale=0.35] {Posamentier1_7a.png} \end{center}
+
+We have congruent triangles by ASA, the component right triangles are congruent for the same reason.  Or just say that the altitudes of congruent triangles are also equal.
+
+$\square$
+
+\subsection*{Van Schooten's theorem}
+
+This is given as a problem by Surowski (1.3.6).
+
+Given an equilateral triangle $ABC$ draw its circumcircle.
+
+Draw an arbitrary line segment from vertex $A$ through side $BC$ to meet the circle at $M$.  Prove that $AM = BM + MC$.
+
+This is easy to prove as a special case of Ptolemy's theorem, which is coming.  Nevertheless, we follow the hint.
+\begin{center} \includegraphics [scale=0.4] {Van_Schooten.png} \end{center}
+
+Extend $MC$ so that $AM = MD$.  Connect $AD$.
+
+\emph{Proof}.
+
+Since $\triangle ABC$ is equilateral, we mark each vertex with a red dot.  
+
+$\angle AMC$ and $\angle AMB$ are both peripheral and both are subtended by the same arc as an angle of $\triangle ABC$, hence we place two more red dots (middle).
+
+We have drawn $AM = MD$, so $\triangle AMD$ is isosceles.  But, since the vertex $\angle AMD$ is equal to an angle that is a vertex of an equilateral triangle, $\triangle AMD$ is equilateral.  We place one red dot at $D$ and wait a bit for the other vertex.
+
+The overlapping $\angle BAC$ and $\angle MAD$ are both vertices of equilateral triangles, so they are equal.  
+
+Therefore, the non-overlapping parts are also equal (marked with blue dots).  We place two magenta dots at angles that are subtended by arc $MC$.
+
+So now, we know that certainly $\triangle BAM \sim \triangle ACD$.  
+
+But also, $AM = AD$ because $\triangle AMD$ is equilateral.  So we have ASA and $\triangle BAM \cong \triangle ACD$.
+
+By congruent triangles the sides $BM$ and $CD$ are equal.  Given $AM = MD$, so
+\[ AM = MD = MC + CD \]
+\[ = MC + BM = BM + MC \]
+
+$\square$
+\begin{center} \includegraphics [scale=0.4] {Van_Schooten.png} \end{center}
+
+\newpage
+
+\subsection*{converse}
+Suppose we are given that the angles $A$ and $C$ are supplementary, and that points $A,B,$ and $C$ lie on the circle as drawn.
+
+Then $D$ also lies on the circle.
+
+\begin{center} \includegraphics [scale=0.22] {Cyclic_quad_converse_b.png} \end{center}
+
+We proved this previously \hyperref[sec:equal_angle_on_circle_contradiction]{\textbf{here}}.
+
+\end{document}

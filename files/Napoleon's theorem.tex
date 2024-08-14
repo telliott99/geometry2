@@ -1,0 +1,185 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Vectors}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+We continue looking at vectors, without coordinates, and apply them to two difficult problems.
+
+\subsection*{sides of a quadrilateral}
+
+We choose any four points in the plane to form a generalized quadrilateral, so the vertices could be anything, and the vectors corresponding to the sides could be anything as well.
+
+Draw a square on each side of the quadrilateral and connect the centers of opposing squares, as shown in the diagram below.  The resulting vectors will be perpendicular and equal in length, no matter which points are chosen initially.
+\begin{center} \includegraphics [scale=0.3] {vec2.png} \end{center}
+
+We are going to reason about these paths using vectors but not coordinates.  For this first problem, we are concerned with squares.  The path from vertex to center and back to the next vertex is shown in the left panel, below.
+
+\begin{center} \includegraphics [scale=0.35] {vec3.png} \end{center}
+
+$\mathbf{v'}$ is defined to be $\mathbf{v}$ transformed by a quarter-turn counter-clockwise.  $- \mathbf{v'}$ is $\mathbf{v'}$, but in the opposite direction.
+
+Since the sides can be any length, rather than $\mathbf{v}$, we will use vectors $\mathbf{a}$ through $\mathbf{d}$ for the four different sides.
+\begin{center} \includegraphics [scale=0.4] {vec5.png} \end{center}
+So the first path, from center to center is
+\[ \mathbf{p} = \mathbf{-a'}+ \mathbf{a} + \mathbf{b} + \mathbf{b} + \mathbf{c} +\mathbf{c'} \]
+
+And the second is
+\[ \mathbf{q} = \mathbf{-b'} + \mathbf{b} + \mathbf{c} + \mathbf{c} + \mathbf{d} + \mathbf{d'} \]
+
+Notice that the first path goes roughly left-to-right, while the second goes top-to-bottom.  
+
+In order to check whether the two paths are at right angles, we should rotate the first path by one-quarter turn counter-clockwise.  If the theorem is correct, $\mathbf{p'}$ should run in the exact opposite direction as $\mathbf{q}$, with the same length.  They should add to give zero.
+
+First path, rotated:
+\[ \mathbf{p'} = \mathbf{-a''}+ \mathbf{a'} + \mathbf{b'} + \mathbf{b'} + \mathbf{c'} +\mathbf{c''} \]
+Each component has gained a prime ($'$).  That's all it takes to rotate a vector path, just rotate each component.
+
+Now, $\mathbf{-a''} = \mathbf{a}$ and $\mathbf{c''}  = \mathbf{-c}$ (rotating 180 is the same as minus).  Also, it makes no difference in which order you do the operations, whether first minus and then prime, or vice-versa.
+
+Added together
+\[ \mathbf{p'} + \mathbf{q} =  \mathbf{a}+ \mathbf{a'} + \mathbf{b'} + \mathbf{b'} + \mathbf{c'}  - \mathbf{c} - \mathbf{b'} + \mathbf{b} + \mathbf{c} + \mathbf{c} + \mathbf{d} + \mathbf{d'} \]
+
+The question is, do these add up to zero?  If so, we can conclude that the original two vector paths were orthogonal and the same length.
+
+We can knock out the full path of the quadrilateral, as we end up where we started so that sum should be zero.  
+
+We subtract $\mathbf{a} + \mathbf{b} + \mathbf{c} + \mathbf{d} = 0$, leaving:
+\[ \mathbf{p'} + \mathbf{q} =  \mathbf{a'} + \mathbf{b'} + \mathbf{b'} + \mathbf{c'} +\mathbf{-c} + \mathbf{-b'} + \mathbf{c} + \mathbf{d'} \]
+Similarly $\mathbf{a'} + \mathbf{b'} + \mathbf{c'} + \mathbf{d'} = 0$.  Subtract again:
+\[ \mathbf{p'} + \mathbf{q} =  \mathbf{b'} -\mathbf{c} - \mathbf{b'} + \mathbf{c} \]
+What's left is zero, so the whole thing is zero.  
+
+We conclude that the vectors which connect opposing centers are orthogonal and the same length.  
+
+$\square$
+
+That's pretty amazing.  The theorem is called van Aubel's theorem (1878).  I learned about this proof and the theorem here:
+
+\url{https://www.youtube.com/c/MathyJaphy/videos}
+
+Among other things, the animation is terrific.
+
+\subsection*{sides of a triangle}
+\begin{center} \includegraphics [scale=0.3] {vec6.png} \end{center}
+
+This problem is similar to the last one.  On the three sides of any triangle, we construct equilateral triangles.  Find the "center" of each triangle, and connect them.  The result is an equilateral triangle.
+
+I saw this problem in another book and worked on it for quite a while (days) without getting anywhere.  
+\begin{center} \includegraphics [scale=0.3] {vec4.png} \end{center}
+
+The vector approach provides a simple answer.  The right panel, below, shows the idea.  First, we need to find the center of an equilateral triangle.  Luckily, all the centers --- centroid, circumcenter, orthocenter and incenter --- are the same point for an equilateral triangle.
+\begin{center} \includegraphics [scale=0.35] {vec3.png} \end{center}
+
+That point lies on a central line of the triangle and is one-third of the way up from the base.
+
+To get there, we will use rotations that are 60 degrees, and define those as the transformation called prime.  As shown, $\mathbf{v'}$ is a 60 degree rotation counter-clockwise from any starting vector $\mathbf{v}$.    
+
+A clever idea is to go to the centroid by addition of one-third of a side plus the same vector, primed.  The path along one edge is as shown above. 
+
+For any triangle, the centroid is the average of the three vertices.  (This gives a different simple proof for $r$ in the centroid problem, using coordinates).
+
+From one vertex, take one-third of a step toward each of the other two vertices.  Here is a visual proof without words.
+\begin{center} \includegraphics [scale=0.4] {vec8.png} \end{center}
+
+Using this approach, we construct two paths as shown.  One is from the center of the triangle with sides constructed from $\mathbf{a}$ to the one with sides $\mathbf{b}$.
+
+\begin{center} \includegraphics [scale=0.4] {vec7.png} \end{center}
+\[ \mathbf{p} = \mathbf{-a''} + \mathbf{a} + \mathbf{b} + \mathbf{b'} \]
+
+The other is (by symmetry)
+\[ \mathbf{q} = \mathbf{-b''} + \mathbf{b} + \mathbf{c} + \mathbf{c'} \]
+
+The big question is then:  how do we decide when two vectors form the sides of an equilateral triangle?  One set of criteria is that the two sides should be the same length, and flank an angle of 60 degrees.  
+
+If you look at the graphic, you'll see that $\mathbf{p}$ points toward the vertex of interest, while $\mathbf{q}$ points away from it (vectors are head to tail).  Therefore, if we turn the first vector $\mathbf{p}$ counter-clockwise, it should point in the exact opposite direction from $\mathbf{q}$, and then the sum $\mathbf{p'} + \mathbf{q}$ will be $\mathbf{0}$.  Let's see.
+
+Starting with 
+\[ \mathbf{p} = \mathbf{-a''} + \mathbf{a} + \mathbf{b} + \mathbf{b'} \]
+
+After the rotation, each one has acquired a prime.  The first component, $\mathbf{-a''}$, turns into $\mathbf{-a'''} = \mathbf{a}$.
+\[ \mathbf{p'} = \mathbf{a} + \mathbf{a'} + \mathbf{b'} + \mathbf{b''} \]
+
+Add together:
+\[ \mathbf{p'} + \mathbf{q} = \mathbf{a} + \mathbf{a'} + \mathbf{b'} + \mathbf{b''} - \mathbf{b''} + \mathbf{b} + \mathbf{c} + \mathbf{c'} \]
+
+Now, $\mathbf{a} + \mathbf{b} + \mathbf{c} = 0$ and similarly for the primed versions, so those terms all drop out, leaving $\mathbf{b''} - \mathbf{b''}$, which is of course, zero!
+
+We have proven that the vectors corresponding to two sides of our construct are the same length, and have an angle of 60 degrees between them.  Thus, they form an equilateral triangle.
+
+$\square$
+
+This theorem is called Napoleon's theorem.  It seems likely that the association with Napoleon is apocryphal.
+
+\url{https://en.wikipedia.org/wiki/Napoleon%27s_theorem}
+
+\subsection*{algebraic proof}
+
+To simplify the notation, let the angle at vertex $A$ be $A$, the side opposite be $a$ with length $a$, and so on.
+
+The medians of the equilateral triangles erected on the sides will be $H$, $I$ and $G$, while $s$, $t$ and $u$ are sides of $\triangle AGI$ with vertices being two of the medians and vertex $A$.
+
+\begin{center} \includegraphics [scale=0.3] {napoleon1.png} \end{center}
+We use the law of cosines, several times.  First, recall that the line from the centroid of an equilateral triangle to any vertex bisects the angle at the vertex.  So side $u$ bisects $\angle CAE$ and side $t$ bisects $\angle BAF$, and the angle between $t$ and $u$ is $A + 60$.
+
+Then, by the law of cosines
+\[ s^2 = t^2 + u^2 - 2tu \cos (A + 60) \]
+A second key point is that we can obtain sides $t$ and $u$ in terms of the original sides $c$ and $b$.  
+
+The median of an equilateral triangle forms a triangle with sides in the ratio $1$-$2$-$\sqrt{3}$.  The triangle with hypotenuse $u$ is similar to this triangle, so the ratio of the long side to the hypotenuse is:
+\[ \frac{b/2}{u} = \frac{\sqrt{3}}{2}, \ \ \ \ \ b = \sqrt{3} u, \ \ \ \ \ b^2 = 3u^2  \]
+Also, $c^2 = 3t^2$.  
+
+Going back to the first equation and multiplying by $3$ we obtain:
+\[ 3 s^2 = c^2 + b^2 - 2bc \cos (A + 60) \]
+\begin{center} \includegraphics [scale=0.3] {napoleon1.png} \end{center}
+
+This could be done for any of the other two sides, by symmetry.  For example, we can relate $HI$ to sides $a$ and $b$:
+\[ 3 HI^2 = a^2 + b^2 - 2ab \cos (C + 60) \]
+
+We can connect these two expressions through the line segment $BE$.
+
+Looking toward vertex $A$ and employing the law of cosines again, we have:
+\[ BE^2 = b^2 + c^2 - 2bc \cos (A + 60) \]
+Looking instead toward vertex $C$ we have
+\[ BE^2 = a^2 + b^2 - 2ab \cos (C + 60) \]
+
+These two expressions are equal, and therefore the things we found equal to them previously are also equal.  Namely:
+\[ 3s^2 = 3 HI^2 \]
+\[ s = HI \]
+The same thing could be done for either of the other pairs of sides.
+\[ s = GI = GH = HI \]
+
+$\triangle GHI$ is equilateral.
+
+$\square$
+
+We just note in passing that since $AD^2 = a^2 + b^2 - 2ab \cos (C + 60)$, and $BE^2$ is equal to the same expression, we have that $AD = BE$ and by extension, both are equal to $CF$.
+
+Also, connect each vertex of the original triangle with that of the equilateral triangle opposite:  forming $AH, BI$ and $CG$.   These lines cross at \emph{Fermat's point}.
+
+\url{https://www.cut-the-knot.org/proofs/napoleon.shtml}
+
+Apparently, there is a tiling pattern in the figure.  This graphic isn't perfect (my poor skills with the program), but I think you get the idea.  
+\begin{center} \includegraphics [scale=0.3] {napoleon2.png} \end{center}
+There is a hexagonal pattern that contains the centroids of the equilateral triangles, and a three-fold rotational symmetry around each of them.
+
+
+\end{document}
