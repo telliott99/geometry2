@@ -18,7 +18,7 @@
 
 \graphicspath{{_my_graphics_path}}
 
-\title{Elementary Geometry, part II}
+\title{Elementary Geometry II}
 \author{Tom Elliott}
 \date{\today}
 
