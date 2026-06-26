@@ -1,0 +1,256 @@
+\documentclass[14pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Inversive Geometry}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\emph{Inversion} in a circle maps a point in the plane to (typically) a different point in the plane.  The mapping is continuous, so if points lie close together before inversion they are close together afterwards.  A locus of points is transformed into another locus, e.g. a circle is in most cases transformed into another circle.
+
+To carry out inversion, one starts by choosing a reference circle.  We will refer to $\omega$, the \emph{inversion circle}, with its \emph{inversion center} at $O$ having radius $k$.  We show $\omega$ as a dotted circle.
+
+Let $P$ be an arbitrary point, distinct from $O$.  The inverse of $P$ is called $P'$.  $P'$ lies on the ray through $OP$ according to the following rule:
+\begin{center} \includegraphics [scale=0.40] {inversion1.png} \end{center}
+\[ OP \cdot OP' = k^2 \ \ \ \ \ \ \ \  \frac{OP}{k} = \frac{k}{OP'} \]
+
+We can write $ I_{\omega} (P) = P'$.  
+
+Rather than the ray, we will just draw a line segment, with definite endpoints, and also as usual just call it line segment a line, for brevity.
+
+A locus of transformed points is referred to as the image of the input locus under inversion.  In some cases the image of a point is the same as the original.  Points lying on $\omega$ invert into themselves, because then $OP = k = OP'$.
+
+You can see in the example above that $OP$ is about one-half of $k$, so then the length of $OP'$ is twice $k$.  The image of a point close to $O$ may be very far away.
+
+$O$ is a special point in more than one way.  As $P$ approaches $O$, the inverse $P'$ moves farther and farther away.
+
+Here's an overview, with the \emph{inversion circle} represented as a dotted circle.  The blue circle maps to the one in cyan and the red circle maps to the one in tan.  The converse is also true.
+\begin{center} \includegraphics [scale=0.55] {inversion16.png} \end{center}  
+
+Points outside the inversion circle get mapped to points inside, and vice-versa.  A line through the center maps to itself.
+
+A locus through the center of the inversion circle (magenta circle) is a special case --- it maps to the purple line. The black circle is another special case, it maps to a circle that looks just like original, although all of the points have been swapped (except the two lying on the inversion circle).
+
+The complete theory invents a "point at infinity" which is the inverse of $O$.  We won't worry about that.  We'll just think of the set of possible inputs to $I$ as the "punctured plane", with $O$ missing.
+
+When we say something like ``a circle through $O$'', we are not worrying about the point $O$ itself.
+\begin{center} \includegraphics [scale=0.30] {inversion1a.png} \end{center}
+
+We call points that are invariant under inversion, fixed.  Let $R$ be a point on $\omega$, so the length of $OR$ is $k$.  Then we have that
+\[ I_{\omega} (R) = R' = R \]
+
+Much of our work with inversions involves similar triangles.  Coxeter introduces it this way:
+\begin{center} \includegraphics [scale=0.30] {Coxeter_5_3A.png} \end{center}
+Draw the chord $TU \perp OP$.  Then $P'$ is the point where the tangents from $T$ and $U$ meet.  From similar triangles $\triangle OTP' \sim \triangle OPT$, so we have:
+\[ \frac{OP'}{k} = \frac{k}{OP} \]
+
+An analogous transformation in three dimensions uses a sphere, in space.
+
+\subsection*{inversion is an involution}
+
+If $P'$ is the inverse of $P$, then the inverse of $P'$ is $P$.
+
+\emph{Proof}.  Let $P''$ be the inverse of $P'$, with $OP' \cdot OP'' = k^2$.  But $k^2 = OP \cdot OP'$.  It follows that $OP'' = OP$. $\square$
+
+If $P$ lies inside $\omega$, then $P'$ lies outside, and vice-versa.  There is a famous essay which analogizes how one would hunt a lion in the desert by various mathematical or physical techniques.  Here is the one using inversion:
+
+\begin{quote}
+We place a \emph{spherical} cage in the desert, enter it and lock it. We perform an inversion with respect to the cage. The lion is then inside the cage, and we are outside.  \emph{H. Petard}
+\end{quote}
+
+\subsection*{inversion of a line through $O$}
+
+We now consider the results of inverting either a line or a circle.  There are two cases for each, depending on whether the line or circle goes through, $O$, the center of $\omega$.  They are all related, as we will see.
+
+\textbf{The inverse of a line through $O$ is the same line}.
+
+\begin{center} \includegraphics [scale=0.25] {inversion2.png} \end{center}
+Let $P$ and $Q$ be any two points on a line through $O$.  The inverse points $P'$ and $Q'$ lie on the same line.
+
+\subsection*{inversion of a line not through $O$}
+
+\begin{center} \includegraphics [scale=0.3] {inversion3a.png} \end{center}
+
+\textbf{The inverse of a line not through $O$ is a circle through $O$.}
+
+This is the first result that is a little surprising.
+
+\emph{Proof}.
+
+Let $L$ be a line, not passing through $O$ and external to $\omega$, and let $P$ and $A$ be two points on the line.  Pick $A$ such that $OA'A \perp PA$.
+
+We have that 
+\[ OP \cdot OP' = k^2 = OA \cdot OA' \]
+\[ \frac{OP}{OA} = \frac{OP'}{OA'} \]
+
+It follows that $\triangle PAO \sim \triangle A'P'O$ and in particular, $\angle OP'A'$ is a right angle because $\angle OAP$ is a right angle.
+
+But this is true for \emph{every} point on $L$ other than $A$.
+
+By the inverse of Thales' circle theorem, it follows that $A'$ and $P'$ lie on a circle.  This circle passes through $O$ and in fact, has diameter $OA'$.
+
+$\square$
+
+The diameter of this circle is perpendicular to the line $L$, so $L$ is parallel to the tangent to the circle at $O$ (not shown).
+
+\begin{center} \includegraphics [scale=0.3] {inversion4.png} \end{center}
+
+The same proof still works for the case where $L$ passes through $\omega$, or even when it is tangent (below).  This is because, in both cases, $\triangle OAP \sim \triangle OP'A'$.
+
+\begin{center} \includegraphics [scale=0.3] {inversion4b.png} \end{center}
+
+\subsection*{note on similar triangles}
+
+For any points $A$ and $P$, we can form similar triangles by using the fundamental equations
+\[ OP \cdot OP' = k^2 = OA \cdot OA' \]
+\[ \frac{OP}{OA} = \frac{OP'}{OA'} \]
+
+\begin{center} \includegraphics [scale=0.38] {inversion3b.png} \end{center}
+
+This works even when one of $A$ or $P$ lies inside, and one outside $\omega$.
+
+\subsection*{inversion of a circle through $O$}
+
+Let $K$ be a circle, passing through $O$.  
+
+\begin{center} \includegraphics [scale=0.3] {inversion3a.png} \end{center}
+
+\textbf{The inverse of a circle through $O$ is a line not through $O$.}
+
+This follows directly from the previous theorem, since the inverse of the inverse of any point is the same point.
+
+As we saw from the previous result, it does not matter whether the circle is entirely internal to $\omega$, is internally tangent, or extends outside.
+
+\subsection*{Ptolemy's Theorem}
+
+With only what we have established so far, we can prove an important theorem.
+
+Let $A$, $B$ and $C$ lie on a circle through $O$.  Then, as we showed above, the inverse of this circle is a line not through $O$ and here, entirely external to the inversion circle.
+
+Ptolemy says that 
+\[ AB \cdot OC + BC \cdot OA = AC \cdot OB \]
+
+\emph{Proof}.
+
+\begin{center} \includegraphics [scale=0.35] {inversion9.png} \end{center}
+
+$A'B' + B'C' = A'C'$.  We will leverage this identity to find the result.
+
+We have three pairs of similar triangles.  To help stay organized, we write out the ratio boxes.
+\begin{center} \includegraphics [scale=0.18] {ratios11.png} \end{center}
+
+The symmetry is pretty clear.  We have that
+\[ \frac{A'B'}{AB} = \frac{OA'}{OB} \Rightarrow A'B' =  \frac{AB \cdot OA'}{OB} \]
+
+Also
+\[ \frac{B'C'}{BC} = \frac{OC'}{OB} \Rightarrow B'C' = \frac{BC \cdot OC'}{OB} \]
+
+Then
+\[ \frac{A'C'}{AC} = \frac{OC'}{OA} \Rightarrow A'C' = \frac{AC \cdot OC'}{OA} \]
+
+Form the sum and clear the denominators:
+\[ AB \cdot OA' \cdot OA + BC \cdot OC' \cdot OA = AC \cdot OC' \cdot OB \]
+
+Divide by $OC'$
+\[ AB \cdot \frac{OA'}{OC'} \cdot OA + BC \cdot OA = AC \cdot OB \]
+
+Can you find the appropriate entry for the last step?  I obtain
+\[ AB \cdot OC + BC \cdot OA = AC \cdot OB \]
+
+$\square$
+
+This is Ptolemy's theorem.
+
+We pause to reflect on one of the most useful and important theorems in all of geometry.
+
+We now consider circles not through $O$.  This is the point where the theory gets a little more sophisticated.
+
+\begin{center} \includegraphics [scale=0.55] {inversion15.png} \end{center}
+
+\subsection*{inversion of a circle not through $O$}
+
+\textbf{The inverse of a circle not through $O$ is another circle not through $O$.}
+
+We can again draw different diagrams depending on where the circles lie with respect to $\omega$.  We need to make sure that the proof or proofs work for all of them.
+
+The cases we've already seen include a circle through the inversion center, which inverts into a line extending infinitely out (magenta and purple).
+
+Consider first the case where $K$ is entirely external to $\omega$.
+
+\emph{Proof}.
+
+Let $K$ be a circle, not passing through $O$, and not even intersecting with $\omega$.  Draw the diameter $AB$ of $K$, such that the extension passes through $O$.
+
+\begin{center} \includegraphics [scale=0.35] {inversion5.png} \end{center}
+
+Let $C$ be an otherwise arbitrary point on $K$, not on $AB$.  Find the inverses of $A$, $B$ and $C$.  Draw $\triangle A'B'C'$.
+
+As before
+\[ \frac{OA'}{OC'} = \frac{OA}{OC} \]
+so $\triangle OB'C' \sim \triangle OCB$ and $\triangle OA'C' \sim \triangle OCA$.
+
+From similar triangles, we have that the angles marked $\alpha$ and $\beta$ are equal.
+
+By Thales' circle theorem, $\angle ACB$ is a right angle.  So from $\triangle BOC$:
+\[ \angle BOC + \alpha + \beta + \angle ACB = 180 \]
+
+But from $\triangle B'OC'$ (with $\angle B'OC' = \angle BOC$):
+\[ \angle B'OC'  + \alpha + \beta + \angle AC'B' = 180 \]
+
+It follows that $\angle A'C'B' = \angle ACB$, so $\angle A'C'B'$  is also a right angle, and thus it lies on the circle whose diameter is $A'B'$.  This is true for every point $C$ on circle $K$, other than $A$ and $B$.  
+
+$\square$
+
+Second case: let the circle $K$ intersect $\omega$, with the inversion center $O$ inside $K$.
+
+Draw the diameter $AB$ of circle $K$ which goes through $O$.  Let $C$ be any other point on circle $K$.
+
+\begin{center} \includegraphics [scale=0.36] {inversion6.png} \end{center}
+
+\emph{Proof}.
+
+We have $\triangle OAC \sim \triangle OC'A'$ and $\triangle OBC \sim \triangle OC'B'$.  From similar triangles, the angles marked as $\alpha$ are equal, as are those marked as $\beta$.
+
+$\angle ACB$ is right, but $\alpha + \beta$ is supplementary to $\angle ACB$ to $\alpha + \beta$ so the sum is $90$.
+
+It follows that $\angle A'C'B' = \alpha + \beta$ is also right.  Therefore $C'$ lies on a circle whose diameter is $A'B'$.  
+
+$\square$.
+
+Third case: the circle $K$ intersects $\omega$ but the inversion center $O$ is external to $K$.
+
+\begin{center} \includegraphics [scale=0.36] {inversion7.png} \end{center}
+
+Draw the diameter $AB$ of circle $K$ which, extended, goes through $O$.  Let $C$ be any other point on circle $K$.
+
+\emph{Proof}.
+
+The angles marked $\alpha$ and $\beta$ are equal (in pairs) by similar triangles.
+
+$\angle ACB$ is right.  So $\angle BOC + \alpha + \beta$ is equal to a right angle.
+
+But $\angle BOC + \alpha + \beta + \angle A'B'C'$ is equal to two right angles.
+
+Thus, $\angle A'C'B'$ is also right.
+
+$\square$
+
+The fourth and last case is where the circle $K$ and $\omega$ are concentric.  But then the inverse of $K$ is also a concentric circle.
+
+
+\end{document}

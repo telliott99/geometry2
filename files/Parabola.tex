@@ -1,0 +1,185 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Parabola}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+The parabola is one of a larger class of geometric figures called the conic sections, which include the circle, ellipse, parabola and hyperbola.
+\begin{center} \includegraphics [scale=0.4] {conic_sections2.png} \end{center}
+
+These can be viewed as the intersections of a plane and a (hollow) cone.  The parabola is the particular intersection where the plane is parallel to the edge of the cone.
+
+\subsection*{construction}
+
+There are methods to draw each of these shapes using a string and pencil.  The most familiar is probably the one for the ellipse (\hyperref[sec:Ellipse_geometry]{\textbf{here}}).  I found a demonstration on the web 
+
+\url{https://imaginary.org/film/mathlapse-constructions-by-pin-and-string-conics}
+
+Here are two screenshots for the parabola:
+\begin{center} \includegraphics [scale=0.4] {string_parabola.png} \end{center}
+
+On the left we see the a string suspended between the top of a set square and a point called the focus ($F$).  In the right panel, the pencil holds the string taut against the vertical side of the square, and as the square is moved horizontally to the right, the pencil traces out a parabola.  
+
+This arrangement captures the geometrical constraint for a parabola.  Imagine moving the square to the left.  As the distance to the focus increases, the length of the string from the top of the square decreases by the same amount, so that the distance of the pencil from the initial minimum increases exactly the same amount as the distance to the focus increases.
+
+\subsection*{directrix and focus}
+
+It is pretty complicated to look at parabolas in the way that the Greeks did.  We will do most of our work later on using methods from analytic geometry, which allows us to draw the curve based on the equation $y = ax^2$, where $a$ is a constant.  But for the moment, we are trying to say as much as we can without introducing those ideas.
+
+The geometric definition of a parabola is this.  Draw two lines that are perpendicular (colored black in the figure below).  Let us call these two lines the horizontal and vertical axes, and the point where they cross the origin.
+
+On the vertical axis choose point $F$ a distance $p$ above the origin.  This point is colored magenta in the figure.
+
+Then draw another horizontal line which intersects the vertical axis the same distance $p$ below the origin.  This line is called the directrix (colored blue).
+
+\begin{center} \includegraphics [scale=0.35] {para_geo_2.png} \end{center}
+
+The parabola consists of all those points whose distance to the focus is equal to the vertical distance to the directrix.
+
+We look at a general point $P$.  
+
+Now, $PF = PD$ for all points on the parabola.  To simplify the notation, let the distance from the vertical axis out to $PD$ be called $x$, and the distance up from the horizontal axis to point $P$ be $y$.
+
+Then $PD = y + p$ while $PF$ is the hypotenuse of a right triangle with sides $x$ and $y - p$.  Since the lengths are equal, the squared lengths are also equal.  Thus
+
+\[ (y + p)^2 = x^2 + (y - p)^2 \]
+\[ 2yp = x^2 - 2yp \]
+\[ y = \frac{1}{4p} x^2 \]
+
+The equation corresponding to a parabola is a quadratic, it contains $x^2$.  If we define $a = 1/4p$ then $y = ax^2$.
+
+If $p = 1/4$, then $y = x^2$.  For a larger $p$, the constant factor $1/4p$ gets smaller, meaning that $y$ will be smaller for each corresponding $x$, so the parabolas' arms become more shallow.
+
+\subsection*{slope of the tangent}
+
+Now, we want to introduce the idea of the tangent to the curve and think about its slope.  Look at the figure below, where the tangent has been drawn to the curve at point $P$.  Obviously, the slope changes as $x$ changes, becoming steeper as we move up the curve.
+
+\begin{center} \includegraphics [scale=0.35] {para_geo_3.png} \end{center}
+
+Consider a point $P'$ very close to $P$.  In moving from point $P$ to $P'$, we are "essentially" moving along the tangent line.  By definition, the tangent only touches at a single point, but the tangent at $P$ goes very near to $P'$.
+
+The invariant of the parabola (the thing that does not change) is that the distance to any point from $F$ must be equal to the vertical distance to the same point from the directrix.  
+
+In moving from $P$ to $P'$, it seems clear that to maintain the invariant, we must, as it were, take a step which combines two directions:  it is partly in the same direction as $F$ to $P$, continuing beyond $P$, and also partly beyond $P$ in the same direction as from $D$ to $P$.  If we average these two directions, the equality of distance will be maintained.  This idea is due to Roberval.
+
+Averaging is easy because $FP = DP$.  Let us move a small fraction $k$ of the length $FP$ with $x-$ and $y-$components $\langle kx, k \cdot (y - p) \rangle$, together with a movement of equal distance in the direction of $DF$ of $\langle 0, k \cdot (y + p) \rangle $.  Together, these add up to $\langle kx, 2ky \rangle$.
+
+The slope of the tangent is simply the ratio of these $y-$ and $x-$ components.
+\[ \Delta y/\Delta x = 2y/x = 2x^2/4px = x/2p \]
+For a parabola defined as $y = ax^2$, the slope is $2ax$.  As you will see later on, this result is literally the first result in calculus.
+
+Since the horizontal distance between $I$ and $P$ is $x$, the vertical distance between $I$ and $P$ is $2y$.  Therefore, the intersection of the tangent line with the vertical axis (at $I$) will occur a distance $y$ below the horizontal axis. $IO = y$.
+
+\begin{center} \includegraphics [scale=0.35] {para_geo_4.png} \end{center}
+
+We have sides of equal length $y$ plus vertical angles in a right triangle, so there are two congruent triangles by ASA.  Therefore the tangent cuts the horizontal axis a distance $x/2$ from the origin.
+
+Since $IO = y$, $IF = y + p$, but this is equal to $PD$, and since $IF \parallel PD$, it follows that $IFPD$ is a parallelogram.  And since $FP = PD$, it is a regular parallelogram, with four sides equal.  
+
+In a regular parallelogram, the diagonals cross at right angles.  Thus, $IP$ is the perpendicular bisector of $FD$ and conversely, $FD$ is the perpendicular bisector of $IP$.
+
+For any given value of $x$ (distance of $P$ from the $y-$axis), there is a corresponding point $D$ on the directrix, and the perpendicular bisector of $FD$ contains all points equidistant from both $F$ and $D$.  Therefore, the point $P$ is at the intersection of the perpendicular bisector of $FD$ and the vertical from $D$.  
+
+\subsection*{headlight property}
+
+Since $IP$ is a diagonal of the parallelogram, it bisects the angle $FPD$.  Therefore, the angle that $FP$ makes with the tangent is equal to the angle that the tangent makes with the vertical above point $P$, by vertical angles.  (This can be obtained in other ways, for example from the fact that $\triangle IFP$ is isosceles, or by alternate interior angles).
+
+What this means is that if a light ray enters the parabola and comes down vertically in the plane we've drawn, no matter where $P$ is, it will be reflected to $F$.  This is due to the law which says that the angle of incidence is equal to the angle of reflection.  Hence the name of $F$, it is called the focus.
+
+Here is an illustration from wikipedia:
+
+\begin{center} \includegraphics [scale=0.35] {paraboloid_reflector.png} \end{center}
+
+\subsection*{normal and its projection}
+
+We showed above that $OI = y$ and the vertical distance between $I$ and $P$ is $2y$.
+
+\begin{center} \includegraphics [scale=0.35] {para_geo_5.png} \end{center}
+
+Now draw the line perpendicular to the tangent at $P$, which is called the normal.  What is the vertical distance $d$ above $P$ where the normal intercepts the vertical axis?
+
+The normal, the tangent line and the vertical form a right triangle that is similar to all the other right triangles in the figure (except those involving $FP$).  This includes the small one with sides $x$ and $d$, and the large one with sides $x$ and $2y$.
+
+By similar triangles we have that
+\[ \frac{d}{x} = \frac{x}{2y} \]
+
+\[ d = \frac{x^2}{2y} = \frac{x^2 \cdot 4p}{2 \cdot x^2} \]
+\[ d = 2p \]
+
+So the normal hits the vertical axis a distance of $2p$ above the point, regardless of where the point is.  
+
+\subsection*{slope of the tangent:  alternative derivation}
+
+\label{sec:slope_of_tangent}
+
+By the definition of the parabola, any point $P$ on the parabola lies on a vertical up from the directrix at $D$ such that $PF = PD$.  That equality means that the same point $P$ must lie on the vertical bisector of $FD$, by the properties of isosceles triangles.
+
+For any given value of $D$, there can be only one such point $P$, because there is only one point where two lines cross, provided they do cross and are not the same line.  But this follows from the placement of $F$, for all points except the vertex.
+
+We will prove that the perpendicular bisector of $FD$ is also the tangent at $P$.
+
+\emph{Proof}.
+
+Suppose the perpendicular bisector of $FD$ were not the tangent.  Then, perhaps it would not cut the parabola at all.  But this would mean that no point on the parabola would satisfy the invariant.  And we know that $PI$ is not parallel to $PD$, so they must cross.
+
+\begin{center} \includegraphics [scale=0.35] {para_geo_3.png} \end{center}
+
+So, if it is not the tangent, then the perpendicular bisector of $FD$ must be a secant and cut through two points on the parabola.  Let them be $P$ and $P'$.  In that case, $P'$ has two contradictory properties.
+
+On one hand, $P'$ is on the bisector of $FD$.  It is therefore equidistant from $F$ and $D$.
+
+This means that 
+\[ FP' = P'D \]
+
+On the other hand, $P'$ is on the parabola.  The invariant says that 
+\[ FP' = P'D' \]
+with P'D' perpendicular to the directrix.  But $PD$ is also perpendicular.
+
+As a result
+\[ P'D = P'D' \] 
+
+But this would mean that $P'D$ is the hypotenuse in a right triangle with base $P'D'$, so $P'D$ must be larger.
+ 
+This is a contradiction.
+
+Therefore the perpendicular bisector \emph{is} the tangent.
+
+$\square$
+
+Since the tangent lies at a right angle to $FD$, the product of the tangent's slope and the slope of $FD$ is equal to $-1$ (see \hyperref[sec:geometric_mean_pyth]{\textbf{here}}).  
+
+But the slope of $FD$ is just $- 2p/x$.  Therefore the slope of the tangent is
+
+\[ m = \frac{x}{2p} \]
+where the equation of the parabola is 
+\[ y = \frac{1}{4p} x^2 \]
+
+There are various other results, for example the relationship between pairs of tangents, and Archimedes' \emph{quadrature} of the parabola, by which he found the exact area bounded by the curve of the parabola and any secant.  But we will wait for those until we get a real coordinate system established.
+
+\subsection*{conic view}
+
+Here is a picture from wikipedia which shows some of the details for a parabola as the cross section of a cone.
+
+\begin{center} \includegraphics [scale=0.35] {Parabolic_conic.png} \end{center}
+
+It is possible to show that the distance labeled $y$ in the diagram is equal to some constant $a$ times $x^2$.  This is true for every parabola.
+
+
+\end{document}

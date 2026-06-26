@@ -1,0 +1,43 @@
+Preface
+Introduction
+
+Revisiting Proofs
+Proof by contradiction
+Induction
+
+Inversive Geometry
+Inversion
+Feuerbach inversively
+Feuerbach algebraically
+
+Assorted topics
+Stewart and Apollonius
+Steiner Lehmus revisited
+Euler Theorem
+Circular arch
+Pizza theorem
+Pappus collinear
+
+Curves
+Parabola
+Ellipse
+Cycloid intro
+
+Pi
+Area of a circle
+Pi is a constant
+Estimating Pi
+
+Celestial applications
+Equal area, equal time
+Aristarchus
+Circular orbits
+
+Archimedes
+Pyramid and cone
+Archimedes and the sphere
+Platonic solids
+
+Addendum
+Pythagorean triples
+References

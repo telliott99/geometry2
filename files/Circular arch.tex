@@ -1,0 +1,127 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Circular segment}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+I found a hard geometry problem on the web:
+\begin{center} \includegraphics [scale=0.5] {circ_seg_prob.png} \end{center}
+We know it's hard because it says so!
+
+I liked it particularly because there are several different ways to calculate the answer using basic geometry and trigonometry, plus standard integration as well as polar integration.  I got the same answer each time, fortunately.
+
+In this book we just look at the geometry.
+
+As a first step, observe that the problem has been made artificially complicated by using these particular values for the side lengths.  If both dimensions are scaled down by a factor of 5, then we obtain a rectangle with side lengths $4$ and $2$, and the two circles become unit circles.  
+
+We must just remember to re-scale to obtain the final answer, multiplying the final area by $25$.
+
+The area of any arched corner segment is pretty easy, since $4$ of them put together are equal to the difference between the area of a square with side length $2$ and a unit circle:  $4 - \pi$, so each one is $1 - \pi/4$.
+
+The real difficulty is the upper right-hand corner.  We ignore the above and just concentrate on this part of the problem.
+
+\begin{center} \includegraphics [scale=0.25] {circ_seg_prob2.png} \end{center}
+
+One of the arches is divided into two pieces, and we are supposed to only count the red part of the arch.
+
+The basic right triangle that we see repeated in these images has side lengths in the ratio $1:2$.  Its area is just $1$, and the smaller angle is 
+\[ \phi = \tan^{-1} 0.5 \approx 0.4636 \text{ rad } \approx  26.565 \text{ deg } \]
+
+\begin{center} \includegraphics [scale=0.4] {circ_seg3.png} \end{center}
+That's not a nice round number, but OK.
+ 
+My first thought was to calculate the area cut off by the chord of a circle, called a "circular segment".  Then we could calculate the white part of the divided arch:
+\[ \text{ triangle } - \text{ segment }  - \text{ arch } \]
+\[ 1 - \text{ segment }  - (1 - \pi/4) \]
+
+and subtract that from one whole arch to get the red part.
+\[ (1 - \pi/4) - \ [ \ 1 - \text{ segment }  - (1 - \pi/4) \ ] \]
+\[ 1 -  \frac{\pi}{2}  + \text{ segment } \]
+
+We will use this result at the end for our final answer.  
+
+There is an easier way, which we find by exploring this direction just a little further.
+
+A circular segment is like a polar cap, but in two dimensions.
+\begin{center} \includegraphics [scale=0.6] {circ_seg.png} \end{center}
+
+\url{http://mathworld.wolfram.com/CircularSegment.html}
+
+We carefully distinguish between the circular segment, in yellow, and the circular sector, which is the area of that slice of the circular pie swept out by the angle $\theta$.  
+
+The area of the circular sector with central angle $\theta$ is the fraction of the total circular angle, times the area of a unit circle.  The result is just half the angle.
+\[ \frac{\theta}{2 \pi} \cdot \pi = \frac{\theta}{2} \]
+
+For the actual calculation of a circular segment, we would need not only the angle $\theta$, but also $r$ and $a$, which we would need to derive from $\theta$ by applying the Pythagorean theorem and/or trigonometry.  It can be done!  However, we see a better way.  
+
+\subsection*{isosceles triangles}
+
+The key idea is to draw another radius on our diagram, and realize that $\theta$ is the apex angle of an isosceles triangle.  The two sides are both radii of our circle, and so are equal to each other!  Therefore $\theta = \pi - 2 \phi$.
+
+\begin{center} \includegraphics [scale=0.4] {circ_seg5.png} \end{center}
+
+We recall that this is a basic theorem from the geometry of circles:  the central angle subtending a given arc is twice the measure of the angle on the periphery.
+
+Now we're ready.
+
+The area of the circular segment with a central angle $\theta$ is
+\[ A = \frac{\theta}{2 \pi} \cdot \pi R^2 \]
+
+This is a unit circle so $R = 1$ and then
+\[ A = \frac{\theta}{2} \]
+Since the angle we're talking about is actually $2 \phi$ we obtain finally
+\[ A = \phi \]
+That's for the area of the circular segment.
+
+For the triangles, we see that $r$ is the bisector of an isosceles triangle.  Therefore
+\[ \frac{r}{R} = r = \sin \phi \]
+and 
+\[ \frac{a}{R} = a = \cos \phi \]
+So the area of the two triangles is
+\[ \sin \phi \cos \phi \]
+
+and the area of the red part of the arch is then the area of the large right triangle ($1/2 \cdot 1 \cdot 2 = 1$) minus the two areas we just calculated:
+\[ 1 - \phi - \sin \phi \cos \phi \]
+
+One could change the angle $\phi$ and this result would still be valid, except that the area of the large triangle would change.
+
+The base would still be $2$, and the height would be $2 \tan \phi$, so the area would be $2 \tan \phi$ rather than $1$.
+
+\subsection*{using the tangent}
+
+This particular angle has tangent $1/2$, which gives an additional simplification:
+\[ \frac{1}{2} = \frac{\sin \phi}{\cos \phi} \]
+\[ 2 \sin \phi = \cos \phi \]
+\[ 2 \sin^2 \phi = \sin \phi \cos \phi \]
+
+We can do even better than that.
+\[ 2 \sin \phi = \cos \phi \]
+\[ 4 \sin^2 \phi = \cos^2 \phi \]
+so
+\[ \sin^2 \phi + \cos^2 \phi = 1 \]
+\[ 5 \sin^2 \phi = 1 \]
+\[ 2 \sin^2 \phi = \frac{2}{5} \]
+
+Our final answer for this part is
+\[ 1 - \phi - \frac{2}{5} \]
+
+To get the answer required by the original problem statement, we must add the area of three arches, $3 \cdot (1 - \pi/4)$, and remember to scale the answer back up by a factor of $25$.
+
+\end{document}

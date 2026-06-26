@@ -1,0 +1,120 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Feuerbach algebraic proof}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{general proof of Feuerbach for the incircle}
+
+A web search will turn up several proofs of Feuerbach's theorem, that the nine point circle is tangent to the incircle and also to the excircles of a triangle.
+
+There is a compact proof by K.J. Sanjana on the web (1924), advertised as an elementary proof.  Unfortunately, the URL is too long to fit here.  The proof is for the incircle, but is said to apply easily to the excircles.
+
+\emph{Proof}.
+
+We have $\triangle ABC$, plus its circumcircle, and a diameter perpendicular to side $BC$ and through circumcenter $O$.  
+
+\begin{center} \includegraphics [scale=0.3] {ninepoint11a.png} \end{center}
+
+The altitude is drawn from $A$ to $BC$ with orthocenter at $H$, crossing $BC$ at $X$ and cutting the circumcircle at $K$.
+
+$AE$ bisects $\angle A$.  It hits the circumcircle at the midpoint of arc $BEC$ and passes through $I$, the incenter.  It also bisects the angle between the altitude $AHK$ and the radius of the circumcircle $OA$ (not drawn).
+
+($AE$ also bisects $\angle OAH$, but that's for another day).
+
+Perpendiculars are drawn through $A$, $O$ and $I$.  (Note $CHO$ are only collinear if the triangle is isosceles).  The incenter $I$ lies near, but not necessarily on, the Euler line, $OH$.  $OH$ is bisected at $N$, the center of the nine point circle.  The centroid is not shown.
+
+We proceed as follows:
+
+\textbf{I}
+
+\begin{center} \includegraphics [scale=0.35] {ninepoint11.png} \end{center}
+
+\[ AH = 2 OA_1 \ \ \ \ \ \ \ \   HK = 2 HX  \ \ \ \ \ \ \ \   AI \cdot IE = 2Rr \]
+
+These three statements are presented as if self-evident.  The first one was puzzling, but I finally remembered that in the nine point circle, there are three diameters.  Each has as one endpoint the midpoint of a side (such as $A_1$) and the bisector of that part of the altitude from the vertex to the orthocenter, $AH$.  I have marked that point as $Z$.  
+
+So the diagonal in question is $A_1IZ$.  Then $\triangle ONA_1$ (not drawn) is not only similar but $ \cong \triangle NHZ$, with $NZ = NA_1$, $HZ = OA_1$ and these two lengths are equal to one-half of $AH$.
+
+The second is a more well-known result.  The extension of an altitude gives two equal parts $HX = XK$.  \emph{Proof}.  The extension of $CH$ is the altitude to side $AB$, so $\angle XCH$ is complementary to $\angle B$.  But $\angle XKC$ cuts the same arc as $\angle B$, so it is equal, and then $\angle XCK$ is complementary to $\angle XKC$.  It follows that $\triangle XCH \cong \triangle XCK$ with $HX = KX$.  $\square$
+
+The third is the famous result from Euler's triangle theorem, with $R$ the radius of the circumcircle, and $r$ the radius of the incircle.
+
+\textbf{II}
+
+\begin{center} \includegraphics [scale=0.3] {ninepoint11.png} \end{center}
+
+\[ \triangle PIE \sim \triangle FGA  \ \ \ \ \ \ \ \ \triangle IQA \sim \triangle AFE \]
+
+For the first, we have two right triangles.  In one $\angle E$ cuts arc $AF$.  In the other $\angle F$ cuts arc $AE$, which is complementary.  
+
+For the second, we also have two right triangles.  $\angle IAQ$ cuts arc $EK$ and $\angle AFE$ cuts arc $AE$, leaving arc $AF$, but that arc is equal to arc $EK$, since $AK \parallel EF$.
+
+Using the similar ratios:
+\[ \frac{PI}{IE} = \frac{FG}{AF} \ \ \ \ \ \ \ \  \frac{IQ}{AI} = \frac{AF}{FE} \]
+
+Multiplying
+\[ \frac{PI \cdot IQ}{AI \cdot IE} = \frac{FG}{FE} \]
+\[ \frac{PI \cdot IQ}{2Rr} = \frac{FG}{2R} \]
+\[ PI \cdot IQ = r \cdot FG \]
+
+\textbf{III}
+
+Now we compute the projection of $IN$ on $FE$.
+
+\begin{center} \includegraphics [scale=0.3] {ninepoint11.png} \end{center}
+
+\[ = ID - NM = r - \frac{OA_1 + HX}{2} \]
+Since $OA_1 = HZ = AH/2$ and $HX = HK/2$:
+\[ = r - \frac{AH + HK}{4} = r - \frac{AY}{2} \]
+
+and (since $GO = AY$) the square is:
+\[ r^2 - r \cdot GO + \frac{AY^2}{4} \]
+
+The other projection we want is $IN$ on $BC$, or rather, its square.
+\[  DM^2 = A_1M^2 -A_1D \cdot DX \]
+
+The previous step requires some explanation.  $M$ is the midpoint of $A_1X$.  Let $A_1M = MX = y$.  Also let $DM = x$.  Then we have $DM^2 = x^2 = y^2 - (y-x)(y+x)$.
+
+\[ DM^2 = \frac{A_1 X^2}{4} - PI \cdot IQ \]
+\[ = \frac{OY^2}{4} - r \cdot FG \]
+
+\textbf{IV}
+
+\begin{center} \includegraphics [scale=0.3] {ninepoint11.png} \end{center}
+
+Add to obtain
+\[ IN^2 = \frac{AY^2 + OY^2}{4} - r \cdot (FG + GO) + r^2 \]
+\[ = \frac{R^2}{4} - rR + r^2 \]
+
+Taking the square root, we have:
+\[ IN = \frac{1}{2} R - r \]
+
+Recall that two circles are internally tangent if the difference in their radii is equal to the distance between the centers.
+
+$R$ is the radius of the circumcircle.  The radius of the nine point circle is one-half that (we leave this proof as an exercise).
+
+The nine point circle is larger than that of the incircle.
+
+$IN$ is equal to the difference $R/2 - r$.  This happens $\iff$ the two circles are tangent.
+
+$\square$
+
+\end{document}

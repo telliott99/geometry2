@@ -1,0 +1,157 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Ellipse}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\label{sec:Ellipse_geometry}
+
+In the chapter on orbits, we assumed that the planetary orbits are circular.  They are actually ellipses.
+
+We will defer most discussion of the ellipse until we can use equations found using analytical geometry.  However there are a few things we can say now.
+
+\section*{construction}
+
+\begin{center} \includegraphics [scale=0.4] {ellipse_acheson.png} \end{center}
+Learning how to draw an ellipse using two pins and a circular piece of string holding a pencil is an early adventure in mathematics.  The ellipse is the set of all points whose combined distance to the two pins (foci) is the same.
+
+The drawing above in Acheson is reproduced from a 17th century book.
+
+\begin{center} \includegraphics [scale=0.45] {ellipse_wikipedia.png} \end{center}
+
+The pin positions with respect to the origin or center are called the foci, lying at the points shown in the second figure as ($\pm f,0$).
+
+We will use the notation $c$:  the focus in the first quadrant is at the point $(c,0)$.
+
+The lengths of the axes (called semi-major and semi-minor) are usually labeled $a$ and $b$.  
+
+Consider the situation when the pencil is at the point $P = (0,a)$.  The distance to the left focus is $c+a$, so the length $L$ of the string is twice that
+\[ L = 2(c+a) \]
+The combined distance from each point on the ellipse to the two foci is the length of the string minus the distance between the two foci
+\[ L - 2c = 2(c+a) - 2c = 2a \]
+
+\subsection*{Starbird}
+Here is a neat approach to the ellipse that I saw in one of Michael Starbird's lectures.
+
+Imagine a glass cylinder, shown here in cross-section and colored black.  The cylinder has been sliced through at an angle by a plane, and we suppose a flat piece of glass in the shape of an ellipse is glued between the two halves.  
+
+The elongated region in red (formed at the plane of the cut) is the ellipse, and the cylinder is oriented so that at each horizontal position going across the page, the two points on the ellipse are at the same vertical position.  We see the plane of the cut edge-on.
+
+\begin{center} \includegraphics [scale=0.35] {cylinder_slant1.png} \end{center}
+
+Two spheres that fit snugly inside the cylinder lie above and below the ellipse, just touching it.  The planar surface of the ellipse is tangent to the spheres, touching each one at a single point.
+
+We claim that the points where the spheres touch the ellipse are the foci of the ellipse.
+
+By the nature of the construction, the two spheres just fit inside the cylinder.  That means the intersection where the spheres touch the cylinder is a circle, the lower one is shown with a dotted blue line in the next figure.
+
+\begin{center} \includegraphics [scale=0.35] {cylinder_slant2.png} \end{center}
+
+Now consider any point on the ellipse.  On the left, we see one point on the ellipse together with two interior points we claim are foci, with a line drawn from our point to one of the foci. 
+
+We said that this point is the point where the ellipse touches the lower sphere.  We conclude that the line we've drawn from the edge of the ellipse to the focus is a tangent to the sphere. 
+
+A second tangent of interest is the perpendicular dropped vertically down the surface of the cylinder, shown in the right panel. Since they are both tangents, this line is the same length as the line to the focus.
+
+But the construction, and this equality, holds for any point on the ellipse, as shown in the next figure.
+
+\begin{center} \includegraphics [scale=0.35] {cylinder_slant3.png} \end{center}
+
+Finally, this is true for both spheres (below). The sum of the perpendicular tangents for any point is a constant. 
+
+\begin{center} \includegraphics [scale=0.35] {cylinder_slant4.png} \end{center}
+
+Thus, the points where the spheres touch the ellipse are its foci, because the sum of the distances to any point on the ellipse, which is equal to the sum of the vertical tangents, is a constant.
+
+\begin{center} \includegraphics [scale=0.75] {ellipse_cone.png} \end{center}
+
+According to Lockhart, the same argument can be used to prove that the cross sections of a cone are ellipses (which seems strange at first since we've been demonstrating that the cross-sections of cylinders are also ellipses).
+
+\subsection*{reflected rays}
+
+In any ellipse, the segments from the foci to any point on the ellipse make equal angles with the tangent.  This means that light rays emitted from one focus and striking anywhere on the ellipse will pass through the other focus upon reflection.  It is the principle behind "whispering galleries."  
+
+Here is a simple geometric proof.
+
+We consider the problem of the "shortest path."
+\begin{center} \includegraphics [scale=0.5] {ellipse_reflection2.png} \end{center}
+
+The problem is to go from $A$ to the line and then back to $B$ by the shortest path.  The clever solution is to place $B'$ on the other side of the line at the same distance away.  By definition (see Euclid) the shortest path $A$ to $B'$ is a straight line.
+
+We can use vertical angles (or supplementary angles twice) and then similar triangles to prove that the two angles colored red are equal.
+
+Now consider an enhanced diagram of the same situation:
+
+\begin{center} \includegraphics [scale=0.5] {ellipse_reflection3.png} \end{center}
+
+We draw the tangent to the ellipse.  By definition, the tangent has only a single point on the curve.  This point lies at a distance $2a$ from the combined foci.  All other points on the line are farther away from the two foci than the point of intersection.  (You would have to make the string bigger to draw the ellipse that goes through any of those points).
+
+Therefore, the path shown is the shortest path from $F'$ to the tangent and then to $F$.  But we know that for the shortest path the angles colored red are equal.
+
+\url{http://math.stackexchange.com/questions/1063977/how-to-geometrically-prove-the-focal-property-of-ellipse}
+
+\subsection*{alternate proof reflected rays}
+
+\label{sec:ellipse_proof_contradiction}
+
+Here is a slightly more elaborate argument from the same StackExchange question.  It is a proof by contradiction.
+
+Consider the curve of ellipse $E$.
+
+To simplify the notation we will label the foci $F$ ($F_1$ in the original drawing) and $G$ ($F_2$).  Consider an arbitrary point $P$ on $E$.
+
+We will prove that $FP$ and $PG$ make equal angles with the tangent to $E$ at $P$.
+
+\begin{center} \includegraphics [scale=0.35] {ellipse_reflection4.png} \end{center}
+
+Extend $FP$ to $G'$ (chosen so that $PG = PG')$.
+
+Draw the perpendicular bisector $L$ of $GG'$.  Since $\triangle PGG'$ is isosceles, $\theta_1 = \theta_2$, the perpendicular bisector of the base also bisects the angle at $P$.  By vertical angles, $\theta_3 = \theta_1$ so $\theta_3 = \theta_2$.
+
+We claim that $L$ is the tangent line to $E$ at $P$.
+
+\emph{Proof}.
+
+Suppose $L$ is not the tangent.
+
+Then, $L$ also meets $E$ at another point $Q$.  
+
+As a point on $L$, $Q$ is also equidistant from $G$ and $G'$ with $QG = QG'$.
+
+By the definition of the ellipse $FQ + QG = FP + PG$.
+
+So then
+
+\[ FQ + QG' = FQ + QG = FP + PG = FP + PG' = FG' \]
+
+Consider just the first and last terms:
+
+\[ FQ + QG' = FG' \]
+
+This violates the \hyperref[sec:triangle_inequality]{\textbf{triangle inequality}} for $\triangle FQG'$ and is a contradiction.
+
+\begin{center} \includegraphics [scale=0.35] {ellipse_reflection4.png} \end{center}
+
+Therefore L is the tangent line to $E$ at $P$ and $\theta_3 = \theta_2$.
+
+$\square$
+
+
+\end{document}

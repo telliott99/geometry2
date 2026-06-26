@@ -1,0 +1,86 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Circular orbits}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{Al-Biruni}
+
+I found another method for measuring the size of the earth in Acheson's geometry book.
+
+\begin{center} \includegraphics [scale=0.5] {al_biruni.png} \end{center} 
+
+In the figure, the circle is the earth, of radius $R$, $h$ is the height of a convenient mountain, and $D$ is the distance to the horizon, which is tangent to the earth's radius.
+
+Recall from the tangent-secant theorem 
+\[ D^2 = h(2R + h) \]
+
+We neglect $h^2$ compared to the other term so
+\[ D^2 \approx 2Rh \]
+
+About 1019 C.E., Al-Biruni obtained a value for $R$ equivalent to 3939 miles.
+
+Note:  I have to look into why Acheson says this.  The standard treatment of the Al-Biruni's method uses the distance to the horizon plus the angle between a ray to the horizon and the horizontal or vertical axis at the point on the mountain.
+
+\subsection*{Aristarchus}
+
+Aristarchus of Samos (310-230 BCE) wrote a famous book in which he calculated the relative sizes of the sun and the moon and their distances from earth.
+
+One straightforward observation is that the apparent size of the sun and moon in the sky is about the same.  This can be seen during a solar eclipse, or observed at any other time by holding a disk up at a fixed distance from the eye, (while taking care to block most of the sun's rays).  The value is approximately one-half degree.
+
+Since the distance to the sun is much greater than that to the moon (see below), we can infer that the sun is much larger than the moon.
+
+The central idea of Aristarchus is that, at half moon, the geometry of the three orbs is like this:
+
+\begin{center} \includegraphics [scale=0.4] {half_moon.png} \end{center}
+
+In other words, when the phase is half moon and that moon is exactly overhead, the sun has not yet set, but is a bit above the horizon. 
+
+If $S$ is the distance to the sun and $L$ is that to the moon, he estimated that
+
+\[ 18 < \frac{S}{L} < 20 \]
+
+with the same ratio for their sizes.  Unfortunately, this is not a particularly good estimate.  The true value is about 390.  Aristarchus obtained a value of 20 for the Earth-Moon distance in Earth radii.  The correct value is about 60.  Much better estimates were obtained later, by Hipparchus and Ptolemy.
+
+However, Aristarchus made up for this by being the first person to propose a heliocentric theory of the solar system:  that the earth and planets rotate around the sun.
+
+\url{https://en.wikipedia.org/wiki/On_the_Sizes_and_Distances_(Aristarchus)}
+
+\subsection*{quick estimate}
+
+Here is an estimate for the earth-moon distance based on a lunar eclipse.
+
+One measures the time it takes for a complete, total eclipse.  From the first shadow of the earth on the moon to the last, that time is about 3 hr.  The moon has moved approximately 1 earth diameter in its orbit in that time.
+
+However, we must correct for the fact that the first and last shadows occur on opposite edges of the moon.  It was noted that the shape of the eclipse suggests the earth's diameter (at that distance) is about 2.5 moon diameters.  So the moon has actually moved (2.5 + 1.0)/2.5 = 1.4 earth diameters in the given time.  The relevant time becomes 2.14 hr.
+
+Any correction for the true size of the earth's diameter is minimal because the earth-moon system is so far from the source of illumination.
+
+The other piece of information we need is the time for a full revolution, one lunar cycle.  This part is tricky.  Naively, you'd look for the moon to be in the same place against the fixed stars (27 days, c. 8 hr).  This is off because the earth has moved in the meantime --- there is a parallax error.  As a rough correction, mutliply by 360/330 degrees.  The result in hours is 715.
+
+The circumference of the orbit is then
+
+\[ 715 / 2.143 = 333 \]
+earth diameters.
+
+This gives a radius of 53 earth diameters, which is not too far from 60.
+
+
+\end{document}
