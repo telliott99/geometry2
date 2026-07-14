@@ -9,7 +9,7 @@
 \usepackage{color}
 \usepackage{hyperref}
 
-\graphicspath{{/Users/telliott/Github-math/figures/}}
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
 % \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
 
 \title{Introduction}
@@ -67,7 +67,7 @@ We also know that the tangents of these angles are $r/x$, $r/y$ and $r/z$, respe
 You can see that $u$, $v$ and $w$ are labels for each hypotenuse.
 \begin{center} \includegraphics [scale=0.4] {Euler_thm_8b.png} \end{center}
 
-As always, the trick here is to choose the right scale factors.  The identity that we're looking for comes from a comparison of the bottom of the rectangle to the top.
+As always, the trick here is to choose the right scale factors.  The identity that we're looking for comes from equality of the top and bottom sides of the rectangle.
 
 The bottom of the rectangle consists of side $x$ of $\triangle_{\alpha 1}$.  We want that to be $xyz$ (compare with the formula at the beginning of this section), hence the appropriate factor is $yz$.
 
@@ -130,6 +130,10 @@ So far we have three preliminary results or lemmas
 \[ xyz = r^2(x + y + z) \]
 Combine the first and third
 \[ xyz = Kr \]
+
+Since $K = rs$ if we multiply both sides by $s$ we get
+\[ sxyz = rs \cdot r \cdot s = \mathcal{A}^2  \]
+Plugging in for $x = s - a$ and so on gives Heron's formula.
 
 The challenge now is to connect the side lengths $abc$ with the components $xyz$.  
 

@@ -13,7 +13,7 @@ Feuerbach algebraically
 Assorted topics
 Stewart and Apollonius
 Steiner Lehmus revisited
-Euler Theorem
+#Euler Theorem
 Circular arch
 Pizza theorem
 Pappus collinear
@@ -21,7 +21,7 @@ Pappus collinear
 Curves
 Parabola
 Ellipse
-Cycloid intro
+Cycloid
 
 Pi
 Area of a circle
